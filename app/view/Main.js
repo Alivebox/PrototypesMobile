@@ -2,12 +2,14 @@ Ext.define('PrototypesMobile.view.Main', {
     extend: 'Ext.Container',
     xtype: 'main',
     id: 'main',
-    requires: [    'Ext.form.Panel',
+    requires: [
+        'Ext.data.Store',
+        'Ext.dataview.List',
+        'Ext.form.Panel',
         'Ext.form.FieldSet',
         'Ext.field.Password',
         'Ext.field.Toggle',
         'Ext.List',
-        'Ext.data.Store',
         'Ext.Label',
         'Ext.Img'
     ],
@@ -15,7 +17,7 @@ Ext.define('PrototypesMobile.view.Main', {
         layout: 'card',
         fullscreen:true,
         items: [
-            {
+            /*{
                 xtype: 'login'
             },
             {
@@ -32,6 +34,9 @@ Ext.define('PrototypesMobile.view.Main', {
             },
             {
                 xtype: 'company'
+            }*/
+            {
+                xtype: 'listrequest'
             }
         ]
     }

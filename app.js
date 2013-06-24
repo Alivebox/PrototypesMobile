@@ -26,15 +26,22 @@ Ext.application({
         'Ext.MessageBox'
     ],
 
+    extend: 'PrototypesMobile.Application',
+
     views: [
+        'Company',
+        'Help',
         'Login',
         'Main',
-        'Help',
         'Menu',
         'order.MyOrders',
         'order.ItemOrder',
-        'Company'
+        'webrequestform.ListRequest'
     ],
+
+    stores: ['Requests'],
+
+    models: ['Request'],
 
     controllers: [
         'MainController',

@@ -82,10 +82,6 @@
         {
             "path": "resources/sass/src/view/Help.css",
             "update": "delta"
-        },
-        {
-            "path": "resources/sass/src/view/Company.css",
-            "update": "delta"
         }
     ],
 
