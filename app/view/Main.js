@@ -37,6 +37,13 @@ Ext.define('PrototypesMobile.view.Main', {
             }*/
             {
                 xtype: 'listrequest'
+            },
+            {
+                xtype: 'label',
+                html: 'Configuration will be here'
+            },
+            {
+                xtype: 'newrequestform'
             }
         ]
     }

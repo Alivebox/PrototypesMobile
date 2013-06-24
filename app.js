@@ -36,7 +36,8 @@ Ext.application({
         'Menu',
         'order.MyOrders',
         'order.ItemOrder',
-        'webrequestform.ListRequest'
+        'webrequestform.ListRequest',
+        'webrequestform.NewRequestForm'
     ],
 
     stores: ['Requests'],
@@ -46,7 +47,8 @@ Ext.application({
     controllers: [
         'MainController',
         'MenuController',
-        'order.OrderController'
+        'order.OrderController',
+        'webrequestform.RequestController'
     ],
 
     icon: {

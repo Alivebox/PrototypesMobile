@@ -26,6 +26,7 @@ Ext.define('PrototypesMobile.view.webrequestform.ListRequest', {
             },
             {
                 xtype: 'button',
+                itemId: 'btnNewRequest',
                 margin: '10 10 10 10',
                 docked: 'top',
                 text: 'New Request'
