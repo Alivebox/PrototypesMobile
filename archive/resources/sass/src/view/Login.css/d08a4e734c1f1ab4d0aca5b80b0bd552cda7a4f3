@@ -1,0 +1,51 @@
+/*d08a4e734c1f1ab4d0aca5b80b0bd552cda7a4f3*/.login-show-mgr-logo {
+  max-width: 100%;
+  max-height: 100%;
+  width: 100%;
+  height: 15%;
+  margin-top: -10px;
+  margin-bottom: 10px;
+  margin-right: 0px;
+  margin-left: 0px; }
+
+.login-button {
+  background: #BF1B19;
+  color: white;
+  height: 48px;
+  margin-left: 9px;
+  margin-right: 9px; }
+
+.login-container {
+  background: #383838;
+  min-width: 100px; }
+
+.login-company-button {
+  color: #2B36FC;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: none;
+  background: none; }
+
+.login-company-label {
+  color: #068aad; }
+
+#login .login-remember-me-toggle {
+  color: #2B36FC;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: none;
+  background: none; }
+
+#login .x-toggle-on {
+  background-color: #07B6E5;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #07b6e5), color-stop(100%, #07b6e5), color-stop(100%, #07b6e5), color-stop(100%, #07b6e5));
+  background-image: -webkit-linear-gradient(#07b6e5, #07b6e5 100%, #07b6e5 100%, #07b6e5);
+  background-image: linear-gradient(#07b6e5, #07b6e5 100%, #07b6e5 100%, #07b6e5); }
+
+#login .x-toggle-inner {
+  float: right; }
+
+#login .x-size-monitored {
+  float: right; }
