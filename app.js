@@ -37,6 +37,7 @@ Ext.application({
         'Menu',
         'order.MyOrders',
         'order.ItemOrder',
+        'order.OrderDetail',
         'webrequestform.ListRequest',
         'webrequestform.NewRequestForm',
         'webrequestform.CheckList',

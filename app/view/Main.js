@@ -35,7 +35,10 @@ Ext.define('PrototypesMobile.view.Main', {
             },
             {
                 xtype: 'company'
-            }*/
+            },*/
+            {
+                xtype: 'orderdetail'
+            },
             {
                 xtype: 'listrequest'
             },
