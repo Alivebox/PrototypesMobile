@@ -23,7 +23,8 @@ Ext.application({
     name: 'PrototypesMobile',
 
     requires: [
-        'Ext.MessageBox'
+        'Ext.MessageBox',
+        'PrototypesMobile.ux.UxDependencies'
     ],
 
     extend: 'PrototypesMobile.Application',

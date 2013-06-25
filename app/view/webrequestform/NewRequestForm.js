@@ -26,6 +26,7 @@ Ext.define('PrototypesMobile.view.webrequestform.NewRequestForm', {
             },
                 {
                     xtype: 'container',
+                    padding: '10 10 10 10',
                     items: [
                         {
                             xtype: 'selectfield',
@@ -40,14 +41,69 @@ Ext.define('PrototypesMobile.view.webrequestform.NewRequestForm', {
                                     { id: '3', name: 'Special days'}
                                 ]
                             }
+                        },
+                        {
+                            xtype: 'textfield',
+                            name: 'txtTitle',
+                            label: 'Title',
+                            value: 'Project Title'
+                        },
+                        {
+                            xtype: 'selectfield',
+                            name: 'sfType',
+                            label: 'Type',
+                            valueField: 'name',
+                            displayField: 'name',
+                            store: {
+                                data: [
+                                    { id: '1', name: 'Pre Tape'},
+                                    { id: '2', name: 'Tape'},
+                                    { id: '3', name: 'Post Tape'}
+                                ]
+                            }
+                        },
+                        {
+                            xtype: 'datepickerfield',
+                            name: 'date',
+                            label: 'Start Date',
+                            value: new Date(),
+                            picker: {
+                                yearFrom: 2010
+                            }
+                        },
+                        {
+                            xtype: 'timepickerfield',
+                            label: 'Start Time',
+                            value: new Date(),
+                            name: 'time'
+                        },
+                        {
+                            xtype: 'timepickerfield',
+                            label: 'Duration',
+                            value: new Date(0, 0, 0, 0, 0, 0, 0),
+                            name: 'time'
+                        },
+                        {
+                            xtype: 'datepickerfield',
+                            name: 'date',
+                            label: 'End Date',
+                            value: new Date(),
+                            picker: {
+                                yearFrom: 2010
+                            }
+                        },
+                        {
+                            xtype: 'timepickerfield',
+                            label: 'End Time',
+                            value: new Date(),
+                            name: 'time'
+                        },
+                        {
+                            xtype: 'button',
+                            margin: '10 10 10 10',
+                            text: 'Submit'
                         }
                     ]
-                },
-                {
-                    xtype: 'textfield',
-                    name: 'txtTitle',
-                    label: 'Title',
-                    text: 'Project Title'
                 }
         ]
     }
