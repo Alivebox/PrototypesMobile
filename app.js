@@ -38,7 +38,12 @@ Ext.application({
         'order.MyOrders',
         'order.ItemOrder',
         'webrequestform.ListRequest',
-        'webrequestform.NewRequestForm'
+        'webrequestform.NewRequestForm',
+        'webrequestform.CheckList',
+        'webrequestform.picker.RequestTypePicker',
+        'webrequestform.RequestType',
+        'webrequestform.RequestTypeDetail',
+        'webrequestform.WebFormSetting'
     ],
 
     stores: ['Requests'],

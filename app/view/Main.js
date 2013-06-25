@@ -8,6 +8,7 @@ Ext.define('PrototypesMobile.view.Main', {
         'Ext.form.Panel',
         'Ext.form.FieldSet',
         'Ext.field.Password',
+        'Ext.field.Select',
         'Ext.field.Toggle',
         'Ext.List',
         'Ext.Label',
@@ -39,11 +40,16 @@ Ext.define('PrototypesMobile.view.Main', {
                 xtype: 'listrequest'
             },
             {
-                xtype: 'label',
-                html: 'Configuration will be here'
+                xtype: 'webformsetting'
             },
             {
                 xtype: 'newrequestform'
+            },
+            {
+                xtype: 'checklist'
+            },
+            {
+                xtype: 'requesttypedetail'
             }
         ]
     }

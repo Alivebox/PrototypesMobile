@@ -1,18 +1,19 @@
-Ext.define('PrototypesMobile.view.webrequestform.NewRequestForm', {
+Ext.define('PrototypesMobile.view.webrequestform.RequestTypeDetail', {
    extend: 'Ext.Container',
-       xtype: 'newrequestform',
+       xtype: 'requesttypedetail',
         config: {
             scrollable: true,
             items: [
             {
                 xtype : 'toolbar',
+                itemId: 'tbRequestTypeDetail',
                 docked: 'top',
                 title: 'New Request',
                 items: [
                     {
                       xtype: 'button',
                       text: '<< Back',
-                      itemId: 'btnRequestBack'
+                      itemId: 'btnRequestDetailBack'
                     },
                     {
                         xtype:'spacer'
@@ -30,23 +31,29 @@ Ext.define('PrototypesMobile.view.webrequestform.NewRequestForm', {
                     items: [
                         {
                             xtype: 'selectfield',
-                            name: 'showTitle',
-                            label: 'Show Title',
+                            name: 'sfLocation',
+                            label: 'Location',
                             valueField: 'name',
                             displayField: 'name',
                             store: {
                                 data: [
-                                    { id: '1', name: 'Anderson Cooper 360'},
-                                    { id: '2', name: 'WeekEnds'},
-                                    { id: '3', name: 'Special days'}
+                                    { id: '1', name: 'New York'},
+                                    { id: '2', name: 'Atlanta'},
+                                    { id: '3', name: 'California'}
                                 ]
                             }
+                        },
+                        {
+                            xtype: 'button',
+                            itemId: 'btnSchedule',
+                            margin: '10 0 10 0',
+                            text: 'View Schedule'
                         },
                         {
                             xtype: 'textfield',
                             name: 'txtTitle',
                             label: 'Title',
-                            value: 'Project Title'
+                            value: 'Order Title'
                         },
                         {
                             xtype: 'selectfield',
