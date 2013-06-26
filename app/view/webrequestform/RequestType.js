@@ -12,7 +12,6 @@ Ext.define('PrototypesMobile.view.webrequestform.RequestType', {
                         xtype: 'button',
                         itemId: 'btnCheck',
                         right: -40,
-                        icon: 'resources/icons/check.png',
                         width: '100%',
                         text: ' ',
                         iconAlign: 'right',
@@ -28,7 +27,6 @@ Ext.define('PrototypesMobile.view.webrequestform.RequestType', {
                     {
                         xtype: 'label',
                         itemId: 'lblLocation',
-                        html: '',
                         right: 10,
                         top: 10
                     }

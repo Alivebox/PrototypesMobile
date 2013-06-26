@@ -10,6 +10,11 @@ Ext.define('PrototypesMobile.view.webrequestform.WebFormSetting', {
                 title: 'Settings',
                 items: [
                     {
+                        xtype: 'button',
+                        text: 'Back',
+                        itemId: 'btnSettingsBack'
+                    },
+                    {
                         xtype:'spacer'
                     },
                     {
@@ -35,7 +40,7 @@ Ext.define('PrototypesMobile.view.webrequestform.WebFormSetting', {
                             {
                                 xtype: 'textfield',
                                 name: 'txtEmail',
-                                label: 'Invitation Code',
+                                label: 'Code',
                                 value: '0123456'
                             }
                         ]

@@ -6,17 +6,20 @@ Ext.define('PrototypesMobile.controller.webrequestform.RequestController', {
             listRequest : 'listrequest',
             checkList: 'checklist',
             cCheckListBody: 'checklist [itemId=cCheckListBody]',
+            btnCheckListSubmit: 'checklist [itemId=btnSubmit]',
             requestTypePicker : 'requesttypepicker',
             btnNewRequest : 'listrequest [itemId=btnNewRequest]',
             btnConfiguration : 'listrequest [itemId=btnConfiguration]',
             btnRequestBack: 'newrequestform [itemId=btnRequestBack]',
             btnCheckListBack: 'checklist [itemId=btnCheckListBack]',
-            btnSubmit: 'newrequestform [itemId=btnSubmit]',
+            btnRequestNext: 'newrequestform [itemId=btnRequestNext]',
             btnAdd: 'checklist [itemId=btnAdd]',
             btnCheck: 'requesttype [itemId=btnCheck]',
             requestTypeDetail: 'requesttypedetail',
             btnRequestDetailBack : 'requesttypedetail [itemId=btnRequestDetailBack]',
-            btnSave: 'webformsetting [itemId=btnSave]'
+            btnSave: 'webformsetting [itemId=btnSave]',
+            btnSettingsBack: 'webformsetting [itemId=btnSettingsBack]',
+            btnRequestTypeSave: 'requesttypedetail [itemId=btnSave]'
         },
 
         control : {
@@ -35,7 +38,7 @@ Ext.define('PrototypesMobile.controller.webrequestform.RequestController', {
             btnCheckListBack: {
                 tap : 'onShowNewRequestForm'
             },
-            btnSubmit: {
+            btnRequestNext: {
                 tap : 'onShowCheckListView'
             },
             btnAdd: {
@@ -52,6 +55,12 @@ Ext.define('PrototypesMobile.controller.webrequestform.RequestController', {
             },
             btnSave: {
                 tap : 'onShowHomeView'
+            },
+            btnSettingsBack: {
+                tap: 'onShowHomeView'
+            },
+            btnRequestTypeSave: {
+                tap: 'onRequestTypeSave'
             }
         }
     },
@@ -98,6 +107,17 @@ Ext.define('PrototypesMobile.controller.webrequestform.RequestController', {
         var tmpTitle = argComponent.parent.down('#txtRequestType').getPlaceHolder();
         var tmpToolBar = this.getRequestTypeDetail().down('#tbRequestTypeDetail');
         tmpToolBar.setTitle(tmpTitle);
+        this.getRequestTypeDetail().requestType = argComponent.parent;
         this.getMainView().setActiveItem(4);
+    },
+
+    onRequestTypeSave: function(argComponent){
+        var tmpLblLocation = this.getRequestTypeDetail().requestType.down('#lblLocation');
+        var tmpLocationValue = argComponent.parent.down('#sfLocation');
+        tmpLblLocation.setHtml(tmpLocationValue.getValue());
+        var tmpBtnCheck = this.getRequestTypeDetail().requestType.down('#btnCheck');
+        tmpBtnCheck.setIcon('resources/icons/check.png');
+        this.getMainView().setActiveItem(3);
+
     }
 });

@@ -11,16 +11,8 @@ Ext.define('PrototypesMobile.view.webrequestform.CheckList', {
                 items: [
                     {
                         xtype: 'button',
-                        text: '<< Back',
+                        text: 'Back',
                         itemId: 'btnCheckListBack'
-                    },
-                    {
-                        xtype:'spacer'
-                    },
-                    {
-                        xtype: 'button',
-                        text: 'Next >>',
-                        itemId: 'btnCheckListNext'
                     }
                 ]
             },
@@ -42,6 +34,12 @@ Ext.define('PrototypesMobile.view.webrequestform.CheckList', {
                         hidden: true
                     }
                 ]
+            },
+            {
+                xtype: 'button',
+                itemId: 'btnSubmit',
+                margin: '10 0 10 0',
+                text: 'Submit'
             }
         ]
     }

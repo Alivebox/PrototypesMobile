@@ -11,7 +11,7 @@ Ext.define('PrototypesMobile.view.webrequestform.NewRequestForm', {
                 items: [
                     {
                       xtype: 'button',
-                      text: '<< Back',
+                      text: 'Back',
                       itemId: 'btnRequestBack'
                     },
                     {
@@ -19,7 +19,7 @@ Ext.define('PrototypesMobile.view.webrequestform.NewRequestForm', {
                     },
                     {
                         xtype: 'button',
-                        text: 'Next >>',
+                        text: 'Next',
                         itemId: 'btnRequestNext'
                     }
                 ]
@@ -97,12 +97,6 @@ Ext.define('PrototypesMobile.view.webrequestform.NewRequestForm', {
                             label: 'End Time',
                             value: new Date(),
                             name: 'time'
-                        },
-                        {
-                            xtype: 'button',
-                            itemId: 'btnSubmit',
-                            margin: '10 0 10 0',
-                            text: 'Submit'
                         }
                     ]
                 }

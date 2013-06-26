@@ -5,7 +5,7 @@ Ext.define('PrototypesMobile.store.Requests', {
         sorters: 'status',
         groupField: 'status',
         data: [
-            { name: 'Project Name', date: 'Jun 21', status: 'My Incomplete Requests' },
+            { name: 'Project Name', date: 'Jun 21', status: 'My Incomplete Requests'},
             { name: 'Project Name', date: 'Aug 27', status: 'My Request History'  },
             { name: 'Project Name', date: 'Jan 07', status: 'My Active Requests'  },
             { name: 'Project Name', date: 'Nov 30', status: 'My Active Requests'  },
