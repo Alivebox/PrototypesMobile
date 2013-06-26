@@ -38,6 +38,8 @@ Ext.application({
         'order.MyOrders',
         'order.ItemOrder',
         'order.OrderDetail',
+        'order.OrderMenu',
+        'order.NavigationMenu',
         'webrequestform.ListRequest',
         'webrequestform.NewRequestForm',
         'webrequestform.CheckList',

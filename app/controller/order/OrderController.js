@@ -4,19 +4,24 @@ Ext.define('PrototypesMobile.controller.order.OrderController', {
         refs: {
             mainView : 'main',
             myOrders: 'myorders',
+            orderdetail: 'orderdetail',
             btnMenuBack: 'myorders [itemId=btnMenuBack]',
-            btnOrderName: 'itemorder [itemId=btnOrderName]'
+            btnOrderName: 'itemorder [itemId=btnOrderName]',
+            btnOrderDetailBack: 'orderdetail [itemId=btnOrderDetailBack]'
         },
 
         control: {
             btnMenuBack: {
-                tap: 'onBackMenu'
+                tap: 'onShowNavigationMenu'
             },
             myOrders: {
                 afterrender: 'onMyOrdersBoxReady'
             },
             btnOrderName: {
                 tap: 'onShowOrderDetail'
+            },
+            btnOrderDetailBack: {
+                tap: 'onShowOrderMenu'
             }
         }
     },
@@ -24,8 +29,12 @@ Ext.define('PrototypesMobile.controller.order.OrderController', {
     launch: function() {
     },
 
-    onBackMenu: function(){
-        this.getMainView().setActiveItem(2);
+    onShowNavigationMenu: function(){
+        this.getMainView().setActiveItem(8);
+    },
+
+    onShowOrderMenu: function(){
+        this.getMainView().setActiveItem(7);
     },
 
     onMyOrdersBoxReady: function(){

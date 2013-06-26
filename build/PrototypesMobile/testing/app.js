@@ -63036,7 +63036,7 @@ Ext.define('PrototypesMobile.controller.order.OrderController', {
 
         control: {
             btnMenuBack: {
-                tap: 'onBackMenu'
+                tap: 'onShowNavigationMenu'
             }
         }
     },
@@ -63044,7 +63044,7 @@ Ext.define('PrototypesMobile.controller.order.OrderController', {
     launch: function() {
     },
 
-    onBackMenu: function(){
+    onShowNavigationMenu: function(){
         debugger;
         this.getMainView().setActiveItem(2);
     }
