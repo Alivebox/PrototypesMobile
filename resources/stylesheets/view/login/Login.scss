@@ -21,9 +21,11 @@
 }
 
 .login-company-label {
+  color:#068aad;
 }
 
 .login-company-button{
+  color:#2B36FC;
   width:100%;
   height:100%;
   padding: 0;
@@ -32,6 +34,7 @@
 }
 
 .login-remember-me-toggle{
+  color:#2B36FC;
   width:100%;
   height:100%;
   padding: 0;
@@ -40,6 +43,10 @@
 }
 
 .login-remember-me-toggle .x-toggle-on {
+  background-color:$toggleBackground;
+  background-image:-webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, $toggleBackground), color-stop(100%, $toggleBackground), color-stop(100%, $toggleBackground), color-stop(100%, $toggleBackground));
+  background-image:-webkit-linear-gradient($toggleBackground,$toggleBackground 100%,$toggleBackground 100%,$toggleBackground);
+  background-image:linear-gradient($toggleBackground,$toggleBackground 100%,$toggleBackground 100%,$toggleBackground);
 }
 
 .login-remember-me-toggle .x-toggle-inner {
@@ -56,4 +63,5 @@
   background-color: none !important;
   border-color: none !important;
   border-style: none !important;
+  color: #7E7E7E !important;
 }

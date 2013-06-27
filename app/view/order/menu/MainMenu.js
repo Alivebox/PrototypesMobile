@@ -120,7 +120,7 @@ Ext.define('TestMobile.view.order.menu.MainMenu', {
                     text: 'Active',
                     height: '96px',
                     padding: '50 0 0 0',
-                    cls: 'show-mgr-button'
+                    cls: 'show-mgr-button transparent-button'
                 }
             ]
         };
@@ -154,7 +154,7 @@ Ext.define('TestMobile.view.order.menu.MainMenu', {
                     height: '96px',
                     padding: '50 0 0 0',
                     style: 'margin-right: -15px',
-                    cls: 'show-mgr-button'
+                    cls: 'show-mgr-button transparent-button'
                 }
             ]
         };
