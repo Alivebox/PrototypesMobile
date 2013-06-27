@@ -1,7 +1,7 @@
 /**
  * The picker with hours and minutes slots
  */
-Ext.define('PrototypesMobile.ux.picker.Time', {
+Ext.define('TestMobile.ux.picker.Time', {
     extend:'Ext.picker.Picker',
     xtype:'timepicker',
 

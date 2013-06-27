@@ -1,12 +1,12 @@
 /**
  * TimePickerfield. Extends from datepickerfield
  */
-Ext.define('PrototypesMobile.ux.field.TimePicker', {
+Ext.define('TestMobile.ux.field.TimePicker', {
     extend:'Ext.field.DatePicker',
     xtype:'timepickerfield',
 
 
-    requires:['PrototypesMobile.ux.picker.Time'],
+    requires:['TestMobile.ux.picker.Time'],
 
 
     config:{
@@ -42,7 +42,7 @@ Ext.define('PrototypesMobile.ux.field.TimePicker', {
 
 
     applyPicker:function (picker) {
-        picker = Ext.factory(picker, 'PrototypesMobile.ux.picker.Time');
+        picker = Ext.factory(picker, 'TestMobile.ux.picker.Time');
         picker.setHidden(true); // Do not show picker on creeation
         Ext.Viewport.add(picker);
         return picker;

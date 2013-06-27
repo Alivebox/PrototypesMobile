@@ -1,48 +1,37 @@
-Ext.define('PrototypesMobile.controller.order.OrderController', {
-    extend: 'Ext.app.Controller',
-    config: {
-        refs: {
-            mainView : 'main',
-            myOrders: 'myorders',
-            orderdetail: 'orderdetail',
-            btnMenuBack: 'myorders [itemId=btnMenuBack]',
-            btnOrderName: 'itemorder [itemId=btnOrderName]',
-            btnOrderDetailBack: 'orderdetail [itemId=btnOrderDetailBack]'
-        },
+Ext.define('TestMobile.controller.order.OrderController', {
 
+    extend: 'Ext.app.Controller',
+
+    config: {
         control: {
-            btnMenuBack: {
-                tap: 'onShowNavigationMenu'
+            listorders: {
+                showNavigationMenu: 'onShowNavigationMenu'
             },
-            myOrders: {
-                afterrender: 'onMyOrdersBoxReady'
+            orderdetail: {
+                showOrderMenu: 'onShowOrderMenu'
             },
-            btnOrderName: {
-                tap: 'onShowOrderDetail'
-            },
-            btnOrderDetailBack: {
-                tap: 'onShowOrderMenu'
+            itemorder: {
+                showOrderDetail: 'onShowOrderDetail'
             }
         }
     },
 
-    launch: function() {
-    },
-
-    onShowNavigationMenu: function(){
-        this.getMainView().setActiveItem(8);
-    },
-
-    onShowOrderMenu: function(){
-        this.getMainView().setActiveItem(7);
-    },
-
-    onMyOrdersBoxReady: function(){
-        var tmpOrder1 = this.getMyOrders().down('itemorder[itemId=order1]');
+    getMainController: function(){
+        return this.getApplication().getController('MainController');
     },
 
     onShowOrderDetail: function(){
-        this.getMainView().setActiveItem(6);
-    }
+        var tmpMainController = this.getMainController();
+        tmpMainController.showOrderDetailView();
+    },
 
+    onShowNavigationMenu: function(){
+        var tmpMainController = this.getMainController();
+        tmpMainController.showNavigationMenuView();
+    },
+
+    onShowOrderMenu: function(){
+        var tmpMainController = this.getMainController();
+        tmpMainController.showOrderMenuView();
+    }
 });

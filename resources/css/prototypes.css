@@ -1,0 +1,116 @@
+html, body {
+  height: 100%;
+}
+
+#appLoadingIndicator {
+  position: absolute;
+  top: 50%;
+  margin-top: -15px;
+  text-align: center;
+  width: 100%;
+  height: 30px;
+  -webkit-animation-name: appLoadingIndicator;
+  -webkit-animation-duration: 0.5s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-direction: linear;
+}
+
+#appLoadingIndicator > * {
+  display: inline-block;
+  height: 30px;
+  -webkit-border-radius: 15px;
+  margin: 0 5px;
+  width: 30px;
+  opacity: 0.8;
+}
+
+@-webkit-keyframes appLoadingIndicator {
+  0% {
+    opacity: 0.8;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0.8;
+  }
+}
+
+.main-container {
+  width: 100%;
+  height: 100%;
+}
+
+.show-mgr-button {
+  height: 48px;
+  margin-left: 9px;
+  margin-right: 9px;
+}
+
+.show-mgr-label {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.transparent-button {
+  border: none;
+  background: none;
+}
+
+.login-header {
+  width: 100%;
+  height: 90px;
+  background-image: url("/resources/images/headerbackground.png");
+  background-repeat: repeat-x;
+}
+
+.login-header-logo {
+  width: 100%;
+  height: 90px;
+  background-image: url("/resources/images/header.png");
+  background-repeat: no-repeat;
+  margin-top: -90px !important;
+  background-position: center;
+}
+
+.login-form-container {
+  width: 100%;
+  height: 100%;
+  margin-top: 20px;
+}
+
+.login-company-button {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: none;
+  background: none;
+}
+
+.login-remember-me-toggle {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: none;
+  background: none;
+}
+
+.login-remember-me-toggle .x-toggle-inner {
+  float: right;
+}
+
+.login-remember-me-toggle .x-size-monitored {
+  float: right;
+}
+
+.login-need-help-button {
+  text-decoration: underline;
+  background: none !important;
+  background-color: none !important;
+  border-color: none !important;
+  border-style: none !important;
+}

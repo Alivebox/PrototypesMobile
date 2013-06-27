@@ -1,8 +1,9 @@
-Ext.define('PrototypesMobile.ux.UxDependencies',{
+Ext.define('TestMobile.ux.UxDependencies',{
 
     requires: [
-        'PrototypesMobile.ux.field.TimePicker',
-        'PrototypesMobile.ux.picker.Time'
+        'TestMobile.ux.field.TimePicker',
+        'TestMobile.ux.picker.Time',
+        'TestMobile.ux.util.CSS'
     ]
 
 });

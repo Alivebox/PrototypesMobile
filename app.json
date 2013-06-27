@@ -2,7 +2,7 @@
     /**
      * The application's namespace, used by Sencha Command to generate classes
      */
-    "name": "PrototypesMobile",
+    "name": "TestMobile",
 
     /**
      * The file path to this application's front HTML document, relative to this app.json file
@@ -32,7 +32,7 @@
      *                                      //  - "delta" to enable over-the-air delta update for this file
      *                                      //  - "full" means full update will be made when this file changes
      *          "x-bootstrap": true         // (Optional)
-     *                                      // Indicates a development mode only dependency.
+     *                                      // Indicates a development mode only dependency.  
      *                                      // These files will not be copied into the build directory or referenced
      *                                      // in the generate app.json manifest for the micro loader.
      *
@@ -72,15 +72,7 @@
             "update": "delta"
         },
         {
-            "path": "resources/sass/src/view/Login.css",
-            "update": "delta"
-        },
-        {
-            "path": "resources/sass/src/view/Main.css",
-            "update": "delta"
-        },
-        {
-            "path": "resources/sass/src/view/Help.css",
+            "path": "resources/css/prototypes.css",
             "update": "delta"
         }
     ],
@@ -139,5 +131,5 @@
      * Uniquely generated id for this application, used as prefix for localStorage keys.
      * Normally you should never change this value.
      */
-    "id": "4c1d47c1-2eba-455d-adc2-b9d523c65952"
+    "id": "7e0dc4ef-abb5-4c55-9bee-c6d000cc297b"
 }

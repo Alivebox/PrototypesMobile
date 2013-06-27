@@ -1,4 +1,4 @@
-Ext.define('PrototypesMobile.view.webrequestform.picker.RequestTypePicker', {
+Ext.define('TestMobile.view.webrequestform.picker.RequestTypePicker', {
     extend:'Ext.picker.Picker',
     xtype:'requesttypepicker',
     config:{

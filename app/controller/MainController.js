@@ -1,61 +1,89 @@
-Ext.define('PrototypesMobile.controller.MainController', {
+Ext.define('TestMobile.controller.MainController', {
+
     extend: 'Ext.app.Controller',
+
+    statics: {
+
+        LOGIN_VIEW: 'login',
+        COMPANIES_VIEW: 'company',
+        HELP_VIEW: 'help',
+        NAVIGATION_MENU_VIEW: 'navigationmenu',
+        MAIN_MENU_VIEW: 'mainmenu',
+        ORDER_MENU_VIEW: 'ordermenu',
+        LIST_ORDERS_VIEW: 'listorders',
+        ORDER_DETAIL_VIEW: 'orderdetail',
+        WEB_FORM_SETTINGS_VIEW: 'webformsetting',
+        CHECK_LIST_VIEW: 'checklist',
+        LIST_REQUEST_VIEW: 'listrequest',
+        NEW_REQUEST_FORM_VIEW: 'newrequestform',
+        REQUEST_TYPE_DETAIL_VIEW: 'requesttypedetail',
+        THEME_VIEW: 'theme'
+    },
+
     config: {
+
         refs: {
-            mainView : 'main',
-            loginView : 'login',
-            helpView : 'help',
-            companyView: 'company',
-            btnLoginHelp: 'login [itemId=btnLoginHelp]',
-            btnHelpBack: 'help [itemId=btnHelpBack]',
-            btnLogIn: 'login [itemId=btnLogIn]',
-            btnCompany: 'login [itemId=btnCompany]',
-            btnCompanyMenuBack : 'company [itemId=btnCompanyMenuBack]'
-        },
-
-        control: {
-            login: {
-                helpSelected: 'onHelpSelected'
-            },
-            help: {
-                backSelected: 'onBackSelected'
-            },
-            btnLoginHelp: {
-                tap: 'onHelpSelected'
-            },
-            btnHelpBack: {
-                tap: 'onBackSelected'
-            },
-            btnLogIn: {
-                tap: 'onLogIn'
-            },
-            btnCompany: {
-                tap: 'onSelectCompany'
-            },
-            btnCompanyMenuBack: {
-                tap: 'onBackSelected'
-            }
+            mainView : 'main'
         }
+
     },
 
-    launch: function() {
+    showWebFormSettingsView: function(){
+        this.getMainView().setActiveItem(TestMobile.controller.MainController.WEB_FORM_SETTINGS_VIEW);
     },
 
-    onHelpSelected: function() {
-        this.getMainView().setActiveItem(1);
+    showCheckListView: function(){
+        this.getMainView().setActiveItem(TestMobile.controller.MainController.CHECK_LIST_VIEW);
     },
 
-    onBackSelected: function() {
-        this.getMainView().setActiveItem(0);
+    showListRequestView: function(){
+        this.getMainView().setActiveItem(TestMobile.controller.MainController.LIST_REQUEST_VIEW);
     },
 
-    onLogIn: function() {
-        this.getMainView().setActiveItem(2);
+    showNewResquestFormView: function(){
+        this.getMainView().setActiveItem(TestMobile.controller.MainController.NEW_REQUEST_FORM_VIEW);
     },
 
-    onSelectCompany: function(){
-        this.getMainView().setActiveItem(5);
+    showRequestTypeDetailView: function(){
+        this.getMainView().setActiveItem(TestMobile.controller.MainController.REQUEST_TYPE_DETAIL_VIEW);
+    },
+
+    showLoginView: function(){
+        this.getMainView().setActiveItem(TestMobile.controller.MainController.LOGIN_VIEW);
+    },
+
+    showCompaniesView: function(){
+        this.getMainView().setActiveItem(TestMobile.controller.MainController.COMPANIES_VIEW);
+    },
+
+    showHelpView: function(){
+        this.getMainView().setActiveItem(TestMobile.controller.MainController.HELP_VIEW);
+    },
+
+    showNavigationMenuView: function(){
+        this.getMainView().setActiveItem(TestMobile.controller.MainController.NAVIGATION_MENU_VIEW);
+    },
+
+    showMainMenuView: function(){
+        this.getMainView().setActiveItem(TestMobile.controller.MainController.MAIN_MENU_VIEW);
+    },
+
+    showOrderMenuView: function(){
+        this.getMainView().setActiveItem(TestMobile.controller.MainController.ORDER_MENU_VIEW);
+    },
+
+    showListOrdersView: function(){
+        this.getMainView().setActiveItem(TestMobile.controller.MainController.LIST_ORDERS_VIEW);
+    },
+
+    showOrderDetailView: function(){
+        this.getMainView().setActiveItem(TestMobile.controller.MainController.ORDER_DETAIL_VIEW);
+    },
+
+    showThemeView: function(){
+        this.getMainView().setActiveItem(TestMobile.controller.MainController.THEME_VIEW);
     }
+
 
 
 });

@@ -1,7 +1,7 @@
-Ext.define('PrototypesMobile.store.Requests', {
+Ext.define('TestMobile.store.Requests', {
     extend: 'Ext.data.Store',
     config: {
-        model: 'PrototypesMobile.model.Request',
+        model: 'TestMobile.model.Request',
         sorters: 'status',
         groupField: 'status',
         data: [

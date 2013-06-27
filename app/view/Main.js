@@ -1,65 +1,59 @@
-Ext.define('PrototypesMobile.view.Main', {
+Ext.define('TestMobile.view.Main', {
+
     extend: 'Ext.Container',
     xtype: 'main',
-    id: 'main',
-    requires: [
-        'Ext.data.Store',
-        'Ext.dataview.List',
-        'Ext.form.Panel',
-        'Ext.form.FieldSet',
-        'Ext.field.Password',
-        'Ext.field.Select',
-        'Ext.field.Toggle',
-        'Ext.List',
-        'Ext.Label',
-        'Ext.Img'
-    ],
+
     config: {
-        layout: 'card',
-        fullscreen:true,
-        items: [
-            /*{
+        cls: 'main-container',
+        layout: 'card'
+    },
+
+    initialize: function(){
+        this.add([
+            {
                 xtype: 'login'
-            },
-            {
-                xtype: 'help'
-            },
-            {
-                xtype: 'menu'
-            },
-            {
-                xtype: 'myorders'
-            },
-            {
-               xtype: 'itemorder'
             },
             {
                 xtype: 'company'
             },
             {
-                xtype: 'orderdetail'
+                xtype: 'help'
+            },
+            {
+                xtype: 'navigationmenu'
+            },
+            {
+                xtype: 'mainmenu'
             },
             {
                 xtype: 'ordermenu'
             },
             {
-                xtype: 'navigationmenu'
-            },*/
-            {
-                xtype: 'listrequest'
+                xtype: 'listorders'
             },
             {
-                xtype: 'webformsetting'
-            },
-            {
-                xtype: 'newrequestform'
+                xtype: 'orderdetail'
             },
             {
                 xtype: 'checklist'
             },
             {
+                xtype: 'listrequest'
+            },
+            {
+                xtype: 'newrequestform'
+            },
+            {
                 xtype: 'requesttypedetail'
+            },
+            {
+                xtype: 'webformsetting'
+            },
+            {
+                xtype: 'theme'
             }
-        ]
+        ]);
+        this.callParent(arguments);
     }
+
 });

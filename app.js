@@ -1,15 +1,3 @@
-/*
-    This file is generated and updated by Sencha Cmd. You can edit this file as
-    needed for your application, but these edits will have to be merged by
-    Sencha Cmd when it performs code generation tasks such as generating new
-    models, controllers or views and when running "sencha app upgrade".
-
-    Ideally changes to this file would be limited and most work would be done
-    in other places (such as Controllers). If Sencha Cmd cannot merge your
-    changes and its generated code, it will produce a "merge conflict" that you
-    will need to resolve manually.
-*/
-
 // DO NOT DELETE - this directive is required for Sencha Cmd packages to work.
 //@require @packageOverrides
 
@@ -20,44 +8,68 @@ Ext.Loader.setPath({
 //</debug>
 
 Ext.application({
-    name: 'PrototypesMobile',
 
     requires: [
         'Ext.MessageBox',
-        'PrototypesMobile.ux.UxDependencies'
+        'TestMobile.ux.UxDependencies',
+        'Ext.data.Store',
+        'Ext.dataview.List',
+        'Ext.form.Panel',
+        'Ext.form.FieldSet',
+        'Ext.field.Password',
+        'Ext.field.Select',
+        'Ext.field.Toggle',
+        'Ext.List',
+        'Ext.Label',
+        'Ext.Img'
     ],
 
-    extend: 'PrototypesMobile.Application',
+    name: 'TestMobile',
+
+    controllers: [
+        'company.CompanyController',
+        'help.HelpController',
+        'login.LoginController',
+        'MainController',
+        'order.menu.OrderMenuController',
+        'order.OrderController',
+        'theme.ThemeController',
+        'webrequestform.ListRequestController',
+        'webrequestform.CheckListController',
+        'webrequestform.NewRequestFomController',
+        'webrequestform.RequestTypeController',
+        'webrequestform.RequestTypeDetailController',
+        'webrequestform.setting.SettingRequestController'
+
+    ],
+
+    models: [
+        'Request'
+    ],
+
+    stores: [
+        'Requests'
+    ],
 
     views: [
-        'Company',
-        'Help',
-        'Login',
+        'company.Company',
+        'help.Help',
+        'login.Login',
         'Main',
-        'Menu',
-        'order.MyOrders',
         'order.ItemOrder',
+        'order.ListOrders',
         'order.OrderDetail',
-        'order.OrderMenu',
-        'order.NavigationMenu',
+        'order.menu.MainMenu',
+        'order.menu.NavigationMenu',
+        'order.menu.OrderMenu',
+        'theme.Theme',
         'webrequestform.ListRequest',
         'webrequestform.NewRequestForm',
         'webrequestform.CheckList',
         'webrequestform.picker.RequestTypePicker',
         'webrequestform.RequestType',
         'webrequestform.RequestTypeDetail',
-        'webrequestform.WebFormSetting'
-    ],
-
-    stores: ['Requests'],
-
-    models: ['Request'],
-
-    controllers: [
-        'MainController',
-        'MenuController',
-        'order.OrderController',
-        'webrequestform.RequestController'
+        'webrequestform.setting.WebFormSetting'
     ],
 
     icon: {
@@ -79,11 +91,8 @@ Ext.application({
     },
 
     launch: function() {
-        // Destroy the #appLoadingIndicator element
         Ext.fly('appLoadingIndicator').destroy();
-
-        // Initialize the main view
-        Ext.Viewport.add(Ext.create('PrototypesMobile.view.Main'));
+        Ext.Viewport.add(Ext.create('TestMobile.view.Main'));
     },
 
     onUpdated: function() {

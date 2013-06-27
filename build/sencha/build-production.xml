@@ -1,0 +1,30 @@
+<project name="lodashextBuild" default="main" >
+
+    <macrodef name="sencha">
+        <sequential>
+            <echo message="Running sencha build production"/>
+            <exec executable="sencha.exe" searchPath="true" dir="../../" >
+                <arg value="app"/>
+                <arg value="build"/>
+                <arg value="production"/>
+            </exec>
+        </sequential>
+    </macrodef>
+
+    <property name="buildOutput" value="../TestMobile/production" />
+
+    <target name="build" depends="" >
+
+        <sencha />
+
+    </target>
+
+    <target name="cleanOutputFolders" >
+        <delete includeemptydirs="true" failonerror="false" >
+            <fileset dir="${buildOutput}" includes="**/*" />
+        </delete>
+    </target>
+
+    <target name="main" depends="cleanOutputFolders,build" />
+
+</project>
