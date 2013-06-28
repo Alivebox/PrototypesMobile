@@ -1,6 +1,5 @@
 html, body {
   height: 100%;
-  background-color: #383838;
 }
 
 #appLoadingIndicator {
@@ -43,21 +42,9 @@ html, body {
 .main-container {
   width: 100%;
   height: 100%;
-  background-color: #383838;
-}
-
-.show-mrg-toolbar {
-  background: #bf1b19;
-}
-
-.show-mgr-toolbar-button {
-  background: #8A0808 !important;
-  background-color: #8a0808 !important;
 }
 
 .show-mgr-button {
-  background: #BF1B19;
-  color: white;
   height: 48px;
   margin-left: 9px;
   margin-right: 9px;
@@ -68,7 +55,11 @@ html, body {
   margin-bottom: 10px;
   margin-left: 10px;
   margin-right: 10px;
-  color: white;
+}
+
+.transparent-button {
+  border: none;
+  background: none;
 }
 
 .login-header {
@@ -93,12 +84,7 @@ html, body {
   margin-top: 20px;
 }
 
-.login-company-label {
-  color: #068aad;
-}
-
 .login-company-button {
-  color: #2B36FC;
   width: 100%;
   height: 100%;
   padding: 0;
@@ -107,19 +93,11 @@ html, body {
 }
 
 .login-remember-me-toggle {
-  color: #2B36FC;
   width: 100%;
   height: 100%;
   padding: 0;
   border: none;
   background: none;
-}
-
-.login-remember-me-toggle .x-toggle-on {
-  background-color: #07b6e5;
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #07b6e5), color-stop(100%, #07b6e5), color-stop(100%, #07b6e5), color-stop(100%, #07b6e5));
-  background-image: -webkit-linear-gradient(#07b6e5, #07b6e5 100%, #07b6e5 100%, #07b6e5);
-  background-image: linear-gradient(#07b6e5, #07b6e5 100%, #07b6e5 100%, #07b6e5);
 }
 
 .login-remember-me-toggle .x-toggle-inner {
@@ -136,5 +114,4 @@ html, body {
   background-color: none !important;
   border-color: none !important;
   border-style: none !important;
-  color: #7E7E7E !important;
 }

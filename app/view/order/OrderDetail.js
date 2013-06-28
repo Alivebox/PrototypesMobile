@@ -85,7 +85,7 @@ Ext.define('TestMobile.view.order.OrderDetail', {
                 },
                 {
                     xtype: 'button',
-                    text: 'Commets',
+                    text: 'Comments',
                     listeners: {
                         scope: this,
                         tap: function() {

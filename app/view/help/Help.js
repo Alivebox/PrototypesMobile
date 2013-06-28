@@ -37,19 +37,6 @@ Ext.define('TestMobile.view.help.Help', {
                             this.fireEvent('showLogin')
                         }
                     }
-                },
-                {
-                    xtype: 'spacer'
-                },
-                {
-                    xtype: 'button',
-                    text: 'Theme',
-                    listeners: {
-                        scope: this,
-                        tap: function(){
-                            this.fireEvent('showThemeOption')
-                        }
-                    }
                 }
             ]
         }

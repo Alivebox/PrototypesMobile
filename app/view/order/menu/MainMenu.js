@@ -26,7 +26,8 @@ Ext.define('TestMobile.view.order.menu.MainMenu', {
             items: [
                 {
                     xtype: 'button',
-                    text: 'WebForm',
+                    text: ' ',
+                    cls: 'transparent-button',
                     listeners: {
                         scope: this,
                         tap: function(){
@@ -120,7 +121,7 @@ Ext.define('TestMobile.view.order.menu.MainMenu', {
                     text: 'Active',
                     height: '96px',
                     padding: '50 0 0 0',
-                    cls: 'show-mgr-button transparent-button'
+                    cls: 'show-mgr-button'
                 }
             ]
         };
@@ -154,7 +155,7 @@ Ext.define('TestMobile.view.order.menu.MainMenu', {
                     height: '96px',
                     padding: '50 0 0 0',
                     style: 'margin-right: -15px',
-                    cls: 'show-mgr-button transparent-button'
+                    cls: 'show-mgr-button'
                 }
             ]
         };
