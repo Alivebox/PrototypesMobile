@@ -37,6 +37,19 @@ Ext.define('TestMobile.view.help.Help', {
                             this.fireEvent('showLogin')
                         }
                     }
+                },
+                {
+                    xtype: 'spacer'
+                },
+                {
+                    xtype: 'button',
+                    text: 'Theme',
+                    listeners: {
+                        scope: this,
+                        tap: function(){
+                            this.fireEvent('showThemeOption')
+                        }
+                    }
                 }
             ]
         }
@@ -92,7 +105,7 @@ Ext.define('TestMobile.view.help.Help', {
                     iconAlign: 'right',
                     right: 0,
                     text: ' ',
-                    cls: 'login-company-button',
+                    cls: 'login-company-button transparent-button',
                     icon: 'resources/images/forward.png'
                 }
             ]

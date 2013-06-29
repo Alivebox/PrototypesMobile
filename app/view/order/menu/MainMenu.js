@@ -84,12 +84,7 @@ Ext.define('TestMobile.view.order.menu.MainMenu', {
             height: '20%',
             items: [
                 tmpActiveOrdersButton,
-                tmpQueueOrders,
-                {
-                    xtype: 'button',
-                    height: '96px',
-                    style: 'visibility:hidden;'
-                }
+                tmpQueueOrders
             ]
         };
         return tmpOrdersContainer;
@@ -98,17 +93,14 @@ Ext.define('TestMobile.view.order.menu.MainMenu', {
     createActiveOrdersButton: function(){
         var tmpActiveOrdersButton = {
             xtype: 'container',
-            flex: 1,
+            width: '50%',
             items: [
                 {
                     xtype: 'button',
                     itemId: 'btnActive',
                     text: '4',
-                    top: 0,
-                    width: '96%',
-                    style: 'right: 12px',
                     height: '96px',
-                    cls: 'transparent-button',
+                    cls: 'show-mgr-button',
                     listeners: {
                         scope: this,
                         tap: function(){
@@ -117,11 +109,10 @@ Ext.define('TestMobile.view.order.menu.MainMenu', {
                     }
                 },
                 {
-                    xtype: 'button',
-                    text: 'Active',
-                    height: '96px',
-                    padding: '50 0 0 0',
-                    cls: 'show-mgr-button'
+                    xtype: 'label',
+                    top: 70,
+                    style: 'left: 50%; margin-left: -25px',
+                    html: 'Active'
                 }
             ]
         };
@@ -131,17 +122,14 @@ Ext.define('TestMobile.view.order.menu.MainMenu', {
     createQueueOrdersButton: function(){
         var tmpQueueOrders = {
             xtype: 'container',
-            flex: 1,
+            width: '50%',
             items: [
                 {
                     xtype: 'button',
                     itemId: 'btnQueue',
                     text: '8',
-                    top: 0,
-                    width: '100%',
-                    style: 'right: -12px',
                     height: '96px',
-                    cls: 'transparent-button',
+                    cls: 'show-mgr-button',
                     listeners: {
                         scope: this,
                         tap: function(){
@@ -150,12 +138,10 @@ Ext.define('TestMobile.view.order.menu.MainMenu', {
                     }
                 },
                 {
-                    xtype: 'button',
-                    text: 'Queue',
-                    height: '96px',
-                    padding: '50 0 0 0',
-                    style: 'margin-right: -15px',
-                    cls: 'show-mgr-button'
+                    xtype: 'label',
+                    top: 70,
+                    style: 'left: 50%; margin-left: -28px',
+                    html: 'Queue'
                 }
             ]
         };
@@ -166,6 +152,7 @@ Ext.define('TestMobile.view.order.menu.MainMenu', {
         var tmpViewHistoryButton = {
             xtype: 'button',
             text: 'View Order History',
+            style: 'margin-top: 120px',
             cls: 'show-mgr-button'
         };
         return tmpViewHistoryButton;

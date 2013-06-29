@@ -43,15 +43,13 @@ Ext.define('TestMobile.view.theme.Theme', {
     },
 
     createHelpForm: function(){
-        var tmpAndroidButton = this.createAndroidButton();
-        var tmpAppleButton = this.createAppleButton();
+        var tmpWindowsButton = this.createWindowsButton();
         var tmpBlackBerryButton = this.createBlackBerryButton();
         var tmpSenchaTouchButton = this.createSenchaTouchButton();
         var tmpHelpForm = {
             xtype: 'container',
             items: [
-                tmpAndroidButton,
-                tmpAppleButton,
+                tmpWindowsButton,
                 tmpBlackBerryButton,
                 tmpSenchaTouchButton
             ]
@@ -59,39 +57,27 @@ Ext.define('TestMobile.view.theme.Theme', {
         return tmpHelpForm;
     },
     
-    createAndroidButton: function(){
-        var tmpAndroidButton = {
+    createWindowsButton: function(){
+        var tmpWindowsButton = {
             xtype: 'button',
-            text: 'Android',
+            text: 'Windows',
             margin: '5 10 5 10',
+            themeName: 'tmpWindowsButton',
             listeners: {
                 scope: this,
                 tap: function(){
-                    this.fireEvent('showAndroidTheme');
-                } 
-            }
-        };
-        return tmpAndroidButton;
-    },
-    createAppleButton: function(){
-        var tmpAppleButton = {
-            xtype: 'button',
-            text: 'Apple',
-            margin: '5 10 5 10',
-            listeners: {
-                scope: this,
-                tap: function(){
-                    this.fireEvent('showAppleTheme');
+                    this.fireEvent('showWindowsTheme');
                 }
             }
         };
-        return tmpAppleButton;
+        return tmpWindowsButton;
     },
     createSenchaTouchButton: function(){
         var tmpSenchaTouchButton = {
             xtype: 'button',
             text: 'Sencha Touch',
             margin: '5 10 5 10',
+            themeName: 'default',
             listeners: {
                 scope: this,
                 tap: function(){
@@ -107,6 +93,7 @@ Ext.define('TestMobile.view.theme.Theme', {
             xtype: 'button',
             text: 'BlackBerry',
             margin: '5 10 5 10',
+            themeName: 'blackberry',
             listeners: {
                 scope: this,
                 tap: function(){

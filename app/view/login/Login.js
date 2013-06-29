@@ -94,7 +94,7 @@ Ext.define('TestMobile.view.login.Login', {
                     itemId: 'btnCompany',
                     iconAlign: 'right',
                     text: ' ',
-                    cls: 'login-company-button',
+                    cls: 'login-company-button transparent-button',
                     right: 0,
                     icon: 'resources/images/forward.png',
                     listeners: {

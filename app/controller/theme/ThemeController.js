@@ -2,14 +2,23 @@ Ext.define('TestMobile.controller.theme.ThemeController', {
 
     extend: 'Ext.app.Controller',
 
+    statics: {
+
+        THEME_PLATFORMS: {
+            default: 'chrome',
+            blackberry: 'blackberry',
+            windows: 'ie10'
+        }
+
+    },
+
     config: {
         control: {
             theme: {
                 showLogin: 'onShowLogin',
-                showAndroidTheme: 'onShowAndroiTheme',
-                showAppleTheme: 'onShowAppleTheme',
-                showSenchaTouchTheme: 'onShowSenchaTouchTheme',
-                showBlackBerryTheme: 'onShowBlackBerryTheme'
+                showWindowsTheme: 'changeTheme',
+                showSenchaTouchTheme: 'changeTheme',
+                showBlackBerryTheme: 'changeTheme'
             }
         }
     },
@@ -19,24 +28,9 @@ Ext.define('TestMobile.controller.theme.ThemeController', {
         tmpMainController.showLoginView();
     },
 
-    getMainController: function(){
-        return this.getApplication().getController('MainController');
-    },
-
-    onShowAndroiTheme: function() {
-        CSS.swapStyleSheet('android');
-    },
-
-    onShowAppleTheme: function() {
-        CSS.swapStyleSheet('apple');
-    },
-
-    onShowSenchaTouchTheme: function() {
-        CSS.swapStyleSheet('sencha-touch');
-    },
-
-    onShowBlackBerryTheme: function() {
-        CSS.swapStyleSheet('bb6');
+    changeTheme: function(argButton,argNewValue){
+        var tmpThemePlatform = TestMobile.controller.theme.ThemeController.THEME_PLATFORMS[argButton.themeName];
+        window.location.assign(location.pathname + '?platform=' + tmpThemePlatform);
     }
 
 });

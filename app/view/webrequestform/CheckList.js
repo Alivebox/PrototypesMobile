@@ -69,6 +69,7 @@ Ext.define('TestMobile.view.webrequestform.CheckList', {
             itemId: 'btnAdd',
             icon: 'resources/icons/add.png',
             iconAlign: 'right',
+            padding: '0 0 0 40',
             listeners: {
                 scope: this,
                 tap: function(){

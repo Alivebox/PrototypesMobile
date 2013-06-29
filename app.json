@@ -32,7 +32,7 @@
      *                                      //  - "delta" to enable over-the-air delta update for this file
      *                                      //  - "full" means full update will be made when this file changes
      *          "x-bootstrap": true         // (Optional)
-     *                                      // Indicates a development mode only dependency.  
+     *                                      // Indicates a development mode only dependency.
      *                                      // These files will not be copied into the build directory or referenced
      *                                      // in the generate app.json manifest for the micro loader.
      *
@@ -68,11 +68,23 @@
      */
     "css": [
         {
-            "path": "resources/css/app.css",
+            "path": "resources/css/prototypes.css",
+            "platform": ["chrome","safari","ios","android","ie10","blackberry"],
             "update": "delta"
         },
         {
-            "path": "resources/css/prototypes.css",
+            "path": "resources/css/app.css",
+            "platform": ["chrome","safari","ios","android"],
+            "update": "delta"
+        },
+        {
+            "path": "resources/css/wp.css",
+            "platform": ["ie10"],
+            "update": "delta"
+        },
+        {
+            "path": "resources/css/bb10.css",
+            "platform": ["blackberry"],
             "update": "delta"
         }
     ],
