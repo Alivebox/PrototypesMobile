@@ -86,7 +86,7 @@ Ext.define('TestMobile.view.login.Login', {
                     xtype: 'container',
                     html: 'ShowMgr',
                     cls: 'login-company-label',
-                    right: 30,
+                    right: 35,
                     top: 12
                 },
                 {
@@ -94,7 +94,7 @@ Ext.define('TestMobile.view.login.Login', {
                     itemId: 'btnCompany',
                     iconAlign: 'right',
                     text: ' ',
-                    cls: 'login-company-button transparent-button',
+                    cls: 'login-company-button',
                     right: 0,
                     icon: 'resources/images/forward.png',
                     listeners: {

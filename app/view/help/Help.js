@@ -95,7 +95,7 @@ Ext.define('TestMobile.view.help.Help', {
                     xtype: 'label',
                     name: 'lblCompany',
                     item: 'lblCompany',
-                    right: 30,
+                    right: 35,
                     top: 12,
                     cls: 'login-company-label',
                     html: 'None'

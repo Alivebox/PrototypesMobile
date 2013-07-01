@@ -19,7 +19,7 @@ Ext.define('TestMobile.view.order.ItemOrder', {
         var tmpMainContainer = {
             xtype: 'container',
             layout: 'hbox',
-            style: 'border-color: gray; border-style: solid;',
+            cls: 'item-order-border',
             border: 1,
             items: [
                 tmpStatusButton,
@@ -33,7 +33,7 @@ Ext.define('TestMobile.view.order.ItemOrder', {
         var tmpStatusButton =  {
             xtype: 'button',
             itemId: 'btnStatus',
-            style: 'background: '+ this.status +'; padding-top: 50px',
+            cls: 'status-button-' + this.status,
             width: '5%'
         };
         return tmpStatusButton;

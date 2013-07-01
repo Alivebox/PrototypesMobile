@@ -111,7 +111,7 @@ Ext.define('TestMobile.view.order.menu.MainMenu', {
                 {
                     xtype: 'label',
                     top: 70,
-                    style: 'left: 50%; margin-left: -25px',
+                    cls: 'active-orders-info',
                     html: 'Active'
                 }
             ]
@@ -140,7 +140,7 @@ Ext.define('TestMobile.view.order.menu.MainMenu', {
                 {
                     xtype: 'label',
                     top: 70,
-                    style: 'left: 50%; margin-left: -28px',
+                    cls: 'queue-orders-info',
                     html: 'Queue'
                 }
             ]
@@ -152,8 +152,8 @@ Ext.define('TestMobile.view.order.menu.MainMenu', {
         var tmpViewHistoryButton = {
             xtype: 'button',
             text: 'View Order History',
-            style: 'margin-top: 120px',
-            cls: 'show-mgr-button'
+            style: '',
+            cls: 'show-mgr-button view-history-button'
         };
         return tmpViewHistoryButton;
     },

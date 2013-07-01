@@ -58,8 +58,8 @@ html, body {
 }
 
 .transparent-button {
-  border: none;
-  background: none;
+  border: none !important;
+  background: none !important;
 }
 
 .login-header {
@@ -88,8 +88,8 @@ html, body {
   width: 100%;
   height: 100%;
   padding: 0;
-  border: none;
-  background: none;
+  border: none !important;
+  background: none !important;
 }
 
 .login-remember-me-toggle {
@@ -114,4 +114,38 @@ html, body {
   background-color: none !important;
   border-color: none !important;
   border-style: none !important;
+}
+
+.queue-orders-info {
+  left: 50%;
+  margin-left: -28px;
+}
+
+.active-orders-info {
+  left: 50%;
+  margin-left: -25px;
+}
+
+.view-history-button {
+  margin-top: 120px;
+}
+
+.item-order-border {
+  border-color: gray;
+  border-style: solid;
+}
+
+.status-button-red {
+  background: red !important;
+  padding-top: 50px;
+}
+
+.status-button-yellow {
+  background: yellow !important;
+  padding-top: 50px;
+}
+
+.status-button-blue {
+  background: blue !important;
+  padding-top: 50px;
 }
