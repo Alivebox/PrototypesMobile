@@ -25,7 +25,7 @@ Ext.define('TestMobile.view.webrequestform.RequestType', {
                 width: '100%',
                 text: ' ',
                 iconAlign: 'right',
-                style: '  border: none; background: none;',
+                cls: 'transparent-button',
                 listeners: {
                     scope: this,
                     tap: function(){
