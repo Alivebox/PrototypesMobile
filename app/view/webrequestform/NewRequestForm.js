@@ -8,9 +8,11 @@ Ext.define('TestMobile.view.webrequestform.NewRequestForm', {
     initialize: function(){
         this.header = this.createHeader();
         this.container = this.createContainer();
+        this.cancelProject = this.createCancelProjectButton();
         this.add([
             this.header,
-            this.container
+            this.container,
+            this.cancelProject
         ]);
         this.callParent(arguments);
     },
@@ -18,6 +20,7 @@ Ext.define('TestMobile.view.webrequestform.NewRequestForm', {
     createHeader: function() {
         var tmpHeader = {
             xtype : 'toolbar',
+            itemId: 'tbRequest',
             docked: 'top',
             title: 'New Request',
             items: [
@@ -107,7 +110,8 @@ Ext.define('TestMobile.view.webrequestform.NewRequestForm', {
         var tmpProjectTitle =  {
             xtype: 'textfield',
             name: 'txtTitle',
-            value: 'Project Title',
+            label: 'Project Title',
+            value: 'Project Name',
             readOnly: true
         };
         return tmpProjectTitle;
@@ -156,51 +160,20 @@ Ext.define('TestMobile.view.webrequestform.NewRequestForm', {
         return tmpTimePickerField;
     },
 
-    createBottomButtons: function(){
-        var tmpBottomButtons = {
-            xtype: 'container',
-            layout: {
-                type: 'hbox',
-                pack: 'center'
-            },
-            defaults: {
-                style: 'margin-left: 10px; margin-top: 10px;' +
-                    'border: none; background: none;'
-            },
-            items: [
-                {
-                    xtype: 'button',
-                    icon: 'resources/icons/Stop.png',
-                    listeners: {
-                        scope: this,
-                        tap: function() {
-                            this.fireEvent('stop')
-                        }
-                    }
-                },
-                {
-                    xtype: 'button',
-                    icon: 'resources/icons/Pause.png',
-                    listeners: {
-                        scope: this,
-                        tap: function() {
-                            this.fireEvent('pause')
-                        }
-                    }
-                },
-                {
-                    xtype: 'button',
-                    icon: 'resources/icons/Complete.png',
-                    listeners: {
-                        scope: this,
-                        tap: function() {
-                            this.fireEvent('complete')
-                        }
-                    }
+    createCancelProjectButton: function(){
+        var tmpSubmitButton = {
+            xtype: 'button',
+            itemId: 'bntCancel',
+            cls: 'margin-all-10',
+            text: 'Cancel Project',
+            listeners: {
+                scope: this,
+                tap: function(){
+                    this.fireEvent('cancelProject')
                 }
-            ]
+            }
         };
-        return tmpBottomButtons;
+        return tmpSubmitButton;
     }
 
 });

@@ -139,7 +139,8 @@ Ext.define('TestMobile.view.order.OrderDetail', {
         var tmpOrderTitle =  {
             xtype: 'textfield',
             name: 'txtTitle',
-            value: 'Order Title',
+            label: 'Order Title',
+            value: 'Order Name',
             readOnly: true
         };
         return tmpOrderTitle;

@@ -8,11 +8,11 @@ Ext.define('TestMobile.view.webrequestform.CheckList', {
     initialize: function(){
         this.header = this.createHeader();
         this.container = this.createContainer();
-        this.submitButton = this.createSubmitButton();
+        this.backListButton = this.createBackListButton();
         this.add([
             this.header,
             this.container,
-            this.submitButton
+            this.backListButton
         ]);
         this.callParent(arguments);
     },
@@ -43,7 +43,7 @@ Ext.define('TestMobile.view.webrequestform.CheckList', {
         var tmpContainer = {
             xtype: 'container',
             itemId: 'cCheckListBody',
-            padding: '10 10 10 10',
+            cls: 'padding-all-10',
             items: [
                 tmpAddButton,
                 {
@@ -80,12 +80,12 @@ Ext.define('TestMobile.view.webrequestform.CheckList', {
         return tmpAddButton;
     },
 
-    createSubmitButton: function(){
+    createBackListButton: function(){
         var tmpSubmitButton = {
             xtype: 'button',
-            itemId: 'btnSubmit',
-            margin: '10 10 10 10',
-            text: 'Submit'
+            itemId: 'btnBackList',
+            cls: 'margin-all-10',
+            text: 'Back to List'
         };
         return tmpSubmitButton;
     }

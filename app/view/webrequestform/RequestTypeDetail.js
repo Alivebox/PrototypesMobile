@@ -112,7 +112,8 @@ Ext.define('TestMobile.view.webrequestform.RequestTypeDetail', {
         var tmpProjectTitle =  {
             xtype: 'textfield',
             name: 'txtTitle',
-            value: 'Order Title',
+            label: 'Order Title',
+            value: 'Order Name',
             readOnly: true
         };
         return tmpProjectTitle;
