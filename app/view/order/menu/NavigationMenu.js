@@ -35,6 +35,9 @@ Ext.define('TestMobile.view.order.menu.NavigationMenu', {
         var tmpSettingsButton = this.createSettingsButton();
         var tmpContainer = {
             xtype: 'container',
+            defaults: {
+              margin: '10 10 0 10'
+            },
             items: [
                 tmpHomeButton,
                 tmpActiveOrdersButton,

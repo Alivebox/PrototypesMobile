@@ -32,6 +32,9 @@ Ext.define('TestMobile.view.order.menu.OrderMenu', {
         var tmpPrintButton = this.createPrintButton();
         var tmpContainer = {
             xtype: 'container',
+            defaults: {
+                margin: '10 10 0 10'
+            },
             items: [
                 tmpHistoryButton,
                 tmpDocumentsButton,
