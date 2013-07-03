@@ -8,7 +8,6 @@ Ext.define('TestMobile.ux.field.TimePicker', {
 
     requires:['TestMobile.ux.picker.Time'],
 
-
     config:{
         dateFormat:'H:i', //Default format show time only
         picker:true
@@ -55,6 +54,7 @@ Ext.define('TestMobile.ux.field.TimePicker', {
             change:'onPickerChange',
             hide:'onPickerHide'
         });
+
         picker.setValue(this.getValue());
         return picker;
     }

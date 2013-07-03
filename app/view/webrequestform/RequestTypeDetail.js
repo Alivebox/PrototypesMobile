@@ -58,10 +58,10 @@ Ext.define('TestMobile.view.webrequestform.RequestTypeDetail', {
         var tmpOrderTitle = this.createOrderTitleText();
         var tmpTypeSelectField = this.createTypeSelectField();
         var tmpStartDatePickerField = this.createDatePickerField('Start Date', 'dpStartDate');
-        var tmpStartTimePickerField = this.createTimePickerField('Start Time', new Date(), 'tpStartTime');
+        var tmpStartTimePickerField = this.createTimePickerField('Start Time', new Date(), 'tpStartTime', 'H:i T');
         var tmpEndDatePickerField = this.createDatePickerField('End Date', 'dpEndDate');
-        var tmpEndTimePickerField = this.createTimePickerField('End Time', new Date(), 'tpStartTime');
-        var tmpDurationTimePickerField = this.createTimePickerField('Duration', new Date(0, 0, 0, 0, 0, 0, 0), 'tpDuration');
+        var tmpEndTimePickerField = this.createTimePickerField('End Time', new Date(), 'tpEndTime', 'H:i T  ');
+        var tmpDurationLabel = this.createDurationTextField();
         var tmpFieldSets =  {
             xtype: 'fieldset',
             items: [
@@ -71,7 +71,7 @@ Ext.define('TestMobile.view.webrequestform.RequestTypeDetail', {
                 tmpTypeSelectField,
                 tmpStartDatePickerField,
                 tmpStartTimePickerField,
-                tmpDurationTimePickerField,
+                tmpDurationLabel,
                 tmpEndDatePickerField,
                 tmpEndTimePickerField
             ]
@@ -144,6 +144,7 @@ Ext.define('TestMobile.view.webrequestform.RequestTypeDetail', {
             label: argLabel,
             value: new Date(),
             itemId: argItemId,
+            dateFormat: 'd M Y',
             picker: {
                 yearFrom: 2010
             }
@@ -151,13 +152,14 @@ Ext.define('TestMobile.view.webrequestform.RequestTypeDetail', {
         return tmpDatePickerField;
     },
 
-    createTimePickerField: function(argLabel, argDate, argItemId){
+    createTimePickerField: function(argLabel, argDate, argItemId, argTimeZoneFormat){
         var tmpTimePickerField = {
             xtype: 'timepickerfield',
             label: argLabel,
             value: argDate,
             itemId: argItemId,
-            name: 'time'
+            name: 'time',
+            dateFormat: argTimeZoneFormat
         };
         return tmpTimePickerField;
     },
@@ -223,6 +225,17 @@ Ext.define('TestMobile.view.webrequestform.RequestTypeDetail', {
             }
         };
         return tmpSaveButton;
+    },
+
+    createDurationTextField: function(){
+        var tmpDurationTextField = {
+            xtype: 'textfield',
+            label: 'Duration',
+            value: '0 hrs',
+            itemId: 'txtDuration',
+            readOnly: true
+        }
+        return tmpDurationTextField;
     }
 
 });

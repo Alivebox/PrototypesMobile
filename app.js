@@ -34,6 +34,7 @@ Ext.application({
         'order.menu.OrderMenuController',
         'order.OrderController',
         'theme.ThemeController',
+        'time.TimeController',
         'webrequestform.ListRequestController',
         'webrequestform.CheckListController',
         'webrequestform.NewRequestFomController',
