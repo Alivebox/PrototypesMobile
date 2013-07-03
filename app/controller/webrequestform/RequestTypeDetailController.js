@@ -4,12 +4,28 @@ Ext.define('TestMobile.controller.webrequestform.RequestTypeDetailController', {
 
     config: {
         refs: {
+            datePickerStartDate : 'requesttypedetail [itemId=dpStartDate]',
+            datePickerEndDate : 'requesttypedetail [itemId=dpEndDate]',
+            datePickerStartTime : 'requesttypedetail [itemId=tpStartTime]',
+            datePickerEndTime : 'requesttypedetail [itemId=tpEndTime]',
             requestTypeDetail: 'requesttypedetail'
         },
         control : {
             requesttypedetail: {
                 showCheckList: 'onShowCheckList',
                 save: 'onSaveRequestTypeDetail'
+            },
+            datePickerStartDate: {
+                change: 'updateDurationTime'
+            },
+            datePickerEndDate: {
+                change: 'updateDurationTime'
+            },
+            datePickerStartTime: {
+                change: 'updateDurationTime'
+            },
+            datePickerEndTime: {
+                change: 'updateDurationTime'
             }
         }
     },
@@ -26,6 +42,20 @@ Ext.define('TestMobile.controller.webrequestform.RequestTypeDetailController', {
         var tmpBtnCheck = this.getRequestTypeDetail().requestType.down('#btnCheck');
         tmpBtnCheck.setIcon('resources/icons/check.png');
         this.onShowCheckList();
+    },
+
+    updateDurationTime: function(){
+        var tmpDpStartDate = this.getRequestTypeDetail().down('#dpStartDate');
+        var tmpDpEndDate = this.getRequestTypeDetail().down('#dpEndDate');
+        var tmpTpStartTime = this.getRequestTypeDetail().down('#tpStartTime');
+        var tmpTpEndTime = this.getRequestTypeDetail().down('#tpEndTime');
+        var tmpDifHours = this.getTimeController().calculateHoursDuration(tmpDpStartDate.getValue(), tmpDpEndDate.getValue(), tmpTpStartTime.getValue(), tmpTpEndTime.getValue());
+        var tmpTxtDuration = this.getRequestTypeDetail().down('#txtDuration');
+        tmpTxtDuration.setValue(tmpDifHours + ' hrs');
+    },
+
+    getTimeController: function(){
+        return this.getApplication().getController('TestMobile.controller.time.TimeController');
     },
 
     getMainController: function(){

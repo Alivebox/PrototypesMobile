@@ -49,12 +49,12 @@ Ext.define('TestMobile.controller.webrequestform.NewRequestFomController', {
         tmpTxtDuration.setValue(tmpDifHours + ' hrs');
     },
 
-    getMainController: function(){
-        return this.getApplication().getController('MainController');
-    },
-
     getTimeController: function(){
         return this.getApplication().getController('TestMobile.controller.time.TimeController');
+    },
+
+    getMainController: function(){
+        return this.getApplication().getController('MainController');
     }
 
 });
