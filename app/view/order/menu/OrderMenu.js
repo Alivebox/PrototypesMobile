@@ -48,6 +48,7 @@ Ext.define('TestMobile.view.order.menu.OrderMenu', {
         var tmpHistoryButton = {
             xtype: 'button',
             text: 'History',
+            cls: 'show-mgr-button',
             listeners: {
                 scope: this,
                 tap: function(){
@@ -62,6 +63,7 @@ Ext.define('TestMobile.view.order.menu.OrderMenu', {
         var tmpDocumentsButton = {
             xtype: 'button',
             text: 'Documents',
+            cls: 'show-mgr-button',
             listeners: {
                 scope: this,
                 tap: function(){
@@ -76,6 +78,7 @@ Ext.define('TestMobile.view.order.menu.OrderMenu', {
         var tmpPrintButton = {
             xtype: 'button',
             text: 'Print',
+            cls: 'show-mgr-button',
             listeners: {
                 scope: this,
                 tap: function(){

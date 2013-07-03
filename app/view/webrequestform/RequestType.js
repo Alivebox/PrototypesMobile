@@ -2,7 +2,7 @@ Ext.define('TestMobile.view.webrequestform.RequestType', {
     extend: 'Ext.Container',
     xtype: 'requesttype',
     config: {
-        height: 45
+        height: 85
     },
 
     initialize: function(){
@@ -16,7 +16,7 @@ Ext.define('TestMobile.view.webrequestform.RequestType', {
     createRequestType: function(){
         var tmpRequestType = {
             xtype: 'fieldset',
-                style: 'margin-right: 30px; margin-left: -2px;',
+            style: 'margin-right: 30px; margin-left: -2px; margin-top: 10px',
             items: [
             {
                 xtype: 'button',
@@ -43,8 +43,15 @@ Ext.define('TestMobile.view.webrequestform.RequestType', {
             {
                 xtype: 'label',
                 itemId: 'lblLocation',
+                html: 'Choose',
                 right: 10,
                 top: 10
+            },
+            {
+                xtype: 'textfield',
+                label: 'Order Status',
+                placeHolder: 'Available',
+                readOnly: true
             }
         ]
         };

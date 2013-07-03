@@ -124,7 +124,7 @@ Ext.define('TestMobile.view.login.Login', {
                 {
                     xtype: 'togglefield',
                     itemId: 'tfRememberMe',
-                    value: ' asdfasdfa',
+                    value: '  ',
                     padding: '3 10 0 0',
                     top: 0,
                     height: 48,

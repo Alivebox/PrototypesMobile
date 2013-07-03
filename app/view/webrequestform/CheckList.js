@@ -68,6 +68,7 @@ Ext.define('TestMobile.view.webrequestform.CheckList', {
             text: 'Add',
             itemId: 'btnAdd',
             icon: 'resources/icons/add.png',
+            cls: 'show-mgr-button',
             iconAlign: 'right',
             padding: '0 0 0 40',
             listeners: {
@@ -84,7 +85,7 @@ Ext.define('TestMobile.view.webrequestform.CheckList', {
         var tmpSubmitButton = {
             xtype: 'button',
             itemId: 'btnBackList',
-            cls: 'margin-all-10',
+            cls: 'margin-all-10 show-mgr-button',
             text: 'Back to List'
         };
         return tmpSubmitButton;

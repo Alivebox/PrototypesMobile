@@ -54,6 +54,7 @@ Ext.define('TestMobile.view.order.menu.NavigationMenu', {
         var tmpHomeButton = {
             xtype: 'button',
             text: 'Home',
+            cls: 'show-mgr-button',
             listeners: {
                 scope: this,
                 tap: function(){
@@ -68,6 +69,7 @@ Ext.define('TestMobile.view.order.menu.NavigationMenu', {
         var tmpActiveOrdersButton = {
             xtype: 'button',
             text: 'Active Orders',
+            cls: 'show-mgr-button',
             listeners: {
                 scope: this,
                 tap: function(){
@@ -82,6 +84,7 @@ Ext.define('TestMobile.view.order.menu.NavigationMenu', {
         var tmpQueueButton = {
             xtype: 'button',
             text: 'Queue',
+            cls: 'show-mgr-button',
             listeners: {
                 scope: this,
                 tap: function(){
@@ -96,6 +99,7 @@ Ext.define('TestMobile.view.order.menu.NavigationMenu', {
         var tmpShiftsButton = {
             xtype: 'button',
             text: 'Shifts',
+            cls: 'show-mgr-button',
             listeners: {
                 scope: this,
                 tap: function(){
@@ -110,6 +114,7 @@ Ext.define('TestMobile.view.order.menu.NavigationMenu', {
         var tmpTimeAwayButton = {
             xtype: 'button',
             text: 'Time Away',
+            cls: 'show-mgr-button',
             listeners: {
                 scope: this,
                 tap: function(){
@@ -124,6 +129,7 @@ Ext.define('TestMobile.view.order.menu.NavigationMenu', {
         var tmpSettingsButton = {
             xtype: 'button',
             text: 'Settings',
+            cls: 'show-mgr-button',
             listeners: {
                 scope: this,
                 tap: function(){

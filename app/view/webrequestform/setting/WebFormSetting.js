@@ -52,40 +52,61 @@ Ext.define('TestMobile.view.webrequestform.setting.WebFormSetting', {
     },
 
     createMenuContainer: function(){
-        var tmpEmailFieldSet = this.createEmailFieldSet();
+        var tmpLoginFieldSet = this.createLoginFieldSet();
         var tmpAccessCodeField = this.createAccessCodeField();
-        var tmpPassowordFieldSet = this.createPasswordFieldSet();
         var tmpMenuContainer = {
             xtype: 'container',
             items: [
-                tmpEmailFieldSet,
-                tmpAccessCodeField,
-                tmpPassowordFieldSet
+                tmpLoginFieldSet,
+                tmpAccessCodeField
             ]
         };
         return tmpMenuContainer;
     },
 
-    createEmailFieldSet: function(){
-        var tmpEmailFieldSet =  {
+    createLoginFieldSet: function(){
+        var tmpLoginFieldSet =  {
             xtype: 'fieldset',
             margin: '10 10 10 10',
             items: [
                 {
                     xtype: 'textfield',
-                    name: 'txtEmail',
-                    label: 'Email',
+                    name: 'txtLogin',
+                    label: 'Login',
                     value: 'producer@cnn.com'
                 },
                 {
                     xtype: 'textfield',
-                    name: 'txtEmail',
+                    name: 'txtCode',
                     label: 'Code',
                     value: '0123456'
+                },
+                {
+                    xtype: 'passwordfield',
+                    label: 'Password',
+                    name: 'txtPassword',
+                    value: '12345',
+                    placeHolder: 'password'
+                },
+                {
+                    xtype: 'textfield',
+                    name: 'txtMail',
+                    placeHolder: 'Remember Me',
+                    height: '100%',
+                    readOnly: true
+                },
+                {
+                    xtype: 'togglefield',
+                    itemId: 'tfRememberMe',
+                    value: ' asdfasdfa',
+                    padding: '3 10 0 0',
+                    top: 140,
+                    height: 48,
+                    cls: 'login-remember-me-toggle'
                 }
             ]
         };
-        return tmpEmailFieldSet;
+        return tmpLoginFieldSet;
     },
 
     createAccessCodeField: function(){
@@ -101,24 +122,19 @@ Ext.define('TestMobile.view.webrequestform.setting.WebFormSetting', {
                 {
                     xtype: 'button',
                     itemId: 'btnRequestAccess',
-                    text: 'Request Access'
+                    cls: 'show-mgr-button',
+                    text: 'Request Access',
+                    margin: '0 0 0 0'
+                },
+                {
+                    xtype: 'button',
+                    itemId: 'btnRecoveryPassword',
+                    text: 'Recovery Password',
+                    cls: 'show-mgr-button',
+                    margin: '10 0 0 0'
                 }
             ]
         };
         return tmpAccessCodeField;
-    },
-
-    createPasswordFieldSet: function(){
-        var tmpPassowordFieldSet = {
-            xtype: 'fieldset',
-            items: [
-                {
-                    xtype: 'passwordfield',
-                    name: 'txtPassword',
-                    placeHolder: 'password'
-                }
-            ]
-        };
-        return tmpPassowordFieldSet;
     }
 });

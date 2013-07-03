@@ -68,9 +68,9 @@ Ext.define('TestMobile.view.webrequestform.NewRequestForm', {
         var tmpProjectTitle = this.createProjectTitleText();
         var tmpTypeSelectField = this.createTypeSelectField();
         var tmpStartDatePickerField = this.createDatePickerField('Start Date', 'dpStartDate');
-        var tmpStartTimePickerField = this.createTimePickerField('Start Time', new Date(), 'tpStartTime', 'H:i T');
+        var tmpStartTimePickerField = this.createTimePickerField('Start Time', new Date(), 'tpStartTime', 'H:i TO');
         var tmpEndDatePickerField = this.createDatePickerField('End Date', 'dpEndDate');
-        var tmpEndTimePickerField = this.createTimePickerField('End Time', new Date(), 'tpEndTime', 'H:i T  ');
+        var tmpEndTimePickerField = this.createTimePickerField('End Time', new Date(), 'tpEndTime', 'H:i TO');
         var tmpDurationLabel = this.createDurationTextField();
         var tmpFieldSets =  {
             xtype: 'fieldset',
@@ -166,7 +166,7 @@ Ext.define('TestMobile.view.webrequestform.NewRequestForm', {
         var tmpSubmitButton = {
             xtype: 'button',
             itemId: 'bntCancel',
-            cls: 'margin-all-10',
+            cls: 'margin-all-10 show-mgr-button',
             text: 'Cancel Project',
             listeners: {
                 scope: this,

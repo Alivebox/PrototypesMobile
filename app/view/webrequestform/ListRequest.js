@@ -51,6 +51,7 @@ Ext.define('TestMobile.view.webrequestform.ListRequest', {
             xtype: 'button',
             itemId: 'btnNewRequest',
             margin: '10 10 10 10',
+            cls: 'show-mgr-button',
             docked: 'top',
             text: 'New Request',
             listeners: {
