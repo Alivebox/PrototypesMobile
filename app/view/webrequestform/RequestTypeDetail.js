@@ -9,11 +9,11 @@ Ext.define('TestMobile.view.webrequestform.RequestTypeDetail', {
     initialize: function(){
         this.header = this.createHeader();
         this.container = this.createContainer();
-        this.saveButton = this.createSaveButton();
+        this.buttonContainer = this.createBottomButtonsContainer();
         this.add([
             this.header,
             this.container,
-            this.saveButton
+            this.buttonContainer
         ]);
         this.callParent(arguments);
     },
@@ -54,7 +54,7 @@ Ext.define('TestMobile.view.webrequestform.RequestTypeDetail', {
 
     createFieldSets: function(){
         var tmpLocationSelectField = this.createLocationSelectField();
-        var tmpViewScheduleButton = this.createViewScheduleButton()
+        var tmpStatusTextField = this.createStatusTextField()
         var tmpOrderTitle = this.createOrderTitleText();
         var tmpTypeSelectField = this.createTypeSelectField();
         var tmpStartDatePickerField = this.createDatePickerField('Start Date', 'dpStartDate');
@@ -66,7 +66,7 @@ Ext.define('TestMobile.view.webrequestform.RequestTypeDetail', {
             xtype: 'fieldset',
             items: [
                 tmpLocationSelectField,
-                tmpViewScheduleButton,
+                tmpStatusTextField,
                 tmpOrderTitle,
                 tmpTypeSelectField,
                 tmpStartDatePickerField,
@@ -98,14 +98,15 @@ Ext.define('TestMobile.view.webrequestform.RequestTypeDetail', {
         return tmpLocationSelectField;
     },
 
-    createViewScheduleButton: function(){
-        var tmpViewScheduleButton = {
-            xtype: 'button',
-            itemId: 'btnSchedule',
-            margin: '10 10 10 10',
-            text: 'View Schedule'
+    createStatusTextField: function(){
+        var tmpTxtStatus = {
+            xtype: 'textfield',
+            itemId: 'txtStatus',
+            value: 'Available',
+            label: 'Status',
+            readOnly: true
         };
-        return tmpViewScheduleButton;
+        return tmpTxtStatus;
     },
 
     createOrderTitleText: function(){
@@ -211,20 +212,56 @@ Ext.define('TestMobile.view.webrequestform.RequestTypeDetail', {
         return tmpBottomButtons;
     },
 
-    createSaveButton: function(){
-        var tmpSaveButton = {
+    createBottomButtonsContainer: function(){
+        var tmpSubmitButton = this.createSubmitButton();
+        var tmpCancelButton = this.createCancelButton();
+        var tmpBottomButtons = {
+            xtype: 'container',
+            layout: {
+                type: 'hbox',
+                pack: 'center'
+            },
+            default: {
+                margin: '10 10 10 10',
+                width: '100%'
+            },
+            items: [
+                tmpCancelButton,
+                tmpSubmitButton
+            ]
+        }
+        return tmpBottomButtons;
+    },
+
+    createSubmitButton: function(){
+        var tmpSubmitButton = {
             xtype: 'button',
-            itemId: 'btnSave',
-            text: 'Save',
+            itemId: 'btnSubmit',
+            text: 'Submit',
+            listeners: {
+                scope: this,
+                tap: function(){
+                    this.fireEvent('submit', this)
+                }
+            }
+        };
+        return tmpSubmitButton;
+    },
+
+    createCancelButton: function(){
+        var tmpCancelButton = {
+            xtype: 'button',
+            itemId: 'btnCancel',
+            text: 'Cancel',
             margin: '0 10 0 10',
             listeners: {
                 scope: this,
                 tap: function(){
-                    this.fireEvent('save', this)
+                    this.fireEvent('Cancel', this)
                 }
             }
         };
-        return tmpSaveButton;
+        return tmpCancelButton;
     },
 
     createDurationTextField: function(){

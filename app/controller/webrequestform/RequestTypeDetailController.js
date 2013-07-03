@@ -13,7 +13,7 @@ Ext.define('TestMobile.controller.webrequestform.RequestTypeDetailController', {
         control : {
             requesttypedetail: {
                 showCheckList: 'onShowCheckList',
-                save: 'onSaveRequestTypeDetail'
+                submit: 'onSubmitRequestTypeDetail'
             },
             datePickerStartDate: {
                 change: 'updateDurationTime'
@@ -35,7 +35,7 @@ Ext.define('TestMobile.controller.webrequestform.RequestTypeDetailController', {
         tmpMainController.showCheckListView();
     },
 
-    onSaveRequestTypeDetail: function(argComponent){
+    onSubmitRequestTypeDetail: function(argComponent){
         var tmpLblLocation = this.getRequestTypeDetail().requestType.down('#lblLocation');
         var tmpLocationValue = argComponent.down('#sfLocation');
         tmpLblLocation.setHtml(tmpLocationValue.getValue());
