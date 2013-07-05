@@ -58,9 +58,9 @@ Ext.define('TestMobile.view.webrequestform.RequestTypeDetail', {
         var tmpOrderTitle = this.createOrderTitleText();
         var tmpTypeSelectField = this.createTypeSelectField();
         var tmpStartDatePickerField = this.createDatePickerField('Start Date', 'dpStartDate');
-        var tmpStartTimePickerField = this.createTimePickerField('Start Time', new Date(), 'tpStartTime', 'H:i TO');
+        var tmpStartTimePickerField = this.createTimePickerField('Start Time', new Date(), 'tpStartTime', 'H:i T');
         var tmpEndDatePickerField = this.createDatePickerField('End Date', 'dpEndDate');
-        var tmpEndTimePickerField = this.createTimePickerField('End Time', new Date(), 'tpEndTime', 'H:i TO');
+        var tmpEndTimePickerField = this.createTimePickerField('End Time', new Date(), 'tpEndTime', 'H:i T');
         var tmpDurationLabel = this.createDurationTextField();
         var tmpFieldSets =  {
             xtype: 'fieldset',
@@ -101,9 +101,9 @@ Ext.define('TestMobile.view.webrequestform.RequestTypeDetail', {
     createStatusTextField: function(){
         var tmpTxtStatus = {
             xtype: 'textfield',
-            itemId: 'txtStatus',
-            value: 'Available',
-            label: 'Status',
+            itemId: 'txtFacilitiesAvailable',
+            value: '2',
+            label: 'Facilities Available',
             readOnly: true
         };
         return tmpTxtStatus;
