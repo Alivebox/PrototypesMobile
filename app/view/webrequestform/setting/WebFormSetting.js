@@ -128,8 +128,8 @@ Ext.define('TestMobile.view.webrequestform.setting.WebFormSetting', {
                 },
                 {
                     xtype: 'button',
-                    itemId: 'btnRecoveryPassword',
-                    text: 'Recovery Password',
+                    itemId: 'btnForgotPassword',
+                    text: 'Forgot Password',
                     cls: 'show-mgr-button',
                     margin: '10 0 0 0'
                 }

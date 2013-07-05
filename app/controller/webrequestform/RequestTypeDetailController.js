@@ -39,8 +39,8 @@ Ext.define('TestMobile.controller.webrequestform.RequestTypeDetailController', {
         var tmpLblLocation = this.getRequestTypeDetail().requestType.down('#lblLocation');
         var tmpLocationValue = argComponent.down('#sfLocation');
         tmpLblLocation.setHtml(tmpLocationValue.getValue());
-        var tmpBtnCheck = this.getRequestTypeDetail().requestType.down('#btnCheck');
-        tmpBtnCheck.setIcon('resources/icons/check.png');
+        var tmpImgCheck = this.getRequestTypeDetail().requestType.down('#imgCheck');
+        tmpImgCheck.setSrc('resources/icons/check.png');
         this.onShowCheckList();
     },
 

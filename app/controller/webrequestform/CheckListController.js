@@ -30,7 +30,7 @@ Ext.define('TestMobile.controller.webrequestform.CheckListController', {
         for(var tmpCont = 0; tmpCont < this.getRequestTypePicker().getValue().quantity; tmpCont++){
             var tmpRequestType = Ext.create('TestMobile.view.webrequestform.RequestType', {});
             var tmpTxtRequestType = tmpRequestType.down('#txtRequestType');
-            tmpTxtRequestType.setPlaceHolder(this.getRequestTypePicker().getValue().requesttype);
+            tmpTxtRequestType.setValue(this.getRequestTypePicker().getValue().requesttype);
             this.getCCheckListBody().add(tmpRequestType);
         }
         this.getRequestTypePicker().hide();

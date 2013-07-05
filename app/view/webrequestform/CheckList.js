@@ -8,11 +8,9 @@ Ext.define('TestMobile.view.webrequestform.CheckList', {
     initialize: function(){
         this.header = this.createHeader();
         this.container = this.createContainer();
-        this.backListButton = this.createBackListButton();
         this.add([
             this.header,
-            this.container,
-            this.backListButton
+            this.container
         ]);
         this.callParent(arguments);
     },
@@ -79,15 +77,5 @@ Ext.define('TestMobile.view.webrequestform.CheckList', {
             }
         };
         return tmpAddButton;
-    },
-
-    createBackListButton: function(){
-        var tmpSubmitButton = {
-            xtype: 'button',
-            itemId: 'btnBackList',
-            cls: 'margin-all-10 show-mgr-button',
-            text: 'Back to List'
-        };
-        return tmpSubmitButton;
     }
 });

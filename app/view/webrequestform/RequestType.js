@@ -18,42 +18,50 @@ Ext.define('TestMobile.view.webrequestform.RequestType', {
             xtype: 'fieldset',
             style: 'margin-right: 30px; margin-left: -2px; margin-top: 10px',
             items: [
-            {
-                xtype: 'button',
-                itemId: 'btnCheck',
-                right: -40,
-                width: '100%',
-                text: ' ',
-                iconAlign: 'right',
-                cls: 'transparent-button',
-                listeners: {
-                    scope: this,
-                    tap: function(){
-                        this.fireEvent('showRequestTypeDetail', this)
+                {
+                    xtype: 'button',
+                    itemId: 'btnCheck',
+                    right: 0,
+                    height: 46,
+                    width: '100%',
+                    text: ' ',
+                    cls: 'transparent-button',
+                    listeners: {
+                        scope: this,
+                        tap: function(){
+                            this.fireEvent('showRequestTypeDetail', this)
+                        }
                     }
+                },
+                {
+                    xtype: 'img',
+                    itemId: 'imgCheck',
+                    height: 25,
+                    width: 25,
+                    top: 10,
+                    right: -30
+                },
+                {
+                    xtype: 'textfield',
+                    itemId: 'txtRequestType',
+                    name: 'txtRequestType',
+                    placeHolder: '',
+                    readOnly: 'true'
+                },
+                {
+                    xtype: 'label',
+                    itemId: 'lblLocation',
+                    html: 'Choose',
+                    right: 10,
+                    top: 13
+                },
+                {
+                    xtype: 'label',
+                    html: 'Order Status Available',
+                    height: 46,
+                    padding: '10 0 0 130'
                 }
-            },
-            {
-                xtype: 'textfield',
-                itemId: 'txtRequestType',
-                name: 'txtRequestType',
-                placeHolder: '',
-                readOnly: 'true'
-            },
-            {
-                xtype: 'label',
-                itemId: 'lblLocation',
-                html: 'Choose',
-                right: 10,
-                top: 10
-            },
-            {
-                xtype: 'textfield',
-                label: 'Order Status',
-                placeHolder: 'Available',
-                readOnly: true
-            }
-        ]
+            ]
         };
         return tmpRequestType;
     }
