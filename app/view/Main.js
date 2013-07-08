@@ -10,7 +10,7 @@ Ext.define('TestMobile.view.Main', {
 
     initialize: function(){
         this.add([
-            {
+            /*{
                 xtype: 'login'
             },
             {
@@ -36,7 +36,7 @@ Ext.define('TestMobile.view.Main', {
             },
             {
                 xtype: 'checklist'
-            },
+            },*/
             {
                 xtype: 'listrequest'
             },

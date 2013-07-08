@@ -11,7 +11,8 @@ Ext.define('TestMobile.controller.webrequestform.CheckListController', {
             checklist: {
                 showBack: 'onShowWebRequestForm',
                 showRequestTypePicker: 'onShowRequestTypePicker',
-                requestTypePicked: 'onRequestTypePicked'
+                requestTypePicked: 'onRequestTypePicked',
+                backToForm: 'onShowWebRequestForm'
             }
         }
     },
