@@ -7,7 +7,8 @@ Ext.define('TestMobile.controller.webrequestform.NewRequestFomController', {
           datePickerEndDate : 'newrequestform [itemId=dpEndDate]',
           datePickerStartTime : 'newrequestform [itemId=tpStartTime]',
           datePickerEndTime : 'newrequestform [itemId=tpEndTime]',
-          newRequestForm: 'newrequestform'
+          newRequestForm: 'newrequestform',
+          listRequest: 'listrequest'
         },
         control : {
             newrequestform: {
@@ -31,6 +32,7 @@ Ext.define('TestMobile.controller.webrequestform.NewRequestFomController', {
     },
 
     onShowListRequest: function(){
+        this.getListRequest().deselectAll();
         var tmpMainController = this.getMainController();
         tmpMainController.showListRequestView();
     },
