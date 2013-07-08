@@ -12,7 +12,8 @@ Ext.define('TestMobile.controller.webrequestform.NewRequestFomController', {
         control : {
             newrequestform: {
                 showBack: 'onShowListRequest',
-                showNext: 'onShowCheckList'
+                showNext: 'onShowCheckList',
+                cancelProject: 'onShowListRequest'
             },
             datePickerStartDate: {
                 change: 'updateDurationTime'

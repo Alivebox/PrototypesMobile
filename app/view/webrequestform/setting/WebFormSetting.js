@@ -87,14 +87,7 @@ Ext.define('TestMobile.view.webrequestform.setting.WebFormSetting', {
                     name: 'txtPassword',
                     value: '12345',
                     placeHolder: 'password'
-                }/*,
-                {
-                    xtype: 'textfield',
-                    name: 'txtMail',
-                    placeHolder: 'Remember Me',
-                    height: 60,
-                    readOnly: true
-                }*/,
+                },
                 {
                     xtype: 'togglefield',
                     itemId: 'tfRememberMe',

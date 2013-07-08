@@ -3,19 +3,31 @@ Ext.define('TestMobile.controller.webrequestform.ListRequestController', {
 
     config: {
         refs: {
-            newRequestForm : 'newrequestform'
+            newRequestForm : 'newrequestform',
+            requestTitle: 'newrequestform [itemId=txtTitle]'
         },
 
         control : {
             listrequest: {
                 showNewRequestForm: 'onShowWebRequestForm',
                 showSettings: 'onShowSettings',
-                select: 'onShowRequestForm'
+                select: 'onSelectedRequest'
+            },
+            requestTitle: {
+                change: 'onUpdateTBTitle'
             }
         }
     },
 
     onShowWebRequestForm: function(){
+        var tmpTbRequest = this.getNewRequestForm().down('#tbRequest');
+        tmpTbRequest.setTitle('New Request');
+        var tmpSfShowTitle = this.getNewRequestForm().down('#sfShowTitle');
+        tmpSfShowTitle.setValue('');
+        var tmpTxtTitle = this.getNewRequestForm().down('#txtTitle');
+        tmpTxtTitle.setValue('');
+        var tmpSfType = this.getNewRequestForm().down('#sfType');
+        tmpSfType.setValue('');
         var tmpMainController = this.getMainController();
         tmpMainController.showNewResquestFormView();
     },
@@ -34,5 +46,28 @@ Ext.define('TestMobile.controller.webrequestform.ListRequestController', {
 
     getMainController: function(){
         return this.getApplication().getController('MainController');
+    },
+
+    onSelectedRequest: function(){
+        var tmpTbRequest = this.getNewRequestForm().down('#tbRequest');
+        tmpTbRequest.setTitle('Project Name');
+        var tmpSfShowTitle = this.getNewRequestForm().down('#sfShowTitle');
+        tmpSfShowTitle.setValue('Anderson Cooper 360');
+        var tmpTxtTitle = this.getNewRequestForm().down('#txtTitle');
+        tmpTxtTitle.setValue('Project Name');
+        var tmpSfType = this.getNewRequestForm().down('#sfType');
+        tmpSfType.setValue('Pre Tape');
+        var tmpMainController = this.getMainController();
+        tmpMainController.showNewResquestFormView();
+   },
+
+    onUpdateTBTitle: function(){
+        var tmpTxtTitle = this.getNewRequestForm().down('#txtTitle');
+        var tmpTbRequest = this.getNewRequestForm().down('#tbRequest');
+        if(Ext.isEmpty(tmpTxtTitle.getValue())){
+            tmpTbRequest.setTitle('New Request');
+            return;
+        }
+        tmpTbRequest.setTitle(tmpTxtTitle.getValue());
     }
 });

@@ -92,14 +92,18 @@ Ext.define('TestMobile.view.webrequestform.NewRequestForm', {
         var tmpShowTitleSelectField =  {
             xtype: 'selectfield',
             name: 'showTitle',
+            itemId: 'sfShowTitle',
             label: 'Show Title',
             valueField: 'name',
             displayField: 'name',
             store: {
                 data: [
+                    { id: '0', name: ''},
                     { id: '1', name: 'Anderson Cooper 360'},
-                    { id: '2', name: 'WeekEnds'},
-                    { id: '3', name: 'Special days'}
+                    { id: '2', name: 'Nancy Grace'},
+                    { id: '3', name: 'Dr. Drew'},
+                    { id: '4', name: 'CNN Newsroom'},
+                    { id: '5', name: 'Anthony Bourdain Parts Unknown'}
                 ]
             }
         };
@@ -109,10 +113,8 @@ Ext.define('TestMobile.view.webrequestform.NewRequestForm', {
     createProjectTitleText: function(){
         var tmpProjectTitle =  {
             xtype: 'textfield',
-            name: 'txtTitle',
-            label: 'Title',
-            value: 'Project Name',
-            readOnly: true
+            itemId: 'txtTitle',
+            label: 'Title'
         };
         return tmpProjectTitle;
     },
@@ -120,12 +122,13 @@ Ext.define('TestMobile.view.webrequestform.NewRequestForm', {
     createTypeSelectField: function(){
         var tmpTypeSelectField = {
             xtype: 'selectfield',
-            name: 'sfType',
+            itemId: 'sfType',
             label: 'Type',
             valueField: 'name',
             displayField: 'name',
             store: {
                 data: [
+                    { id: '0', name: ''},
                     { id: '1', name: 'Pre Tape'},
                     { id: '2', name: 'Tape'},
                     { id: '3', name: 'Post Tape'}
