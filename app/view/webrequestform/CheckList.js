@@ -116,7 +116,7 @@ Ext.define('TestMobile.view.webrequestform.CheckList', {
         var tmpProjectTitle =  {
             xtype: 'textfield',
             name: 'txtTitle',
-            label: 'Request Title',
+            label: 'Request',
             value: 'Project Name',
             readOnly: true
         };
@@ -138,7 +138,7 @@ Ext.define('TestMobile.view.webrequestform.CheckList', {
         var tmpRequestStartDate =  {
             xtype: 'textfield',
             name: 'txtTitle',
-            label: 'Request Start Date',
+            label: 'Start Date',
             value: '08 Jul 2013 14:16 GTM',
             readOnly: true
         };

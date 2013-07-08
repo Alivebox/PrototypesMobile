@@ -103,7 +103,7 @@ Ext.define('TestMobile.view.webrequestform.RequestTypeDetail', {
             xtype: 'textfield',
             itemId: 'txtFacilitiesAvailable',
             value: '2',
-            label: 'Facilities Available',
+            label: 'Available',
             readOnly: true
         };
         return tmpTxtStatus;

@@ -59,7 +59,7 @@ Ext.define('TestMobile.view.webrequestform.RequestType', {
                     xtype: 'label',
                     html: 'Order Status Available',
                     height: 46,
-                    padding: '10 0 0 130'
+                    style: 'padding-left: 50%; margin-left: -70px;'
                 }
             ]
         };

@@ -117,7 +117,7 @@ Ext.define('TestMobile.view.webrequestform.setting.WebFormSetting', {
                 {
                     xtype: 'label',
                     padding: '0 0 10 0',
-                    html: 'Dont have a code?'
+                    html: "Don't have a code?"
                 },
                 {
                     xtype: 'button',
