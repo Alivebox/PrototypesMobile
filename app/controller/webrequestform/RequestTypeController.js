@@ -16,7 +16,7 @@ Ext.define('TestMobile.controller.webrequestform.RequestTypeController', {
     },
 
     onShowRequestTypeDetail: function(argComponent){
-        var tmpTitle = argComponent.down('#txtRequestType').getPlaceHolder();
+        var tmpTitle = argComponent.down('#txtRequestType').getValue();
         var tmpToolBar = this.getRequestTypeDetail().down('#tbRequestTypeDetail');
         tmpToolBar.setTitle(tmpTitle);
         this.getRequestTypeDetail().requestType = argComponent;

@@ -91,8 +91,14 @@ Ext.define('TestMobile.view.webrequestform.RequestTypeDetail', {
                 data: [
                     { id: '1', name: 'New York'},
                     { id: '2', name: 'Atlanta'},
-                    { id: '3', name: 'California'}
+                    { id: '3', name: 'Los Angeles'}
                 ]
+            },
+            listeners: {
+                scope: this,
+                change: function(){
+                    this.fireEvent('locationSelected');
+                }
             }
         };
         return tmpLocationSelectField;
@@ -101,7 +107,7 @@ Ext.define('TestMobile.view.webrequestform.RequestTypeDetail', {
     createStatusTextField: function(){
         var tmpTxtStatus = {
             xtype: 'textfield',
-            itemId: 'txtFacilitiesAvailable',
+            itemId: 'txtAvailable',
             value: '2',
             label: 'Available',
             readOnly: true
@@ -114,8 +120,7 @@ Ext.define('TestMobile.view.webrequestform.RequestTypeDetail', {
             xtype: 'textfield',
             name: 'txtTitle',
             label: 'Order Title',
-            value: 'Order Name',
-            readOnly: true
+            value: 'Order Name'
         };
         return tmpProjectTitle;
     },

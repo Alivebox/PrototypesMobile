@@ -13,7 +13,8 @@ Ext.define('TestMobile.controller.webrequestform.RequestTypeDetailController', {
         control : {
             requesttypedetail: {
                 showCheckList: 'onShowCheckList',
-                submit: 'onSubmitRequestTypeDetail'
+                submit: 'onSubmitRequestTypeDetail',
+                locationSelected: 'onLocationSelected'
             },
             datePickerStartDate: {
                 change: 'updateDurationTime'
@@ -60,5 +61,20 @@ Ext.define('TestMobile.controller.webrequestform.RequestTypeDetailController', {
 
     getMainController: function(){
         return this.getApplication().getController('MainController');
+    },
+
+    onLocationSelected: function(){
+        var tmpTxtAvailable = this.getRequestTypeDetail().down('#txtAvailable');
+        var tmpSfLocation = this.getRequestTypeDetail().down('#sfLocation');
+        switch (tmpSfLocation.getValue()) {
+            case 'New York':
+                tmpTxtAvailable.setValue('2');
+                return;
+            case 'Los Angeles':
+                tmpTxtAvailable.setValue('0');
+                return;
+            case 'Atlanta':
+                tmpTxtAvailable.setValue('3');
+        }
     }
 });
