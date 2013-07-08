@@ -8,6 +8,9 @@ Ext.define('TestMobile.controller.time.TimeController', {
     },
 
     calculateHoursDuration: function(argStartDate, argEndDate, argStartTime, argEndTime){
+        if(argStartDate == null || argEndDate == null){
+            return 0;
+        }
         argStartDate.setHours(0,0,0,0);
         argEndDate.setHours(0,0,0,0);
         var tmpDif = argEndDate.getTime() - argStartDate.getTime();

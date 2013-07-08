@@ -114,7 +114,10 @@ Ext.define('TestMobile.view.webrequestform.NewRequestForm', {
         var tmpProjectTitle =  {
             xtype: 'textfield',
             itemId: 'txtTitle',
-            label: 'Title'
+            label: 'Title',
+            listeners: {
+
+            }
         };
         return tmpProjectTitle;
     },

@@ -28,6 +28,14 @@ Ext.define('TestMobile.controller.webrequestform.ListRequestController', {
         tmpTxtTitle.setValue('');
         var tmpSfType = this.getNewRequestForm().down('#sfType');
         tmpSfType.setValue('');
+        var tmpDpStartDate = this.getNewRequestForm().down('#dpStartDate');
+        tmpDpStartDate.setValue(null);
+        var tmpDpEndDate = this.getNewRequestForm().down('#dpEndDate');
+        tmpDpEndDate.setValue(null);
+        var tmpTpStartTime = this.getNewRequestForm().down('#tpStartTime');
+        tmpTpStartTime.setValue(null);
+        var tmpTpEndTime = this.getNewRequestForm().down('#tpEndTime');
+        tmpTpEndTime.setValue(null);
         var tmpMainController = this.getMainController();
         tmpMainController.showNewResquestFormView();
     },
@@ -57,6 +65,14 @@ Ext.define('TestMobile.controller.webrequestform.ListRequestController', {
         tmpTxtTitle.setValue('Project Name');
         var tmpSfType = this.getNewRequestForm().down('#sfType');
         tmpSfType.setValue('Pre Tape');
+        var tmpDpStartDate = this.getNewRequestForm().down('#dpStartDate');
+        tmpDpStartDate.setValue(new Date());
+        var tmpDpEndDate = this.getNewRequestForm().down('#dpEndDate');
+        tmpDpEndDate.setValue(new Date());
+        var tmpTpStartTime = this.getNewRequestForm().down('#tpStartTime');
+        tmpTpStartTime.setValue(new Date());
+        var tmpTpEndTime = this.getNewRequestForm().down('#tpEndTime');
+        tmpTpEndTime.setValue(new Date());
         var tmpMainController = this.getMainController();
         tmpMainController.showNewResquestFormView();
    },
