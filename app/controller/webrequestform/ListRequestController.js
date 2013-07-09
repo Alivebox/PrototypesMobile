@@ -4,7 +4,6 @@ Ext.define('TestMobile.controller.webrequestform.ListRequestController', {
     config: {
         refs: {
             newRequestForm : 'newrequestform',
-            requestTitle: 'newrequestform [itemId=txtTitle]'
         },
 
         control : {
@@ -12,9 +11,6 @@ Ext.define('TestMobile.controller.webrequestform.ListRequestController', {
                 showNewRequestForm: 'onShowWebRequestForm',
                 showSettings: 'onShowSettings',
                 select: 'onSelectedRequest'
-            },
-            requestTitle: {
-                change: 'onUpdateTBTitle'
             }
         }
     },
