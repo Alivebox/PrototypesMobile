@@ -2,6 +2,9 @@ Ext.define('TestMobile.controller.webrequestform.RequestTypeDetailController', {
 
     extend: 'Ext.app.Controller',
 
+    //Will handle the updateTimeMethod
+    flatActiveChange: false,
+
     config: {
         refs: {
             datePickerStartDate : 'requesttypedetail [itemId=dpStartDate]',
@@ -14,7 +17,8 @@ Ext.define('TestMobile.controller.webrequestform.RequestTypeDetailController', {
             requesttypedetail: {
                 showCheckList: 'onShowCheckList',
                 submit: 'onSubmitRequestTypeDetail',
-                locationSelected: 'onLocationSelected'
+                locationSelected: 'onLocationSelected',
+                durationChanged: 'onUpdateEndTime'
             },
             datePickerStartDate: {
                 change: 'updateDurationTime'
@@ -50,13 +54,18 @@ Ext.define('TestMobile.controller.webrequestform.RequestTypeDetailController', {
     },
 
     updateDurationTime: function(){
+        if(this.flatActiveChange){
+            return;
+        }
         var tmpDpStartDate = this.getRequestTypeDetail().down('#dpStartDate');
         var tmpDpEndDate = this.getRequestTypeDetail().down('#dpEndDate');
         var tmpTpStartTime = this.getRequestTypeDetail().down('#tpStartTime');
         var tmpTpEndTime = this.getRequestTypeDetail().down('#tpEndTime');
         var tmpDifHours = this.getTimeController().calculateHoursDuration(tmpDpStartDate.getValue(), tmpDpEndDate.getValue(), tmpTpStartTime.getValue(), tmpTpEndTime.getValue());
         var tmpTxtDuration = this.getRequestTypeDetail().down('#txtDuration');
+        this.flatActiveChange = true;
         tmpTxtDuration.setValue(tmpDifHours + ' hrs');
+        this.flatActiveChange = false;
     },
 
     getTimeController: function(){
@@ -80,5 +89,19 @@ Ext.define('TestMobile.controller.webrequestform.RequestTypeDetailController', {
             case 'Atlanta':
                 tmpTxtAvailable.setValue('3');
         }
+    },
+
+    onUpdateEndTime: function(){
+        var tmpDpStartDate = this.getRequestTypeDetail().down('#dpStartDate');
+        var tmpDpEndDate = this.getRequestTypeDetail().down('#dpEndDate');
+        var tmpTpStartTime = this.getRequestTypeDetail().down('#tpStartTime');
+        var tmpTpEndTime = this.getRequestTypeDetail().down('#tpEndTime');
+        var tmpTxtDuration = this.getRequestTypeDetail().down('#txtDuration');
+        var tmpNewEndDate = this.getTimeController().calculateEndDate(tmpDpStartDate.getValue(), tmpTpStartTime.getValue(), tmpTxtDuration.getValue());
+        this.flatActiveChange = true;
+        tmpDpEndDate.setValue(tmpNewEndDate);
+        tmpTpEndTime.setValue(tmpNewEndDate);
+        this.flatActiveChange = false;
     }
+
 });

@@ -71,15 +71,5 @@ Ext.define('TestMobile.controller.webrequestform.ListRequestController', {
         tmpTpEndTime.setValue(new Date());
         var tmpMainController = this.getMainController();
         tmpMainController.showNewResquestFormView();
-   },
-
-    onUpdateTBTitle: function(){
-        var tmpTxtTitle = this.getNewRequestForm().down('#txtTitle');
-        var tmpTbRequest = this.getNewRequestForm().down('#tbRequest');
-        if(Ext.isEmpty(tmpTxtTitle.getValue())){
-            tmpTbRequest.setTitle('New Request');
-            return;
-        }
-        tmpTbRequest.setTitle(tmpTxtTitle.getValue());
-    }
+   }
 });

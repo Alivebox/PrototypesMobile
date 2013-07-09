@@ -275,8 +275,13 @@ Ext.define('TestMobile.view.webrequestform.RequestTypeDetail', {
             label: 'Duration',
             value: '0 hrs',
             itemId: 'txtDuration',
-            readOnly: true
-        }
+            listeners: {
+                scope: this,
+                change: function(){
+                    this.fireEvent('durationChanged');
+                }
+            }
+        };
         return tmpDurationTextField;
     }
 

@@ -17,6 +17,17 @@ Ext.define('TestMobile.controller.time.TimeController', {
         var tmpDifTime = argEndTime.getTime() - argStartTime.getTime();
         var tmpHours = (tmpDif + tmpDifTime) / (1000 * 60 * 60);
         return Math.round(tmpHours);
+    },
+
+    calculateEndDate: function(argStartDate, argStartTime, argDuration){
+        if(argStartDate == null || argDuration == null){
+            return 0;
+        }
+        var tmpHours = argDuration.split(" ", 1);
+        argStartDate.setHours(argStartTime.getHours(),argStartTime.getMinutes());
+        var tmpEndDate = new Date();
+        tmpEndDate.setTime(argStartTime.getTime() + (tmpHours[0]*60*60*1000));
+        return tmpEndDate;
     }
 
 });
