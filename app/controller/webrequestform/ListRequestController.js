@@ -3,7 +3,7 @@ Ext.define('TestMobile.controller.webrequestform.ListRequestController', {
 
     config: {
         refs: {
-            newRequestForm : 'newrequestform',
+            newRequestForm : 'newrequestform'
         },
 
         control : {
