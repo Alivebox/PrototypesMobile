@@ -2,7 +2,7 @@ Ext.define('TestMobile.view.webrequestform.RequestType', {
     extend: 'Ext.Container',
     xtype: 'requesttype',
     config: {
-        height: 85
+        height: 45
     },
 
     initialize: function(){
@@ -57,8 +57,7 @@ Ext.define('TestMobile.view.webrequestform.RequestType', {
                 },
                 {
                     xtype: 'label',
-                    html: 'Confirmed',
-                    height: 23,
+                    itemId: 'lblRequested',
                     padding: '0 0 0 8',
                     style: 'font-weight:bold; color: green;'
                 }
