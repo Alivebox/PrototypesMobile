@@ -19,6 +19,14 @@ Ext.define('TestMobile.view.webrequestform.RequestType', {
             style: 'margin-right: 30px; margin-left: -2px; margin-top: 10px',
             items: [
                 {
+                    xtype: 'label',
+                    itemId: 'lblLocation',
+                    html: 'Choose a location',
+                    right: 10,
+                    top: 13,
+                    cls: 'italic-lightGrey'
+                },
+                {
                     xtype: 'button',
                     itemId: 'btnCheck',
                     right: 0,
@@ -47,13 +55,6 @@ Ext.define('TestMobile.view.webrequestform.RequestType', {
                     name: 'txtRequestType',
                     placeHolder: '',
                     readOnly: 'true'
-                },
-                {
-                    xtype: 'label',
-                    itemId: 'lblLocation',
-                    html: 'Choose',
-                    right: 10,
-                    top: 13
                 },
                 {
                     xtype: 'label',

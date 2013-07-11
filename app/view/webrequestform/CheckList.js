@@ -13,9 +13,9 @@ Ext.define('TestMobile.view.webrequestform.CheckList', {
         this.infoFieldSets = this.createFieldSets();
         this.add([
             this.header,
-            this.addButton,
-            this.infoFieldSets,
             this.editButton,
+            this.infoFieldSets,
+            this.addButton,
             this.container
         ]);
         this.callParent(arguments);
@@ -70,7 +70,7 @@ Ext.define('TestMobile.view.webrequestform.CheckList', {
             itemId: 'btnAdd',
             icon: 'resources/icons/add.png',
             iconAlign: 'right',
-            margin: '10 10 10 10',
+            margin: '-20 10 0 10',
             padding: '0 0 0 40',
             height: 46,
             listeners: {
@@ -148,9 +148,9 @@ Ext.define('TestMobile.view.webrequestform.CheckList', {
     createEditButton: function(){
         var tmpEditButton = {
             xtype: 'button',
-            text: 'Edit',
+            text: 'Edit request details',
             cls: 'show-mgr-button',
-            margin: '-20 10 0 10',
+            margin: '10 10 0 10',
             listeners: {
                 scope: this,
                 tap: function(){
