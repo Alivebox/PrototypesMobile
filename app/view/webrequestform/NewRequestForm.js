@@ -39,7 +39,7 @@ Ext.define('TestMobile.view.webrequestform.NewRequestForm', {
                 },
                 {
                     xtype: 'button',
-                    text: 'Next',
+                    text: 'Submit',
                     listeners: {
                         scope: this,
                         tap: function(){
@@ -95,10 +95,11 @@ Ext.define('TestMobile.view.webrequestform.NewRequestForm', {
             itemId: 'sfShowTitle',
             label: 'Show Title',
             valueField: 'name',
+            autoSelect: false,
             displayField: 'name',
+            placeHolder: 'Select a show',
             store: {
                 data: [
-                    { id: '0', name: ''},
                     { id: '1', name: 'Anderson Cooper 360'},
                     { id: '2', name: 'Nancy Grace'},
                     { id: '3', name: 'Dr. Drew'},
@@ -114,7 +115,9 @@ Ext.define('TestMobile.view.webrequestform.NewRequestForm', {
         var tmpProjectTitle =  {
             xtype: 'textfield',
             itemId: 'txtTitle',
-            label: 'Title'
+            label: 'Title',
+            placeHolder: 'Name your request'
+
         };
         return tmpProjectTitle;
     },
@@ -126,9 +129,10 @@ Ext.define('TestMobile.view.webrequestform.NewRequestForm', {
             label: 'Type',
             valueField: 'name',
             displayField: 'name',
+            autoSelect: false,
+            placeHolder: 'Select a type',
             store: {
                 data: [
-                    { id: '0', name: ''},
                     { id: '1', name: 'Pre Tape'},
                     { id: '2', name: 'Tape'},
                     { id: '3', name: 'Post Tape'}
@@ -139,16 +143,19 @@ Ext.define('TestMobile.view.webrequestform.NewRequestForm', {
     },
 
     createDatePickerField: function(argLabel, argItemId){
+        var tmpYearFrom = new Date().getFullYear();
+        var tmpYearTo = tmpYearFrom + 2;
         var tmpDatePickerField = {
             xtype: 'datepickerfield',
             name: 'date',
             label: argLabel,
             value: new Date(),
             itemId: argItemId,
-            dateFormat: 'd M Y',
             picker: {
-                yearFrom: 2010
-            }
+                yearTo: tmpYearTo,
+                yearFrom: tmpYearFrom
+            },
+            dateFormat: 'd M Y'
         };
         return tmpDatePickerField;
     },

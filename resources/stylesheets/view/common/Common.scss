@@ -75,3 +75,8 @@ html, body {
 .margin-all-10{
   margin: 10px 10px 10px 10px;
 }
+
+input::-webkit-input-placeholder {
+  font-style: italic;
+  color: #d3d3d3 !important;
+}

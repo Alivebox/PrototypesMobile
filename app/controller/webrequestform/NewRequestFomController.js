@@ -84,6 +84,9 @@ Ext.define('TestMobile.controller.webrequestform.NewRequestFomController', {
     },
 
     onUpdateEndTime: function(){
+        if(this.flatActiveChange){
+            return;
+        };
         var tmpDpStartDate = this.getNewRequestForm().down('#dpStartDate');
         var tmpDpEndDate = this.getNewRequestForm().down('#dpEndDate');
         var tmpTpStartTime = this.getNewRequestForm().down('#tpStartTime');

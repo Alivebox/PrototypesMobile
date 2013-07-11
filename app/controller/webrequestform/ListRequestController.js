@@ -24,14 +24,14 @@ Ext.define('TestMobile.controller.webrequestform.ListRequestController', {
         tmpTxtTitle.setValue('');
         var tmpSfType = this.getNewRequestForm().down('#sfType');
         tmpSfType.setValue('');
-        var tmpDpStartDate = this.getNewRequestForm().down('#dpStartDate');
-        tmpDpStartDate.setValue(null);
-        var tmpDpEndDate = this.getNewRequestForm().down('#dpEndDate');
-        tmpDpEndDate.setValue(null);
+        var tmpStartTime = new Date();
+        tmpStartTime.setHours(10,0,0);
         var tmpTpStartTime = this.getNewRequestForm().down('#tpStartTime');
-        tmpTpStartTime.setValue(null);
+        tmpTpStartTime.setValue(tmpStartTime);
+        var tmpEndTime = new Date();
+        tmpEndTime.setHours (10,0,0);
         var tmpTpEndTime = this.getNewRequestForm().down('#tpEndTime');
-        tmpTpEndTime.setValue(null);
+        tmpTpEndTime.setValue(tmpEndTime);
         var tmpMainController = this.getMainController();
         tmpMainController.showNewResquestFormView();
     },
