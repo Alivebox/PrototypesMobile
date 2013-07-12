@@ -61,12 +61,12 @@ Ext.define('TestMobile.controller.order.OrderController', {
         var tmpDpEndDate = this.getOrderDetail().down('#dpEndDate');
         var tmpTpStartTime = this.getOrderDetail().down('#tpStartTime');
         var tmpTpEndTime = this.getOrderDetail().down('#tpEndTime');
-        var tmpDifHours = this.getTimeController().calculateHoursDuration(tmpDpStartDate.getValue(), tmpDpEndDate.getValue(), tmpTpStartTime.getValue(), tmpTpEndTime.getValue());
+        var tmpDifHours = this.getDateUtil().calculateHoursDuration(tmpDpStartDate.getValue(), tmpDpEndDate.getValue(), tmpTpStartTime.getValue(), tmpTpEndTime.getValue());
         var tmpTxtDuration = this.getOrderDetail().down('#txtDuration');
         tmpTxtDuration.setValue(tmpDifHours + ' hrs');
     },
 
-    getTimeController: function(){
-        return this.getApplication().getController('TestMobile.controller.time.TimeController');
+    getDateUtil: function(){
+        return TestMobile.ux.util.date.DateUtil;
     }
 });

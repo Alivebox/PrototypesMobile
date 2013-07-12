@@ -6,13 +6,13 @@ Ext.define('TestMobile.controller.webrequestform.NewRequestFomController', {
 
     config: {
         refs: {
-          datePickerStartDate : 'newrequestform [itemId=dpStartDate]',
-          datePickerEndDate : 'newrequestform [itemId=dpEndDate]',
-          datePickerStartTime : 'newrequestform [itemId=tpStartTime]',
-          datePickerEndTime : 'newrequestform [itemId=tpEndTime]',
-          newRequestForm: 'newrequestform',
-          listRequest: 'listrequest',
-          requestTitle: 'newrequestform [itemId=txtTitle]'
+            datePickerStartDate : 'newrequestform [itemId=dpStartDate]',
+            datePickerEndDate : 'newrequestform [itemId=dpEndDate]',
+            datePickerStartTime : 'newrequestform [itemId=tpStartTime]',
+            datePickerEndTime : 'newrequestform [itemId=tpEndTime]',
+            newRequestForm: 'newrequestform',
+            listRequest: 'listrequest',
+            requestTitle: 'newrequestform [itemId=txtTitle]'
         },
         control : {
             newrequestform: {
@@ -58,15 +58,16 @@ Ext.define('TestMobile.controller.webrequestform.NewRequestFomController', {
         var tmpDpEndDate = this.getNewRequestForm().down('#dpEndDate');
         var tmpTpStartTime = this.getNewRequestForm().down('#tpStartTime');
         var tmpTpEndTime = this.getNewRequestForm().down('#tpEndTime');
-        var tmpDifHours = this.getTimeController().calculateHoursDuration(tmpDpStartDate.getValue(), tmpDpEndDate.getValue(), tmpTpStartTime.getValue(), tmpTpEndTime.getValue());
+        var tmpDifHours = this.getDateUtil().calculateHoursDuration(tmpDpStartDate.getValue(), tmpDpEndDate.getValue(), tmpTpStartTime.getValue(), tmpTpEndTime.getValue());
         var tmpTxtDuration = this.getNewRequestForm().down('#txtDuration');
         this.flatActiveChange = true;
         tmpTxtDuration.setValue(tmpDifHours + ' hrs');
         this.flatActiveChange = false;
+        this.getDateUtil().calculateTimeZone();
     },
 
-    getTimeController: function(){
-        return this.getApplication().getController('TestMobile.controller.time.TimeController');
+    getDateUtil: function(){
+        return TestMobile.ux.util.date.DateUtil;
     },
 
     getMainController: function(){
@@ -92,7 +93,7 @@ Ext.define('TestMobile.controller.webrequestform.NewRequestFomController', {
         var tmpTpStartTime = this.getNewRequestForm().down('#tpStartTime');
         var tmpTpEndTime = this.getNewRequestForm().down('#tpEndTime');
         var tmpTxtDuration = this.getNewRequestForm().down('#txtDuration');
-        var tmpNewEndDate = this.getTimeController().calculateEndDate(tmpDpStartDate.getValue(), tmpTpStartTime.getValue(), tmpTxtDuration.getValue());
+        var tmpNewEndDate = this.getDateUtil().calculateEndDate(tmpDpStartDate.getValue(), tmpTpStartTime.getValue(), tmpTxtDuration.getValue());
         this.flatActiveChange = true;
         tmpDpEndDate.setValue(tmpNewEndDate);
         tmpTpEndTime.setValue(tmpNewEndDate);

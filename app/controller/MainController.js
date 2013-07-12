@@ -29,27 +29,27 @@ Ext.define('TestMobile.controller.MainController', {
     },
 
     showWebFormSettingsView: function(){
-        this.getMainView().setActiveItem(TestMobile.controller.MainController.WEB_FORM_SETTINGS_VIEW);
+        this.getMainView().setActiveItem(TestMobile.controller.MainController.WEB_FORM_SETTINGS_VIEW, {type: 'slide', direction: 'right', duration: 300});
     },
 
     showCheckListView: function(){
-        this.getMainView().setActiveItem(TestMobile.controller.MainController.CHECK_LIST_VIEW);
+        this.getMainView().setActiveItem(TestMobile.controller.MainController.CHECK_LIST_VIEW, {type: 'slide', direction: 'right', duration: 300});
     },
 
     showListRequestView: function(){
-        this.getMainView().setActiveItem(TestMobile.controller.MainController.LIST_REQUEST_VIEW);
+        this.getMainView().setActiveItem(TestMobile.controller.MainController.LIST_REQUEST_VIEW, {type: 'slide', direction: 'right', duration: 300});
     },
 
     showNewResquestFormView: function(){
-        this.getMainView().setActiveItem(TestMobile.controller.MainController.NEW_REQUEST_FORM_VIEW);
+        this.getMainView().setActiveItem(TestMobile.controller.MainController.NEW_REQUEST_FORM_VIEW, {type: 'slide', direction: 'right', duration: 300});
     },
 
     showRequestTypeDetailView: function(){
-        this.getMainView().setActiveItem(TestMobile.controller.MainController.REQUEST_TYPE_DETAIL_VIEW);
+        this.getMainView().setActiveItem(TestMobile.controller.MainController.REQUEST_TYPE_DETAIL_VIEW, {type: 'slide', direction: 'right', duration: 300});
     },
 
     showLoginView: function(){
-        this.getMainView().setActiveItem(TestMobile.controller.MainController.LOGIN_VIEW);
+        this.getMainView().setActiveItem(TestMobile.controller.MainController.LOGIN_VIEW, {type: 'slide', direction: 'right', duration: 300});
     },
 
     showCompaniesView: function(){
@@ -82,6 +82,18 @@ Ext.define('TestMobile.controller.MainController', {
 
     showThemeView: function(){
         this.getMainView().setActiveItem(TestMobile.controller.MainController.THEME_VIEW);
+    },
+
+    setRightDirection: function() {
+        var tmpLayout = this.getMainView().getLayout();
+        var tmpAnimation = this.getMainView().getLayout().getAnimation();
+        tmpAnimation.setDirection('right');
+    },
+
+    setLeftDirection: function() {
+        var tmpLayout = this.getMainView().getLayout();
+        var tmpAnimation = this.getMainView().getLayout().getAnimation();
+        tmpAnimation.setDirection('left');
     }
 
 

@@ -2,10 +2,16 @@ Ext.define('TestMobile.view.Main', {
 
     extend: 'Ext.Container',
     xtype: 'main',
-
     config: {
         cls: 'main-container',
-        layout: 'card'
+        layout: {
+            type: 'card',
+            animation: {
+                type: 'slide',
+                direction: 'right'
+            }
+        },
+        cardSwitchAnimation:'slide'
     },
 
     initialize: function(){

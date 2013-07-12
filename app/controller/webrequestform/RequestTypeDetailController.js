@@ -62,15 +62,15 @@ Ext.define('TestMobile.controller.webrequestform.RequestTypeDetailController', {
         var tmpDpEndDate = this.getRequestTypeDetail().down('#dpEndDate');
         var tmpTpStartTime = this.getRequestTypeDetail().down('#tpStartTime');
         var tmpTpEndTime = this.getRequestTypeDetail().down('#tpEndTime');
-        var tmpDifHours = this.getTimeController().calculateHoursDuration(tmpDpStartDate.getValue(), tmpDpEndDate.getValue(), tmpTpStartTime.getValue(), tmpTpEndTime.getValue());
+        var tmpDifHours = this.getDateUtil().calculateHoursDuration(tmpDpStartDate.getValue(), tmpDpEndDate.getValue(), tmpTpStartTime.getValue(), tmpTpEndTime.getValue());
         var tmpTxtDuration = this.getRequestTypeDetail().down('#txtDuration');
         this.flatActiveChange = true;
         tmpTxtDuration.setValue(tmpDifHours + ' hrs');
         this.flatActiveChange = false;
     },
 
-    getTimeController: function(){
-        return this.getApplication().getController('TestMobile.controller.time.TimeController');
+    getDateUtil: function(){
+        return TestMobile.ux.util.date.DateUtil;
     },
 
     getMainController: function(){
@@ -101,7 +101,7 @@ Ext.define('TestMobile.controller.webrequestform.RequestTypeDetailController', {
         var tmpTpStartTime = this.getRequestTypeDetail().down('#tpStartTime');
         var tmpTpEndTime = this.getRequestTypeDetail().down('#tpEndTime');
         var tmpTxtDuration = this.getRequestTypeDetail().down('#txtDuration');
-        var tmpNewEndDate = this.getTimeController().calculateEndDate(tmpDpStartDate.getValue(), tmpTpStartTime.getValue(), tmpTxtDuration.getValue());
+        var tmpNewEndDate = this.getDateUtil().calculateEndDate(tmpDpStartDate.getValue(), tmpTpStartTime.getValue(), tmpTxtDuration.getValue());
         this.flatActiveChange = true;
         tmpDpEndDate.setValue(tmpNewEndDate);
         tmpTpEndTime.setValue(tmpNewEndDate);

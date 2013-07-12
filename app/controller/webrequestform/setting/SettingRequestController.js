@@ -12,6 +12,7 @@ Ext.define('TestMobile.controller.webrequestform.setting.SettingRequestControlle
 
     onShowListRequest: function(){
         var tmpMainController = this.getMainController();
+        tmpMainController.setRightDirection();
         tmpMainController.showListRequestView();
     },
 

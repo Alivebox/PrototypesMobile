@@ -18,10 +18,11 @@ Ext.application({
         'Ext.form.FieldSet',
         'Ext.field.Password',
         'Ext.field.Select',
+        'Ext.field.Radio',
         'Ext.field.Toggle',
         'Ext.List',
         'Ext.Label',
-        'Ext.Img'
+        'Ext.Img',
     ],
 
     name: 'TestMobile',
@@ -34,7 +35,6 @@ Ext.application({
         'order.menu.OrderMenuController',
         'order.OrderController',
         'theme.ThemeController',
-        'time.TimeController',
         'webrequestform.ListRequestController',
         'webrequestform.CheckListController',
         'webrequestform.NewRequestFomController',

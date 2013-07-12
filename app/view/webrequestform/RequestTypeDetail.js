@@ -35,6 +35,20 @@ Ext.define('TestMobile.view.webrequestform.RequestTypeDetail', {
                             this.fireEvent('showCheckList')
                         }
                     }
+                },
+                {
+                    xtype: 'spacer'
+                },
+                {
+                    xtype: 'button',
+                    itemId: 'btnSubmit',
+                    text: 'Submit',
+                    listeners: {
+                        scope: this,
+                        tap: function(){
+                            this.fireEvent('submit', this)
+                        }
+                    }
                 }
             ]
         };
@@ -43,10 +57,14 @@ Ext.define('TestMobile.view.webrequestform.RequestTypeDetail', {
 
     createContainer: function(){
         var tmpFieldSets = this.createFieldSets();
+        var tmpFacility = this.createFacilityLabel();
+        var tmpGroupFacility = this.createFacilityRadioField();
         var tmpContainer = {
             xtype: 'container',
             items: [
-                tmpFieldSets
+                tmpFieldSets,
+                tmpFacility,
+                tmpGroupFacility
             ]
         };
         return tmpContainer;
@@ -54,7 +72,6 @@ Ext.define('TestMobile.view.webrequestform.RequestTypeDetail', {
 
     createFieldSets: function(){
         var tmpLocationSelectField = this.createLocationSelectField();
-        var tmpStatusTextField = this.createStatusTextField()
         var tmpOrderTitle = this.createOrderTitleText();
         var tmpTypeSelectField = this.createTypeSelectField();
         var tmpStartDatePickerField = this.createDatePickerField('Start Date', 'dpStartDate');
@@ -66,7 +83,6 @@ Ext.define('TestMobile.view.webrequestform.RequestTypeDetail', {
             xtype: 'fieldset',
             items: [
                 tmpLocationSelectField,
-                tmpStatusTextField,
                 tmpOrderTitle,
                 tmpTypeSelectField,
                 tmpStartDatePickerField,
@@ -104,17 +120,6 @@ Ext.define('TestMobile.view.webrequestform.RequestTypeDetail', {
             }
         };
         return tmpLocationSelectField;
-    },
-
-    createStatusTextField: function(){
-        var tmpTxtStatus = {
-            xtype: 'textfield',
-            itemId: 'txtAvailable',
-            value: '2',
-            label: 'Available',
-            readOnly: true
-        };
-        return tmpTxtStatus;
     },
 
     createOrderTitleText: function(){
@@ -227,7 +232,6 @@ Ext.define('TestMobile.view.webrequestform.RequestTypeDetail', {
     },
 
     createBottomButtonsContainer: function(){
-        var tmpSubmitButton = this.createSubmitButton();
         var tmpCancelButton = this.createCancelButton();
         var tmpBottomButtons = {
             xtype: 'container',
@@ -240,8 +244,7 @@ Ext.define('TestMobile.view.webrequestform.RequestTypeDetail', {
                 width: '100%'
             },
             items: [
-                tmpCancelButton,
-                tmpSubmitButton
+                tmpCancelButton
             ]
         }
         return tmpBottomButtons;
@@ -266,7 +269,7 @@ Ext.define('TestMobile.view.webrequestform.RequestTypeDetail', {
         var tmpCancelButton = {
             xtype: 'button',
             itemId: 'btnCancel',
-            text: 'Cancel',
+            text: 'Cancel order',
             margin: '0 10 0 10',
             listeners: {
                 scope: this,
@@ -292,6 +295,121 @@ Ext.define('TestMobile.view.webrequestform.RequestTypeDetail', {
             }
         };
         return tmpDurationTextField;
+    },
+
+    createFacilityLabel: function(){
+        var tmpFacility = {
+            xtype: 'label',
+            html: 'Facility',
+            style: 'font-weight:bold;',
+            margin: '-20 0 0 0'
+        }
+        return tmpFacility;
+    },
+
+    createFacilityRadioField: function(){
+        var tmpGroupFacility = {
+            xtype: 'fieldset',
+            items: [
+                {
+                    xtype: 'radiofield',
+                    name : 'rfFacility',
+                    value: 'any',
+                    label: 'Any',
+                    checked: true
+                },
+                {
+                    xtype: 'radiofield',
+                    name : 'rfFacility',
+                    value: 'room1',
+                    label: 'Room 1'
+                },
+                {
+                    xtype: 'label',
+                    html: 'Unavailable',
+                    style: 'color:red;',
+                    itemId: 'room1',
+                    right: 50,
+                    top: 60
+                },
+                {
+                    xtype: 'radiofield',
+                    name : 'rfFacility',
+                    value: 'room2',
+                    label: 'Room 2'
+                },
+                {
+                    xtype: 'label',
+                    html: 'Available',
+                    style: 'color:green;',
+                    itemId: 'room2',
+                    right: 50,
+                    top: 110
+                },
+                {
+                    xtype: 'radiofield',
+                    name : 'rfFacility',
+                    value: 'room3',
+                    label: 'Room 3'
+                },
+                {
+                    xtype: 'label',
+                    html: 'Confirmed',
+                    style: 'color:blue;',
+                    itemId: 'room3',
+                    right: 50,
+                    top: 155
+                },
+                {
+                    xtype: 'radiofield',
+                    name : 'rfFacility',
+                    value: 'room4',
+                    label: 'Room 4'
+                },
+                {
+                    xtype: 'label',
+                    html: 'Unavailable',
+                    style: 'color:red;',
+                    itemId: 'room4',
+                    right: 50,
+                    top: 200
+                },
+                {
+                    xtype: 'radiofield',
+                    name : 'rfFacility',
+                    value: 'room5',
+                    label: 'Room 5'
+                },
+                {
+                    xtype: 'label',
+                    html: 'Available',
+                    style: 'color:green;',
+                    itemId: 'room5',
+                    right: 50,
+                    top: 245
+                },
+
+                {
+                    xtype: 'radiofield',
+                    name : 'rfFacility',
+                    value: 'room6',
+                    label: 'Room 6'
+                },
+                {
+                    xtype: 'label',
+                    html: 'Available',
+                    style: 'color:green;',
+                    itemId: 'room6',
+                    right: 50,
+                    top: 290
+                }
+            ]
+        };
+        return tmpGroupFacility;
+    },
+
+    createRadioField: function(){
+
     }
 
 });

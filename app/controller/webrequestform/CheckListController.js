@@ -19,6 +19,7 @@ Ext.define('TestMobile.controller.webrequestform.CheckListController', {
 
     onShowWebRequestForm: function(){
         var tmpMainController = this.getMainController();
+        tmpMainController.setLeftDirection();
         tmpMainController.showNewResquestFormView();
     },
 
