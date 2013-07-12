@@ -42,11 +42,13 @@ Ext.define('TestMobile.controller.webrequestform.NewRequestFomController', {
     onShowListRequest: function(){
         this.getListRequest().deselectAll();
         var tmpMainController = this.getMainController();
+        tmpMainController.setRightAnimation();
         tmpMainController.showListRequestView();
     },
 
     onShowCheckList: function(){
         var tmpMainController = this.getMainController();
+        tmpMainController.setLeftAnimation();
         tmpMainController.showCheckListView();
     },
 

@@ -84,13 +84,13 @@ Ext.define('TestMobile.controller.MainController', {
         this.getMainView().setActiveItem(TestMobile.controller.MainController.THEME_VIEW);
     },
 
-    setRightDirection: function() {
+    setRightAnimation: function() {
         var tmpLayout = this.getMainView().getLayout();
         var tmpAnimation = this.getMainView().getLayout().getAnimation();
         tmpAnimation.setDirection('right');
     },
 
-    setLeftDirection: function() {
+    setLeftAnimation: function() {
         var tmpLayout = this.getMainView().getLayout();
         var tmpAnimation = this.getMainView().getLayout().getAnimation();
         tmpAnimation.setDirection('left');

@@ -33,11 +33,13 @@ Ext.define('TestMobile.controller.webrequestform.ListRequestController', {
         var tmpTpEndTime = this.getNewRequestForm().down('#tpEndTime');
         tmpTpEndTime.setValue(tmpEndTime);
         var tmpMainController = this.getMainController();
+        tmpMainController.setLeftAnimation();
         tmpMainController.showNewResquestFormView();
     },
 
     onShowSettings: function(){
         var tmpMainController = this.getMainController();
+        tmpMainController.setLeftAnimation();
         tmpMainController.showWebFormSettingsView();
     },
 
@@ -45,6 +47,7 @@ Ext.define('TestMobile.controller.webrequestform.ListRequestController', {
         var tmpToolBarRequest = this.getNewRequestForm().down('#tbRequest');
         tmpToolBarRequest.setTitle(argRecord.data.name);
         var tmpMainController = this.getMainController();
+        tmpMainController.setLeftAnimation();
         tmpMainController.showNewResquestFormView();
     },
 
@@ -70,6 +73,7 @@ Ext.define('TestMobile.controller.webrequestform.ListRequestController', {
         var tmpTpEndTime = this.getNewRequestForm().down('#tpEndTime');
         tmpTpEndTime.setValue(new Date());
         var tmpMainController = this.getMainController();
+        tmpMainController.setLeftAnimation();
         tmpMainController.showNewResquestFormView();
    }
 });

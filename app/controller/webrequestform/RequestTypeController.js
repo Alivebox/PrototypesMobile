@@ -20,6 +20,7 @@ Ext.define('TestMobile.controller.webrequestform.RequestTypeController', {
         var tmpToolBar = this.getRequestTypeDetail().down('#tbRequestTypeDetail');
         tmpToolBar.setTitle(tmpTitle);
         this.getRequestTypeDetail().requestType = argComponent;
+        this.getMainController().setLeftAnimation();
         this.getMainController().showRequestTypeDetailView();
     },
 
