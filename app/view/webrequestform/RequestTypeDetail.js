@@ -85,6 +85,8 @@ Ext.define('TestMobile.view.webrequestform.RequestTypeDetail', {
             name: 'sfLocation',
             itemId: 'sfLocation',
             label: 'Location',
+            placeHolder: 'Select a location',
+            autoSelect: false,
             valueField: 'name',
             displayField: 'name',
             store: {
@@ -130,6 +132,8 @@ Ext.define('TestMobile.view.webrequestform.RequestTypeDetail', {
             xtype: 'selectfield',
             name: 'sfType',
             label: 'Type',
+            placeHolder: 'Select a type',
+            autoSelect: false,
             valueField: 'name',
             displayField: 'name',
             store: {
@@ -144,25 +148,30 @@ Ext.define('TestMobile.view.webrequestform.RequestTypeDetail', {
     },
 
     createDatePickerField: function(argLabel, argItemId){
+        var tmpYearFrom = new Date().getFullYear();
+        var tmpYearTo = tmpYearFrom + 2;
         var tmpDatePickerField = {
             xtype: 'datepickerfield',
             name: 'date',
             label: argLabel,
             value: new Date(),
             itemId: argItemId,
-            dateFormat: 'd M Y',
             picker: {
-                yearFrom: 2010
-            }
+                yearTo: tmpYearTo,
+                yearFrom: tmpYearFrom
+            },
+            dateFormat: 'd M Y'
         };
         return tmpDatePickerField;
     },
 
     createTimePickerField: function(argLabel, argDate, argItemId, argTimeZoneFormat){
+        var tmpTime = new Date();
+        tmpTime.setHours(10,0,0);
         var tmpTimePickerField = {
             xtype: 'timepickerfield',
             label: argLabel,
-            value: argDate,
+            value: tmpTime,
             itemId: argItemId,
             name: 'time',
             dateFormat: argTimeZoneFormat

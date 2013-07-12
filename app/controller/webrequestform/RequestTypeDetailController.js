@@ -44,6 +44,7 @@ Ext.define('TestMobile.controller.webrequestform.RequestTypeDetailController', {
         var tmpLblLocation = this.getRequestTypeDetail().requestType.down('#lblLocation');
         var tmpLocationValue = argComponent.down('#sfLocation');
         tmpLblLocation.setHtml(tmpLocationValue.getValue());
+        tmpLblLocation.removeCls('italic-lightGrey');
         var tmpImgCheck = this.getRequestTypeDetail().requestType.down('#imgCheck');
         var tmpLblRequested = this.getRequestTypeDetail().requestType.down('#lblRequested');
         this.getRequestTypeDetail().requestType.setHeight(65);
@@ -92,6 +93,9 @@ Ext.define('TestMobile.controller.webrequestform.RequestTypeDetailController', {
     },
 
     onUpdateEndTime: function(){
+        if(this.flatActiveChange){
+            return;
+        };
         var tmpDpStartDate = this.getRequestTypeDetail().down('#dpStartDate');
         var tmpDpEndDate = this.getRequestTypeDetail().down('#dpEndDate');
         var tmpTpStartTime = this.getRequestTypeDetail().down('#tpStartTime');
@@ -103,5 +107,6 @@ Ext.define('TestMobile.controller.webrequestform.RequestTypeDetailController', {
         tmpTpEndTime.setValue(tmpNewEndDate);
         this.flatActiveChange = false;
     }
+
 
 });
