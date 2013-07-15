@@ -73,6 +73,8 @@ Ext.define('TestMobile.view.webrequestform.RequestTypeDetail', {
     createFieldSets: function(){
         var tmpLocationSelectField = this.createLocationSelectField();
         var tmpLocationAbvLabel = this.createLocationAbvLabel();
+        var tmpStartTimeZoneLabel = this.createStartTimeZoneLabel();
+        var tmpEndTimeZoneLabel = this.createEndTimeZoneLabel();
         var tmpOrderTitle = this.createOrderTitleText();
         var tmpTypeSelectField = this.createTypeSelectField();
         var tmpStartDatePickerField = this.createDatePickerField('Start Date', 'dpStartDate');
@@ -85,6 +87,8 @@ Ext.define('TestMobile.view.webrequestform.RequestTypeDetail', {
             items: [
                 tmpLocationSelectField,
                 tmpLocationAbvLabel,
+                tmpStartTimeZoneLabel,
+                tmpEndTimeZoneLabel,
                 tmpOrderTitle,
                 tmpTypeSelectField,
                 tmpStartDatePickerField,
@@ -119,7 +123,8 @@ Ext.define('TestMobile.view.webrequestform.RequestTypeDetail', {
                 change: function(){
                     this.fireEvent('locationSelected');
                 }
-            }
+            },
+            cls: 'greyHolder'
         };
         return tmpLocationSelectField;
     },
@@ -142,10 +147,10 @@ Ext.define('TestMobile.view.webrequestform.RequestTypeDetail', {
             itemId: 'lblStartTime',
             html: '',
             right: 40,
-            top: 35,
+            top: 200,
             cls: 'grey-label'
         };
-        return tmpStartTimeTimeZoneLabel;
+        return tmpStartTimeZoneLabel;
     },
 
     createEndTimeZoneLabel: function(){
@@ -154,7 +159,7 @@ Ext.define('TestMobile.view.webrequestform.RequestTypeDetail', {
             itemId: 'lblEndTime',
             html: '',
             right: 40,
-            top: 55,
+            top: 340,
             cls: 'grey-label'
         };
         return tmpEndTimeZoneLabel;
@@ -174,6 +179,7 @@ Ext.define('TestMobile.view.webrequestform.RequestTypeDetail', {
         var tmpTypeSelectField = {
             xtype: 'selectfield',
             name: 'sfType',
+            itemId: 'sfType',
             label: 'Type',
             placeHolder: 'Select a type',
             autoSelect: false,
@@ -185,7 +191,14 @@ Ext.define('TestMobile.view.webrequestform.RequestTypeDetail', {
                     { id: '2', name: 'Tape'},
                     { id: '3', name: 'Post Tape'}
                 ]
-            }
+            },
+            listeners: {
+                scope: this,
+                change: function(){
+                    this.fireEvent('typeSelected');
+                }
+            },
+            cls: 'greyHolder'
         };
         return tmpTypeSelectField;
     },

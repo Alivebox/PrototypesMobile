@@ -107,6 +107,14 @@ Ext.define('TestMobile.view.webrequestform.CheckList', {
             name: 'showTitle',
             label: 'Show Title',
             value: 'Anderson Cooper 360',
+            width: '95%',
+            height: 35,
+            minHeight: 35,
+            style : {
+                marginLeft : '0%',
+                borderRadius: '5px',
+                height:35
+            },
             readOnly: true
         };
         return tmpShowTitleSelectField;
@@ -118,7 +126,15 @@ Ext.define('TestMobile.view.webrequestform.CheckList', {
             name: 'txtTitle',
             label: 'Request',
             value: 'Project Name',
-            readOnly: true
+            readOnly: true,
+            width: '95%',
+            height: 35,
+            minHeight: 35,
+            style : {
+                marginLeft : '0%',
+                borderRadius: '5px',
+                height:35
+            }
         };
         return tmpProjectTitle;
     },
@@ -129,7 +145,15 @@ Ext.define('TestMobile.view.webrequestform.CheckList', {
             name: 'sfType',
             label: 'Type',
             value: 'Pre Tape',
-            readOnly: true
+            readOnly: true,
+            width: '95%',
+            height: 35,
+            minHeight: 35,
+            style : {
+                marginLeft : '0%',
+                borderRadius: '5px',
+                height:35
+            }
         };
         return tmpTypeSelectField;
     },
@@ -140,7 +164,15 @@ Ext.define('TestMobile.view.webrequestform.CheckList', {
             name: 'txtTitle',
             label: 'Start Date',
             value: '08 Jul 2013 14:16 GTM',
-            readOnly: true
+            readOnly: true,
+            width: '95%',
+            height: 35,
+            minHeight: 35,
+            style : {
+                marginLeft : '0%',
+                borderRadius: '5px',
+                height:35
+            }
         };
         return tmpRequestStartDate;
     },
@@ -157,7 +189,7 @@ Ext.define('TestMobile.view.webrequestform.CheckList', {
                     this.fireEvent('backToForm');
                 }
             }
-            };
+        };
         return tmpEditButton;
     }
 

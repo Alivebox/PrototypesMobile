@@ -89,3 +89,8 @@ input::-webkit-input-placeholder {
 .grey-label{
   color: #d3d3d3 !important;
 }
+
+.greyHolder .x-input-el{
+  -webkit-text-fill-color: #d3d3d3 !important;
+  -webkit-opacity: 1 !important;
+}

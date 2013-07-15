@@ -18,7 +18,8 @@ Ext.define('TestMobile.controller.webrequestform.RequestTypeDetailController', {
                 showCheckList: 'onShowCheckList',
                 submit: 'onSubmitRequestTypeDetail',
                 locationSelected: 'onLocationSelected',
-                durationChanged: 'onUpdateEndTime'
+                durationChanged: 'onUpdateEndTime',
+                typeSelected: 'onTypeSelected'
             },
             datePickerStartDate: {
                 change: 'updateDurationTime'
@@ -85,17 +86,22 @@ Ext.define('TestMobile.controller.webrequestform.RequestTypeDetailController', {
         switch (tmpSfLocation.getValue()) {
             case 'New York':
                 tmpLabelLocation.setHtml('ET');
+                this.updateTimeZone();
+                tmpSfLocation.removeCls('greyHolder');
                 return;
             case 'Los Angeles':
                 tmpLabelLocation.setHtml('PT');
+                this.updateTimeZone();
+                tmpSfLocation.removeCls('greyHolder');
                 return;
             case 'Atlanta':
                 tmpLabelLocation.setHtml('ET');
+                this.updateTimeZone();
+                tmpSfLocation.removeCls('greyHolder');
                 return;
             default :
                 tmpLabelLocation.setHtml('');
         }
-        this.updateTimeZone();
     },
 
     onUpdateEndTime: function(){
@@ -116,7 +122,6 @@ Ext.define('TestMobile.controller.webrequestform.RequestTypeDetailController', {
     },
 
     updateTimeZone: function(){
-        debugger;
         var tmpLabelLocation = this.getRequestTypeDetail().down('#lblLocation');
         if(tmpLabelLocation.getHtml() === ''){
             return;
@@ -128,11 +133,18 @@ Ext.define('TestMobile.controller.webrequestform.RequestTypeDetailController', {
         var tmpTpStartTime = this.getRequestTypeDetail().down('#tpStartTime');
         var tmpTpEndTime = this.getRequestTypeDetail().down('#tpEndTime');
         var tmpNewStartTimeZone = this.getDateUtil().getNewTimeZoneLocation(tmpDpStartDate.getValue(), tmpTpStartTime.getValue(), tmpLabelLocation.getHtml());
-        var tmpNewEndTimeZoneString = Ext.Date.parse(tmpNewStartTimeZone, 'H:i ') + tmpLabelLocation;
-        tmpStartTime.setHtml(tmpNewEndTimeZoneString);
+        var tmpNewStartTimeZoneString = Ext.util.Format.date(tmpNewStartTimeZone, 'H:i ');
+        tmpNewStartTimeZoneString = tmpNewStartTimeZoneString + tmpLabelLocation.getHtml();
+        tmpStartTime.setHtml(tmpNewStartTimeZoneString);
         var tmpNewEndTimeZone = this.getDateUtil().getNewTimeZoneLocation(tmpDpEndDate.getValue(), tmpTpEndTime.getValue(), tmpLabelLocation.getHtml());
-        var tmpNewEndTimeZoneString = Ext.Date.parse(tmpNewEndTimeZone, 'H:i ') + tmpLabelLocation;
+        var tmpNewEndTimeZoneString = Ext.util.Format.date(tmpNewEndTimeZone, 'H:i ');
+        tmpNewEndTimeZoneString = tmpNewEndTimeZoneString + tmpLabelLocation.getHtml();
         tmpEndTime.setHtml(tmpNewEndTimeZoneString);
+    },
+
+    onTypeSelected: function(){
+        var tmpType = this.getRequestTypeDetail().down('#sfType');
+        tmpType.removeCls('greyHolder');
     }
 
 

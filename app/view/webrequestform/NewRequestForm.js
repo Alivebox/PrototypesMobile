@@ -106,7 +106,14 @@ Ext.define('TestMobile.view.webrequestform.NewRequestForm', {
                     { id: '4', name: 'CNN Newsroom'},
                     { id: '5', name: 'Anthony Bourdain Parts Unknown'}
                 ]
-            }
+            },
+            listeners: {
+                scope: this,
+                change: function(){
+                    this.fireEvent('titleSelected');
+                }
+            },
+            cls: 'greyHolder'
         };
         return tmpShowTitleSelectField;
     },
@@ -137,7 +144,14 @@ Ext.define('TestMobile.view.webrequestform.NewRequestForm', {
                     { id: '2', name: 'Tape'},
                     { id: '3', name: 'Post Tape'}
                 ]
-            }
+            },
+            listeners: {
+                scope: this,
+                change: function(){
+                    this.fireEvent('typeSelected');
+                }
+            },
+            cls: 'greyHolder'
         };
         return tmpTypeSelectField;
     },

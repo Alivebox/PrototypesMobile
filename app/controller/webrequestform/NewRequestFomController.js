@@ -19,7 +19,9 @@ Ext.define('TestMobile.controller.webrequestform.NewRequestFomController', {
                 showBack: 'onShowListRequest',
                 showNext: 'onShowCheckList',
                 cancelProject: 'onShowListRequest',
-                durationChanged: 'onUpdateEndTime'
+                durationChanged: 'onUpdateEndTime',
+                titleSelected: 'onTitleSelected',
+                typeSelected: 'onTypeSelected'
             },
             datePickerStartDate: {
                 change: 'updateDurationTime'
@@ -99,6 +101,16 @@ Ext.define('TestMobile.controller.webrequestform.NewRequestFomController', {
         tmpDpEndDate.setValue(tmpNewEndDate);
         tmpTpEndTime.setValue(tmpNewEndDate);
         this.flatActiveChange = false;
+    },
+
+    onTitleSelected: function(){
+        var tmpShowTitle = this.getNewRequestForm().down('#sfShowTitle');
+        tmpShowTitle.removeCls('greyHolder');
+    },
+
+    onTypeSelected: function(){
+        var tmpType = this.getNewRequestForm().down('#sfType');
+        tmpType.removeCls('greyHolder');
     }
 
 });
