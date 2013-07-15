@@ -137,8 +137,34 @@ Ext.define('TestMobile.ux.util.date.DateUtil', {
             return display_hours+":"+mins;
         },
 
-        convertTimeZone: function(argActualTimeZone, argNewTimeZone){
-            debugger;
+        /**
+         * Works for New York, Atlanta and Los Angeles*/
+        getNewTimeZoneLocation: function(argDate, argTime, argLocation){
+            argDate.setHours(argTime.getHours(), argTime.getMinutes());
+            var tmpStartDayLightComparation = new Date(argDate.getFullYear(), 2, 10, 2, 0);
+            var tmpEndDayLightComparation = new Date(argDate.getFullYear(), 10, 3, 2, 0);
+            var tmpDayLightSavingTime = 0;
+            var tmpEasternOffSet = 240;
+            var tmpPacificOffSet = 420;
+            var tmpMyOffset = argDate.getTimezoneOffset();
+            var tmpCompareTimeZone = undefined;
+            var tmpCurrentHours = argDate.getHours();
+            if(tmpStartDayLightComparation.getTime() < tmpStartDayLightComparation.getTime() && tmpEndDayLightComparation.getTime() > argDate.getTime()){
+                tmpDayLightSavingTime = 0;
+            }
+            if(argLocation === "New York"){
+                tmpCompareTimeZone = tmpEasternOffSet;
+            }
+            if(argLocation === "Atlanta"){
+                tmpCompareTimeZone = tmpEasternOffSet;
+            }
+            if(argLocation === "Los Angeles"){
+                tmpCompareTimeZone = tmpPacificOffSet;
+            }
+            tmpCompareTimeZone = tmpCompareTimeZone + tmpDayLightSavingTime;
+            var tmpDifHours = (tmpMyOffset - tmpCompareTimeZone)/60;
+            var tmpNewTimeZoneDate = new Date(argDate.getFullYear(), argDate.getMonth(), argDate.getDate(), (argDate.getHours() + tmpDifHours), argDate.getMinutes());
+            return tmpNewTimeZoneDate;
         }
     }
 });

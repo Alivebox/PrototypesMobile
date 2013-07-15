@@ -65,7 +65,6 @@ Ext.define('TestMobile.controller.webrequestform.NewRequestFomController', {
         this.flatActiveChange = true;
         tmpTxtDuration.setValue(tmpDifHours + ' hrs');
         this.flatActiveChange = false;
-        this.getDateUtil().calculateTimeZone();
     },
 
     getDateUtil: function(){
