@@ -19,11 +19,13 @@ Ext.define('TestMobile.controller.webrequestform.ListRequestController', {
         var tmpTbRequest = this.getNewRequestForm().down('#tbRequest');
         tmpTbRequest.setTitle('New Request');
         var tmpSfShowTitle = this.getNewRequestForm().down('#sfShowTitle');
-        tmpSfShowTitle.setValue('');
+        tmpSfShowTitle.setValue(null);
+        tmpSfShowTitle.setCls('greyHolder');
         var tmpTxtTitle = this.getNewRequestForm().down('#txtTitle');
         tmpTxtTitle.setValue('');
         var tmpSfType = this.getNewRequestForm().down('#sfType');
-        tmpSfType.setValue('');
+        tmpSfType.setValue(null);
+        tmpSfType.setCls('greyHolder');
         var tmpStartTime = new Date();
         tmpStartTime.setHours(10,0,0);
         var tmpTpStartTime = this.getNewRequestForm().down('#tpStartTime');
@@ -74,6 +76,6 @@ Ext.define('TestMobile.controller.webrequestform.ListRequestController', {
         tmpTpEndTime.setValue(new Date());
         var tmpMainController = this.getMainController();
         tmpMainController.setLeftAnimation();
-        tmpMainController.showNewResquestFormView();
+        tmpMainController.showCheckListView();
    }
 });

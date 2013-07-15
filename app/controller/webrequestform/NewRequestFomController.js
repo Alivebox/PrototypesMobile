@@ -50,8 +50,8 @@ Ext.define('TestMobile.controller.webrequestform.NewRequestFomController', {
 
     onShowCheckList: function(){
         var tmpMainController = this.getMainController();
-        tmpMainController.setLeftAnimation();
-        tmpMainController.showCheckListView();
+        tmpMainController.setRightAnimation();
+        tmpMainController.showListRequestView();
     },
 
     updateDurationTime: function(){

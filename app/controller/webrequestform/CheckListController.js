@@ -9,7 +9,7 @@ Ext.define('TestMobile.controller.webrequestform.CheckListController', {
         },
         control : {
             checklist: {
-                showBack: 'onShowWebRequestForm',
+                showBack: 'onShowListRequest',
                 showRequestTypePicker: 'onShowRequestTypePicker',
                 requestTypePicked: 'onRequestTypePicked',
                 backToForm: 'onShowWebRequestForm'
@@ -21,6 +21,12 @@ Ext.define('TestMobile.controller.webrequestform.CheckListController', {
         var tmpMainController = this.getMainController();
         tmpMainController.setRightAnimation();
         tmpMainController.showNewResquestFormView();
+    },
+
+    onShowListRequest: function(){
+        var tmpMainController = this.getMainController();
+        tmpMainController.setRightAnimation();
+        tmpMainController.showListRequestView();
     },
 
     onShowRequestTypePicker: function(){
