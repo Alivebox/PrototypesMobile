@@ -138,7 +138,7 @@ Ext.define('TestMobile.ux.util.date.DateUtil', {
         },
 
         /**
-         * Works for New York, Atlanta and Los Angeles*/
+         * Works for ET and PT*/
         getNewTimeZoneLocation: function(argDate, argTime, argLocation){
             argDate.setHours(argTime.getHours(), argTime.getMinutes());
             var tmpStartDayLightComparation = new Date(argDate.getFullYear(), 2, 10, 2, 0);
@@ -152,13 +152,10 @@ Ext.define('TestMobile.ux.util.date.DateUtil', {
             if(tmpStartDayLightComparation.getTime() < tmpStartDayLightComparation.getTime() && tmpEndDayLightComparation.getTime() > argDate.getTime()){
                 tmpDayLightSavingTime = 0;
             }
-            if(argLocation === "New York"){
+            if(argLocation === "ET"){
                 tmpCompareTimeZone = tmpEasternOffSet;
             }
-            if(argLocation === "Atlanta"){
-                tmpCompareTimeZone = tmpEasternOffSet;
-            }
-            if(argLocation === "Los Angeles"){
+            if(argLocation === "PT"){
                 tmpCompareTimeZone = tmpPacificOffSet;
             }
             tmpCompareTimeZone = tmpCompareTimeZone + tmpDayLightSavingTime;

@@ -68,6 +68,7 @@ Ext.define('TestMobile.controller.webrequestform.RequestTypeDetailController', {
         this.flatActiveChange = true;
         tmpTxtDuration.setValue(tmpDifHours + ' hrs');
         this.flatActiveChange = false;
+        this.updateTimeZone();
     },
 
     getDateUtil: function(){
@@ -79,18 +80,22 @@ Ext.define('TestMobile.controller.webrequestform.RequestTypeDetailController', {
     },
 
     onLocationSelected: function(){
-        var tmpTxtAvailable = this.getRequestTypeDetail().down('#txtAvailable');
+        var tmpLabelLocation = this.getRequestTypeDetail().down('#lblLocation');
         var tmpSfLocation = this.getRequestTypeDetail().down('#sfLocation');
         switch (tmpSfLocation.getValue()) {
             case 'New York':
-                tmpTxtAvailable.setValue('2');
+                tmpLabelLocation.setHtml('ET');
                 return;
             case 'Los Angeles':
-                tmpTxtAvailable.setValue('0');
+                tmpLabelLocation.setHtml('PT');
                 return;
             case 'Atlanta':
-                tmpTxtAvailable.setValue('3');
+                tmpLabelLocation.setHtml('ET');
+                return;
+            default :
+                tmpLabelLocation.setHtml('');
         }
+        this.updateTimeZone();
     },
 
     onUpdateEndTime: function(){
@@ -107,6 +112,27 @@ Ext.define('TestMobile.controller.webrequestform.RequestTypeDetailController', {
         tmpDpEndDate.setValue(tmpNewEndDate);
         tmpTpEndTime.setValue(tmpNewEndDate);
         this.flatActiveChange = false;
+        this.updateTimeZone();
+    },
+
+    updateTimeZone: function(){
+        debugger;
+        var tmpLabelLocation = this.getRequestTypeDetail().down('#lblLocation');
+        if(tmpLabelLocation.getHtml() === ''){
+            return;
+        }
+        var tmpEndTime = this.getRequestTypeDetail().down('#lblEndTime');
+        var tmpStartTime = this.getRequestTypeDetail().down('#lblStartTime');
+        var tmpDpStartDate = this.getRequestTypeDetail().down('#dpStartDate');
+        var tmpDpEndDate = this.getRequestTypeDetail().down('#dpEndDate');
+        var tmpTpStartTime = this.getRequestTypeDetail().down('#tpStartTime');
+        var tmpTpEndTime = this.getRequestTypeDetail().down('#tpEndTime');
+        var tmpNewStartTimeZone = this.getDateUtil().getNewTimeZoneLocation(tmpDpStartDate.getValue(), tmpTpStartTime.getValue(), tmpLabelLocation.getHtml());
+        var tmpNewEndTimeZoneString = Ext.Date.parse(tmpNewStartTimeZone, 'H:i ') + tmpLabelLocation;
+        tmpStartTime.setHtml(tmpNewEndTimeZoneString);
+        var tmpNewEndTimeZone = this.getDateUtil().getNewTimeZoneLocation(tmpDpEndDate.getValue(), tmpTpEndTime.getValue(), tmpLabelLocation.getHtml());
+        var tmpNewEndTimeZoneString = Ext.Date.parse(tmpNewEndTimeZone, 'H:i ') + tmpLabelLocation;
+        tmpEndTime.setHtml(tmpNewEndTimeZoneString);
     }
 
 

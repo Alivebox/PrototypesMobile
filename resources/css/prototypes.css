@@ -80,6 +80,10 @@ input::-webkit-input-placeholder {
   color: #d3d3d3 !important;
 }
 
+.grey-label {
+  color: #d3d3d3 !important;
+}
+
 .login-header {
   width: 100%;
   height: 90px;

@@ -72,6 +72,7 @@ Ext.define('TestMobile.view.webrequestform.RequestTypeDetail', {
 
     createFieldSets: function(){
         var tmpLocationSelectField = this.createLocationSelectField();
+        var tmpLocationAbvLabel = this.createLocationAbvLabel();
         var tmpOrderTitle = this.createOrderTitleText();
         var tmpTypeSelectField = this.createTypeSelectField();
         var tmpStartDatePickerField = this.createDatePickerField('Start Date', 'dpStartDate');
@@ -83,6 +84,7 @@ Ext.define('TestMobile.view.webrequestform.RequestTypeDetail', {
             xtype: 'fieldset',
             items: [
                 tmpLocationSelectField,
+                tmpLocationAbvLabel,
                 tmpOrderTitle,
                 tmpTypeSelectField,
                 tmpStartDatePickerField,
@@ -96,7 +98,7 @@ Ext.define('TestMobile.view.webrequestform.RequestTypeDetail', {
     },
 
     createLocationSelectField: function(){
-        var tmpLocationSelectField =  {
+        var tmpLocationSelectField = {
             xtype: 'selectfield',
             name: 'sfLocation',
             itemId: 'sfLocation',
@@ -120,6 +122,42 @@ Ext.define('TestMobile.view.webrequestform.RequestTypeDetail', {
             }
         };
         return tmpLocationSelectField;
+    },
+
+    createLocationAbvLabel: function(){
+        var tmpLocationAbvLabel = {
+            xtype: 'label',
+            itemId: 'lblLocation',
+            html: '',
+            right: 40,
+            top: 15,
+            cls: 'grey-label'
+        };
+        return tmpLocationAbvLabel;
+    },
+
+    createStartTimeZoneLabel: function(){
+        var tmpStartTimeZoneLabel = {
+            xtype: 'label',
+            itemId: 'lblStartTime',
+            html: '',
+            right: 40,
+            top: 35,
+            cls: 'grey-label'
+        };
+        return tmpStartTimeTimeZoneLabel;
+    },
+
+    createEndTimeZoneLabel: function(){
+        var tmpEndTimeZoneLabel = {
+            xtype: 'label',
+            itemId: 'lblEndTime',
+            html: '',
+            right: 40,
+            top: 55,
+            cls: 'grey-label'
+        };
+        return tmpEndTimeZoneLabel;
     },
 
     createOrderTitleText: function(){
