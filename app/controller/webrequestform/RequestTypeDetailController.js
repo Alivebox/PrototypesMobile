@@ -53,6 +53,10 @@ Ext.define('TestMobile.controller.webrequestform.RequestTypeDetailController', {
         tmpLblRequested.setHtml('Requested');
         tmpLblRequested.setHeight(23);
         tmpImgCheck.setSrc('resources/icons/check.png');
+        var tmpTxtOrderTitle = this.getRequestTypeDetail().down('#txtOrderTitle');
+        if(tmpTxtOrderTitle.getValue() === ''){
+            tmpTxtOrderTitle.setValue(tmpTxtOrderTitle.getPlaceHolder());
+        }
         this.onShowCheckList();
     },
 
