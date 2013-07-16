@@ -75,6 +75,11 @@ input::-webkit-input-placeholder {
   color: #d3d3d3 !important;
 }
 
+.italic-place-holder input::-webkit-input-placeholder {
+  font-style: italic;
+  color: #d3d3d3 !important;
+}
+
 .italic-lightGrey {
   font-style: italic;
   color: #d3d3d3 !important;

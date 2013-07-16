@@ -123,8 +123,8 @@ Ext.define('TestMobile.view.webrequestform.NewRequestForm', {
             xtype: 'textfield',
             itemId: 'txtTitle',
             label: 'Title',
-            placeHolder: 'Name your request'
-
+            placeHolder: 'Name your request',
+            cls: 'italic-place-holder'
         };
         return tmpProjectTitle;
     },
