@@ -8,11 +8,13 @@ Ext.define('TestMobile.view.webrequestform.NewRequestForm', {
     initialize: function(){
         this.header = this.createHeader();
         this.container = this.createContainer();
+        this.durationButtons = this.onCreateDurationButtons();
         this.cancelProject = this.createCancelProjectButton();
         this.add([
             this.header,
             this.container,
-            this.cancelProject
+            this.cancelProject,
+            this.durationButtons
         ]);
         this.callParent(arguments);
     },
@@ -39,7 +41,7 @@ Ext.define('TestMobile.view.webrequestform.NewRequestForm', {
                 },
                 {
                     xtype: 'button',
-                    text: 'Submit',
+                    text: 'Next',
                     listeners: {
                         scope: this,
                         tap: function(){
@@ -94,12 +96,13 @@ Ext.define('TestMobile.view.webrequestform.NewRequestForm', {
             name: 'showTitle',
             itemId: 'sfShowTitle',
             label: 'Show Title',
-            valueField: 'name',
             autoSelect: false,
+            valueField: 'name',
             displayField: 'name',
             placeHolder: 'Select a show',
             store: {
                 data: [
+                    { id: '0', name: ''},
                     { id: '1', name: 'Anderson Cooper 360'},
                     { id: '2', name: 'Nancy Grace'},
                     { id: '3', name: 'Dr. Drew'},
@@ -140,6 +143,7 @@ Ext.define('TestMobile.view.webrequestform.NewRequestForm', {
             placeHolder: 'Select a type',
             store: {
                 data: [
+                    { id: '0', name: ''},
                     { id: '1', name: 'Pre Tape'},
                     { id: '2', name: 'Tape'},
                     { id: '3', name: 'Post Tape'}
@@ -206,8 +210,9 @@ Ext.define('TestMobile.view.webrequestform.NewRequestForm', {
         var tmpDurationTextField = {
             xtype: 'textfield',
             label: 'Duration',
-            value: '0 hrs',
+            value: '30 min(s)',
             itemId: 'txtDuration',
+            clearIcon : false,
             listeners: {
                 scope: this,
                 change: function(){
@@ -216,6 +221,50 @@ Ext.define('TestMobile.view.webrequestform.NewRequestForm', {
             }
         }
         return tmpDurationTextField;
+    },
+
+    onCreateDurationButtons: function(){
+        var tmpDurationButtons = {
+            xtype: 'container',
+            layout: {
+                type: 'hbox'
+            },
+            items: [
+                {
+                    xtype: 'button',
+                    icon: 'resources/icons/minus.png',
+                    top: -225,
+                    right: 40,
+                    height: '30px',
+                    width: '30px',
+                    padding: '0 10 10 0',
+                    cls: 'transparent-button',
+                    listeners: {
+                        scope: this,
+                        tap: function(){
+                            this.fireEvent('minusDuration');
+                        }
+                    }
+                },
+                {
+                    xtype: 'button',
+                    icon: 'resources/icons/plus.png',
+                    top: -225,
+                    right: 10,
+                    height: '30px',
+                    width: '30px',
+                    padding: '0 10 10 0',
+                    cls: 'transparent-button',
+                    listeners: {
+                        scope: this,
+                        tap: function(){
+                            this.fireEvent('addDuration');
+                        }
+                    }
+                }
+            ]
+        }
+        return tmpDurationButtons;
     }
 
 });

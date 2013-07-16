@@ -31,7 +31,7 @@ Ext.define('TestMobile.controller.webrequestform.ListRequestController', {
         var tmpTpStartTime = this.getNewRequestForm().down('#tpStartTime');
         tmpTpStartTime.setValue(tmpStartTime);
         var tmpEndTime = new Date();
-        tmpEndTime.setHours (10,0,0);
+        tmpEndTime.setHours (10,30,0);
         var tmpTpEndTime = this.getNewRequestForm().down('#tpEndTime');
         tmpTpEndTime.setValue(tmpEndTime);
         var tmpMainController = this.getMainController();

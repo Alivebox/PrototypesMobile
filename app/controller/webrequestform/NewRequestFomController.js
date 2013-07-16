@@ -21,16 +21,18 @@ Ext.define('TestMobile.controller.webrequestform.NewRequestFomController', {
                 cancelProject: 'onShowListRequest',
                 durationChanged: 'onUpdateEndTime',
                 titleSelected: 'onTitleSelected',
-                typeSelected: 'onTypeSelected'
+                typeSelected: 'onTypeSelected',
+                minusDuration: 'onMinusDuration',
+                addDuration: 'onAddDuration'
             },
             datePickerStartDate: {
-                change: 'updateDurationTime'
+                change: 'onUpdateEndTime'
             },
             datePickerEndDate: {
                 change: 'updateDurationTime'
             },
             datePickerStartTime: {
-                change: 'updateDurationTime'
+                change: 'onUpdateEndTime'
             },
             datePickerEndTime: {
                 change: 'updateDurationTime'
@@ -65,7 +67,7 @@ Ext.define('TestMobile.controller.webrequestform.NewRequestFomController', {
         var tmpDifHours = this.getDateUtil().calculateHoursDuration(tmpDpStartDate.getValue(), tmpDpEndDate.getValue(), tmpTpStartTime.getValue(), tmpTpEndTime.getValue());
         var tmpTxtDuration = this.getNewRequestForm().down('#txtDuration');
         this.flatActiveChange = true;
-        tmpTxtDuration.setValue(tmpDifHours + ' hrs');
+        tmpTxtDuration.setValue((tmpDifHours) + ' min(s)');
         this.flatActiveChange = false;
     },
 
@@ -105,12 +107,34 @@ Ext.define('TestMobile.controller.webrequestform.NewRequestFomController', {
 
     onTitleSelected: function(){
         var tmpShowTitle = this.getNewRequestForm().down('#sfShowTitle');
+        if(tmpShowTitle.getValue() == ''){
+            tmpShowTitle.setCls('greyHolder');
+            return;
+        }
         tmpShowTitle.removeCls('greyHolder');
     },
 
     onTypeSelected: function(){
         var tmpType = this.getNewRequestForm().down('#sfType');
+        if(tmpType.getValue() == ''){
+            tmpType.setCls('greyHolder');
+            return;
+        }
         tmpType.removeCls('greyHolder');
+    },
+
+    onMinusDuration: function(){
+        var tmpDuration = this.getNewRequestForm().down('#txtDuration');
+        var tmpArrayValues = tmpDuration.getValue().split(" ", 2);
+        var tmpNewValue = (parseInt(tmpArrayValues[0]) - 15) + " " + tmpArrayValues[1];
+        tmpDuration.setValue(tmpNewValue);
+    },
+
+    onAddDuration: function(){
+        var tmpDuration = this.getNewRequestForm().down('#txtDuration');
+        var tmpArrayValues = tmpDuration.getValue().split(" ", 2);
+        var tmpNewValue = (parseInt(tmpArrayValues[0]) + 15) + " " + tmpArrayValues[1];
+        tmpDuration.setValue(tmpNewValue);
     }
 
 });

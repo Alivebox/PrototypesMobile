@@ -66,6 +66,7 @@ Ext.define('TestMobile.ux.util.date.DateUtil', {
             var tmpDif = argEndDate.getTime() - argStartDate.getTime();
             var tmpDifTime = argEndTime.getTime() - argStartTime.getTime();
             var tmpHours = (tmpDif + tmpDifTime) / (1000 * 60 * 60);
+            tmpHours = tmpHours * 60;
             return Math.round(tmpHours);
         },
 
@@ -74,6 +75,7 @@ Ext.define('TestMobile.ux.util.date.DateUtil', {
                 return 0;
             }
             var tmpHours = argDuration.split(" ", 1);
+            tmpHours[0] = (parseInt(tmpHours[0]) / 60);
             argStartDate.setHours(argStartTime.getHours(),argStartTime.getMinutes());
             var tmpEndDate = new Date();
             tmpEndDate.setTime(argStartTime.getTime() + (tmpHours[0]*60*60*1000));
