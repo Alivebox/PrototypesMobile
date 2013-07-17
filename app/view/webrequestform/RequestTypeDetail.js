@@ -57,14 +57,16 @@ Ext.define('TestMobile.view.webrequestform.RequestTypeDetail', {
 
     createContainer: function(){
         var tmpFieldSets = this.createFieldSets();
-        var tmpFacility = this.createFacilityLabel();
-        var tmpGroupFacility = this.createFacilityRadioField();
+        var tmpDurationButtons = this.onCreateDurationButtons();
+        var tmpFacilityContainer = this.createFacilityContainer();
+        var tmpCheckAvailability = this.createCheckAvailabilityButton();
         var tmpContainer = {
             xtype: 'container',
             items: [
                 tmpFieldSets,
-                tmpFacility,
-                tmpGroupFacility
+                tmpDurationButtons,
+                tmpCheckAvailability,
+                tmpFacilityContainer
             ]
         };
         return tmpContainer;
@@ -78,9 +80,9 @@ Ext.define('TestMobile.view.webrequestform.RequestTypeDetail', {
         var tmpOrderTitle = this.createOrderTitleText();
         var tmpTypeSelectField = this.createTypeSelectField();
         var tmpStartDatePickerField = this.createDatePickerField('Start Date', 'dpStartDate');
-        var tmpStartTimePickerField = this.createTimePickerField('Start Time', new Date(), 'tpStartTime', 'H:i T');
+        var tmpStartTimePickerField = this.createTimePickerField('Start Time', new Date(), 'tpStartTime', 'H:i T', 0);
         var tmpEndDatePickerField = this.createDatePickerField('End Date', 'dpEndDate');
-        var tmpEndTimePickerField = this.createTimePickerField('End Time', new Date(), 'tpEndTime', 'H:i T');
+        var tmpEndTimePickerField = this.createTimePickerField('End Time', new Date(), 'tpEndTime', 'H:i T', 30);
         var tmpDurationLabel = this.createDurationTextField();
         var tmpFieldSets =  {
             xtype: 'fieldset',
@@ -113,6 +115,7 @@ Ext.define('TestMobile.view.webrequestform.RequestTypeDetail', {
             displayField: 'name',
             store: {
                 data: [
+                    { id: '0', name: ''},
                     { id: '1', name: 'New York'},
                     { id: '2', name: 'Atlanta'},
                     { id: '3', name: 'Los Angeles'}
@@ -187,6 +190,7 @@ Ext.define('TestMobile.view.webrequestform.RequestTypeDetail', {
             displayField: 'name',
             store: {
                 data: [
+                    { id: '0', name: ''},
                     { id: '1', name: 'Pre Tape'},
                     { id: '2', name: 'Tape'},
                     { id: '3', name: 'Post Tape'}
@@ -221,9 +225,9 @@ Ext.define('TestMobile.view.webrequestform.RequestTypeDetail', {
         return tmpDatePickerField;
     },
 
-    createTimePickerField: function(argLabel, argDate, argItemId, argTimeZoneFormat){
+    createTimePickerField: function(argLabel, argDate, argItemId, argTimeZoneFormat, argMinutes){
         var tmpTime = new Date();
-        tmpTime.setHours(10,0,0);
+        tmpTime.setHours(10,argMinutes,0);
         var tmpTimePickerField = {
             xtype: 'timepickerfield',
             label: argLabel,
@@ -282,14 +286,27 @@ Ext.define('TestMobile.view.webrequestform.RequestTypeDetail', {
         return tmpBottomButtons;
     },
 
+    createCheckAvailabilityButton: function(){
+        var tmpCheckAvailabilityButton = {
+            xtype: 'button',
+            text: 'Check Availability',
+            itemId: 'btnCheckAvailable',
+            hidden: true,
+            margin: '10 10 10 10',
+            listeners: {
+                scope: this,
+                tap: function(){
+                    this.fireEvent('checkAvailability')
+                }
+            }
+        };
+        return tmpCheckAvailabilityButton;
+    },
+
     createBottomButtonsContainer: function(){
         var tmpCancelButton = this.createCancelButton();
         var tmpBottomButtons = {
             xtype: 'container',
-            layout: {
-                type: 'hbox',
-                pack: 'center'
-            },
             default: {
                 margin: '10 10 10 10',
                 width: '100%'
@@ -336,8 +353,9 @@ Ext.define('TestMobile.view.webrequestform.RequestTypeDetail', {
         var tmpDurationTextField = {
             xtype: 'textfield',
             label: 'Duration',
-            value: '0 hrs',
+            value: '30 min(s)',
             itemId: 'txtDuration',
+            clearIcon : false,
             listeners: {
                 scope: this,
                 change: function(){
@@ -346,6 +364,22 @@ Ext.define('TestMobile.view.webrequestform.RequestTypeDetail', {
             }
         };
         return tmpDurationTextField;
+    },
+
+    createFacilityContainer : function(){
+        var tmpFacility = this.createFacilityLabel();
+        var tmpGroupFacility = this.createFacilityRadioField();
+        var tmpFacilityContainer =  {
+            xtype: 'container',
+            itemId: 'cFacility',
+            hidden: true,
+            padding: '20 0 0 0',
+            items: [
+                tmpFacility,
+                tmpGroupFacility
+            ]
+        };
+        return tmpFacilityContainer;
     },
 
     createFacilityLabel: function(){
@@ -459,8 +493,48 @@ Ext.define('TestMobile.view.webrequestform.RequestTypeDetail', {
         return tmpGroupFacility;
     },
 
-    createRadioField: function(){
-
+    onCreateDurationButtons: function(){
+        var tmpDurationButtons = {
+            xtype: 'container',
+            layout: {
+                type: 'hbox'
+            },
+            items: [
+                {
+                    xtype: 'button',
+                    icon: 'resources/icons/minus.png',
+                    top: -165,
+                    right: 40,
+                    height: '30px',
+                    width: '30px',
+                    padding: '0 10 10 0',
+                    cls: 'transparent-button',
+                    listeners: {
+                        scope: this,
+                        tap: function(){
+                            this.fireEvent('minusDuration');
+                        }
+                    }
+                },
+                {
+                    xtype: 'button',
+                    icon: 'resources/icons/plus.png',
+                    top: -165,
+                    right: 10,
+                    height: '30px',
+                    width: '30px',
+                    padding: '0 10 10 0',
+                    cls: 'transparent-button',
+                    listeners: {
+                        scope: this,
+                        tap: function(){
+                            this.fireEvent('addDuration');
+                        }
+                    }
+                }
+            ]
+        }
+        return tmpDurationButtons;
     }
 
 });

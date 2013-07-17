@@ -107,7 +107,7 @@ Ext.define('TestMobile.controller.webrequestform.NewRequestFomController', {
 
     onTitleSelected: function(){
         var tmpShowTitle = this.getNewRequestForm().down('#sfShowTitle');
-        if(tmpShowTitle.getValue() == ''){
+        if(Ext.isEmpty(tmpShowTitle.getValue())){
             tmpShowTitle.setCls('greyHolder');
             return;
         }
@@ -116,7 +116,7 @@ Ext.define('TestMobile.controller.webrequestform.NewRequestFomController', {
 
     onTypeSelected: function(){
         var tmpType = this.getNewRequestForm().down('#sfType');
-        if(tmpType.getValue() == ''){
+        if(Ext.isEmpty(tmpType.getValue())){
             tmpType.setCls('greyHolder');
             return;
         }

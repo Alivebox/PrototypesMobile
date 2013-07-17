@@ -19,7 +19,10 @@ Ext.define('TestMobile.controller.webrequestform.RequestTypeDetailController', {
                 submit: 'onSubmitRequestTypeDetail',
                 locationSelected: 'onLocationSelected',
                 durationChanged: 'onUpdateEndTime',
-                typeSelected: 'onTypeSelected'
+                typeSelected: 'onTypeSelected',
+                minusDuration: 'onMinusDuration',
+                addDuration: 'onAddDuration',
+                checkAvailability: 'showFacilityContainer'
             },
             datePickerStartDate: {
                 change: 'updateDurationTime'
@@ -71,7 +74,7 @@ Ext.define('TestMobile.controller.webrequestform.RequestTypeDetailController', {
         var tmpDifHours = this.getDateUtil().calculateHoursDuration(tmpDpStartDate.getValue(), tmpDpEndDate.getValue(), tmpTpStartTime.getValue(), tmpTpEndTime.getValue());
         var tmpTxtDuration = this.getRequestTypeDetail().down('#txtDuration');
         this.flatActiveChange = true;
-        tmpTxtDuration.setValue(tmpDifHours + ' hrs');
+        tmpTxtDuration.setValue((tmpDifHours) + ' min(s)');
         this.flatActiveChange = false;
         this.updateTimeZone();
     },
@@ -87,25 +90,39 @@ Ext.define('TestMobile.controller.webrequestform.RequestTypeDetailController', {
     onLocationSelected: function(){
         var tmpLabelLocation = this.getRequestTypeDetail().down('#lblLocation');
         var tmpSfLocation = this.getRequestTypeDetail().down('#sfLocation');
+        var tmpBtnCheckAvailable = this.getRequestTypeDetail().down('#btnCheckAvailable');
+        if(Ext.isEmpty(tmpSfLocation.getValue())){
+            tmpSfLocation.setCls('greyHolder');
+            tmpLabelLocation.setHtml('');
+            tmpBtnCheckAvailable.setHidden(true);
+            var tmpCFacility = this.getRequestTypeDetail().down('#cFacility');
+            tmpCFacility.setHidden(true);
+            return;
+        }
         switch (tmpSfLocation.getValue()) {
             case 'New York':
-                tmpLabelLocation.setHtml('ET');
-                this.updateTimeZone();
-                tmpSfLocation.removeCls('greyHolder');
+                this.updateLocationLabel('ET');
                 return;
             case 'Los Angeles':
-                tmpLabelLocation.setHtml('PT');
-                this.updateTimeZone();
-                tmpSfLocation.removeCls('greyHolder');
+                this.updateLocationLabel('PT');
                 return;
             case 'Atlanta':
-                tmpLabelLocation.setHtml('ET');
-                this.updateTimeZone();
-                tmpSfLocation.removeCls('greyHolder');
+                this.updateLocationLabel('ET');
                 return;
             default :
                 tmpLabelLocation.setHtml('');
+                tmpBtnCheckAvailable.setHidden(true);
         }
+    },
+
+    updateLocationLabel: function(argValue){
+        var tmpLabelLocation = this.getRequestTypeDetail().down('#lblLocation');
+        var tmpSfLocation = this.getRequestTypeDetail().down('#sfLocation');
+        var tmpBtnCheckAvailable = this.getRequestTypeDetail().down('#btnCheckAvailable');
+        tmpLabelLocation.setHtml(argValue);
+        this.updateTimeZone();
+        tmpSfLocation.removeCls('greyHolder');
+        tmpBtnCheckAvailable.setHidden(false);
     },
 
     onUpdateEndTime: function(){
@@ -148,8 +165,30 @@ Ext.define('TestMobile.controller.webrequestform.RequestTypeDetailController', {
 
     onTypeSelected: function(){
         var tmpType = this.getRequestTypeDetail().down('#sfType');
+        if(Ext.isEmpty(tmpType.getValue())){
+            tmpType.setCls('greyHolder');
+            return;
+        }
         tmpType.removeCls('greyHolder');
-    }
+    },
 
+    onMinusDuration: function(){
+        var tmpDuration = this.getRequestTypeDetail().down('#txtDuration');
+        var tmpArrayValues = tmpDuration.getValue().split(" ", 2);
+        var tmpNewValue = (parseInt(tmpArrayValues[0]) - 15) + " " + tmpArrayValues[1];
+        tmpDuration.setValue(tmpNewValue);
+    },
+
+    onAddDuration: function(){
+        var tmpDuration = this.getRequestTypeDetail().down('#txtDuration');
+        var tmpArrayValues = tmpDuration.getValue().split(" ", 2);
+        var tmpNewValue = (parseInt(tmpArrayValues[0]) + 15) + " " + tmpArrayValues[1];
+        tmpDuration.setValue(tmpNewValue);
+    },
+
+    showFacilityContainer: function(){
+        var tmpCFacility = this.getRequestTypeDetail().down('#cFacility');
+        tmpCFacility.setHidden(false);
+    }
 
 });
