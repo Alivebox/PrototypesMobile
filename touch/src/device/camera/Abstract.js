@@ -17,7 +17,6 @@ Ext.define('Ext.device.camera.Abstract', {
     encoding: {
         jpeg: 0,
         jpg: 0,
-        png: 1
     },
 
     /**

@@ -5,16 +5,22 @@ Ext.define('TestMobile.controller.webrequestform.CheckListController', {
     config: {
         refs: {
             cCheckListBody: 'checklist [itemId=cCheckListBody]',
-            requestTypePicker : 'requesttypepicker'
+            requestTypePicker : 'requesttypepicker',
+            checkList: 'checklist'
         },
         control : {
             checklist: {
                 showBack: 'onShowListRequest',
                 showRequestTypePicker: 'onShowRequestTypePicker',
                 requestTypePicked: 'onRequestTypePicked',
-                backToForm: 'onShowWebRequestForm'
+                backToForm: 'onShowWebRequestForm',
+                afterrender: 'onCheckListAfterRender'
             }
         }
+    },
+
+    onCheckListAfterRender: function(){
+        var tmpAddImage = this.getCheckList().down('imgAdd');
     },
 
     onShowWebRequestForm: function(){

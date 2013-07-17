@@ -29,7 +29,7 @@ Ext.define('TestMobile.view.webrequestform.CheckList', {
             items: [
                 {
                     xtype: 'button',
-                    text: 'Back',
+                    text: 'Home',
                     listeners: {
                         scope: this,
                         tap: function(){
@@ -57,6 +57,13 @@ Ext.define('TestMobile.view.webrequestform.CheckList', {
                             this.fireEvent('requestTypePicked')
                         }
                     }
+                },
+                {
+                    xtype: 'img',
+                    itemId: 'imgAdd',
+                    scr: 'resources/icons/check.png',
+                    height: 100,
+                    width: 100
                 }
             ]
         };
@@ -65,20 +72,22 @@ Ext.define('TestMobile.view.webrequestform.CheckList', {
 
     createAddButton: function(){
         var tmpAddButton = {
-            xtype: 'button',
-            text: 'Add',
-            itemId: 'btnAdd',
-            icon: 'resources/icons/add.png',
-            iconAlign: 'right',
-            margin: '-20 10 0 10',
-            padding: '0 0 0 40',
-            height: 46,
-            listeners: {
-                scope: this,
-                tap: function(){
-                    this.fireEvent('showRequestTypePicker');
+            xtype: 'container',
+            items: [
+                {
+                    xtype: 'button',
+                    text: 'Add',
+                    itemId: 'btnAdd',
+                    margin: '-20 10 0 10',
+                    height: 46,
+                    listeners: {
+                        scope: this,
+                        tap: function(){
+                            this.fireEvent('showRequestTypePicker');
+                        }
+                    }
                 }
-            }
+            ]
         };
         return tmpAddButton;
     },
