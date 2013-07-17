@@ -39,7 +39,6 @@ Ext.define('TestMobile.view.webrequestform.ListRequest', {
                             this.fireEvent('showSettings')
                         }
                     }
-
                 }
             ]
         };

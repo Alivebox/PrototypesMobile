@@ -57,13 +57,6 @@ Ext.define('TestMobile.view.webrequestform.CheckList', {
                             this.fireEvent('requestTypePicked')
                         }
                     }
-                },
-                {
-                    xtype: 'img',
-                    itemId: 'imgAdd',
-                    scr: 'resources/icons/check.png',
-                    height: 100,
-                    width: 100
                 }
             ]
         };
@@ -75,11 +68,32 @@ Ext.define('TestMobile.view.webrequestform.CheckList', {
             xtype: 'container',
             items: [
                 {
+                    xtype: 'label',
+                    itemId: 'lblAddImage',
+                    html: '<img src="/resources/icons/add32.png" alt="">',
+                    top: 6,
+                    style: 'left: 50%; margin-left: 20px;',
+                    listeners: {
+                        scope: this,
+                        tap: function(){
+                            this.fireEvent('showRequestTypePicker');
+                        }
+                    }
+                },
+                {
                     xtype: 'button',
                     text: 'Add',
                     itemId: 'btnAdd',
                     margin: '-20 10 0 10',
+                    height: 46
+                },
+                {
+                    xtype: 'button',
+                    top: 0,
+                    width: '100%',
                     height: 46,
+                    margin: '0 10 0 0',
+                    cls: 'transparent-button',
                     listeners: {
                         scope: this,
                         tap: function(){

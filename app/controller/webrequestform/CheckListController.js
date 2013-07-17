@@ -20,7 +20,6 @@ Ext.define('TestMobile.controller.webrequestform.CheckListController', {
     },
 
     onCheckListAfterRender: function(){
-        var tmpAddImage = this.getCheckList().down('imgAdd');
     },
 
     onShowWebRequestForm: function(){
