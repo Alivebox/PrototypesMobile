@@ -48,16 +48,6 @@ Ext.define('TestMobile.view.webrequestform.CheckList', {
             itemId: 'cCheckListBody',
             cls: 'padding-all-10',
             items: [
-                {
-                    xtype: 'requesttypepicker',
-                    hidden: true,
-                    listeners: {
-                        scope: this,
-                        change: function(){
-                            this.fireEvent('requestTypePicked')
-                        }
-                    }
-                }
             ]
         };
         return tmpContainer;
@@ -67,6 +57,16 @@ Ext.define('TestMobile.view.webrequestform.CheckList', {
         var tmpAddButton = {
             xtype: 'container',
             items: [
+                {
+                    xtype: 'requesttypepicker',
+                    hidden: true,
+                    listeners: {
+                        scope: this,
+                        change: function(){
+                            this.fireEvent('requestTypePicked')
+                        }
+                    }
+                },
                 {
                     xtype: 'label',
                     itemId: 'lblAddImage',
@@ -100,6 +100,22 @@ Ext.define('TestMobile.view.webrequestform.CheckList', {
                             this.fireEvent('showRequestTypePicker');
                         }
                     }
+                },
+                {
+                    xtype: 'container',
+                    hidden: false,
+                    itemId: 'cInfoLabel',
+                    layout: {
+                        type: 'hbox',
+                        pack: 'center'
+                    },
+                    items: [
+                        {
+                            xtype: 'label',
+                            padding: '20 0 0 0',
+                            html: '"Add orders to your request by pressing the Add button above"'
+                        }
+                    ]
                 }
             ]
         };

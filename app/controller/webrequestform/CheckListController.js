@@ -46,10 +46,20 @@ Ext.define('TestMobile.controller.webrequestform.CheckListController', {
             tmpTxtRequestType.setValue(this.getRequestTypePicker().getValue().requesttype);
             this.getCCheckListBody().add(tmpRequestType);
         }
+        this.verifyCheckListTypes();
         this.getRequestTypePicker().hide();
     },
 
     getMainController: function(){
         return this.getApplication().getController('MainController');
+    },
+
+    verifyCheckListTypes: function(){
+        var tmpCCheckListBody = this.getCCheckListBody();
+        var tmpCInfoLabel = this.getCheckList().down('#cInfoLabel');
+        if(tmpCCheckListBody.getItems().lenght == 0){
+            tmpCInfoLabel.setHidden(false);
+        }
+        tmpCInfoLabel.setHidden(true);
     }
 });

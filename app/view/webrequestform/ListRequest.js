@@ -20,6 +20,34 @@ Ext.define('TestMobile.view.webrequestform.ListRequest', {
         this.callParent(arguments);
     },
 
+    createShowMgrHeader: function(){
+        var tmpShowMgrHeader =  {
+            xtype : 'toolbar',
+            docked: 'top',
+            height: 25,
+            minHeight: 25,
+            style : {
+                marginLeft : '0%',
+                height:25
+            },
+            items: [
+                {
+                    xtype: 'label',
+                    html: '<img src="/resources/icons/showMGR_corp_logo_wide.png" alt="">',
+                    height: 25
+                },
+                {
+                    xtype: 'spacer'
+                },
+                {
+                    xtype: 'label',
+                    html: 'right'
+                }
+            ]
+        };
+        return tmpShowMgrHeader;
+    },
+
     createHeader: function(){
         var tmpHeader =  {
             xtype : 'toolbar',

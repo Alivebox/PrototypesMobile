@@ -57,6 +57,10 @@ Ext.define('TestMobile.controller.webrequestform.ListRequestController', {
         return this.getApplication().getController('MainController');
     },
 
+    getCheckListController: function(){
+        return this.getApplication().getController('CheckListController');
+    },
+
     onSelectedRequest: function(){
         var tmpTbRequest = this.getNewRequestForm().down('#tbRequest');
         tmpTbRequest.setTitle('Project Name');
@@ -77,5 +81,6 @@ Ext.define('TestMobile.controller.webrequestform.ListRequestController', {
         var tmpMainController = this.getMainController();
         tmpMainController.setLeftAnimation();
         tmpMainController.showCheckListView();
+        this.getCheckListController().verifyCheckListTypes();
    }
 });
