@@ -6,11 +6,11 @@ Ext.define('TestMobile.view.Main', {
         this.add([
             {
                 xtype: 'toolbar',
-                height: 35,
-                minHeight: 35,
+                height: 25,
+                minHeight: 25,
                 style : {
                     marginLeft : '0%',
-                    height:35
+                    height:25
                 },
                 layout:{
                     pack: 'center'
@@ -18,18 +18,17 @@ Ext.define('TestMobile.view.Main', {
                 items: [
                     {
                         xtype: 'label',
-                        html: '<img src="/resources/icons/showmgr-logo-h352.png" alt="">',
+                        html: '<img src="/resources/icons/showmgr-logo-h252.png" alt="">',
                         left: 0
                     },
                     {
                         xtype: 'label',
-                        html: '<img src="/resources/icons/showmgr-logo-h35-text.png" alt="">'
+                        html: '<img src="/resources/icons/showmgr-logo-h25-text.png" alt="">'
                     },
                     {
                         xtype: 'label',
                         html: '<img src="/resources/icons/cnn-logo-h25.png" alt="">',
-                        right: 0,
-                        top: 4
+                        right: 0
                     }
                 ]
             },
