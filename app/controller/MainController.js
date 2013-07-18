@@ -23,7 +23,7 @@ Ext.define('TestMobile.controller.MainController', {
     config: {
 
         refs: {
-            mainView : 'main'
+            mainView : 'main [itemId=mainContainer]'
         }
 
     },
