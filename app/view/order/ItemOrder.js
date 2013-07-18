@@ -14,7 +14,6 @@ Ext.define('TestMobile.view.order.ItemOrder', {
     },
 
     createContainer: function(){
-        var tmpStatusButton = this.createStatusButton();
         var tmpContextInfo = this.createContextInfo();
         var tmpMainContainer = {
             xtype: 'container',
@@ -22,23 +21,11 @@ Ext.define('TestMobile.view.order.ItemOrder', {
             cls: 'item-order-border',
             border: 1,
             items: [
-                tmpStatusButton,
                 tmpContextInfo
             ]
         };
         return tmpMainContainer;
     },
-
-    createStatusButton: function(){
-        var tmpStatusButton =  {
-            xtype: 'button',
-            itemId: 'btnStatus',
-            cls: 'status-button-' + this.status,
-            width: '5%'
-        };
-        return tmpStatusButton;
-    },
-
 
     createContextInfo: function(){
         var tmpNumOrderLabel = this.createNumOrderLabel();
@@ -47,40 +34,96 @@ Ext.define('TestMobile.view.order.ItemOrder', {
         var tmpOrderContentInfo = this.createOrderContentInfo();
         var tmpContextInfo = {
             xtype: 'container',
+            width: '100%',
             items: [
-                tmpNumOrderLabel,
                 tmpOrderNameButton,
-                tmpOrderSummaryInfo,
-                tmpOrderContentInfo
+                tmpNumOrderLabel,
+                {
+                    xtype: 'container',
+                    itemId: 'cOrderDetail',
+                    hidden: true,
+                    items: [
+                        tmpOrderSummaryInfo,
+                        tmpOrderContentInfo
+                    ]
+                }
             ]
         };
         return tmpContextInfo;
     },
 
     createNumOrderLabel: function(){
-        var tmpNumOrderLabel =  {
-            xtype: 'label',
-            itemId: 'lblNumOrder',
-            html: '100565',
-            cls: 'show-mgr-label'
-        };
+        var tmpNumOrderLabel =
+        {
+            xtype: 'container',
+            layout: 'hbox',
+            items: [
+                {
+                    xtype: 'label',
+                    itemId: 'lblNumOrder',
+                    html: '100565',
+                    cls: 'show-mgr-label',
+                    margin: '10 0 0 0',
+                    left: 0
+
+                },
+                {
+                    xtype: 'label',
+                    itemId: 'lblDate',
+                    hidden: true,
+                    html: '2 Feb - 3:45pm',
+                    cls: 'show-mgr-label',
+                    right: 0
+                },
+                {
+                    xtype: 'button',
+                    cls: 'transparent-button',
+                    width: 0
+                }
+            ]
+        }
         return tmpNumOrderLabel;
     },
 
     createOrderNameButton: function(){
         var tmpOrderNameButton = {
-            xtype: 'button',
-            itemId: 'btnOrderName',
-            left: 70,
-            top: 10,
-            cls: 'transparent-button',
-            text: 'Order Name',
-            listeners: {
-                scope: this,
-                tap: function() {
-                    this.fireEvent('showOrderDetail')
+            xtype: 'container',
+            layout: 'hbox',
+            items: [
+                {
+                    xtype: 'button',
+                    cls: 'transparent-button',
+                    width: 0
+                },
+                {
+                    xtype: 'button',
+                    itemId: 'btnArrrow',
+                    cls: 'transparent-button',
+                    icon: 'resources/icons/arrowRight.png',
+                    left: -10,
+                    listeners: {
+                        scope: this,
+                        tap: function(){
+                            this.fireEvent('onArrowClicked', this)
+                        }
+                    }
+                },
+                {
+                    xtype: 'button',
+                    itemId: 'btnOrderName',
+                    left: 15,
+                    top: 2,
+                    text: 'Order Name',
+                    cls: 'transparent-button',
+                    margin: '0 0 0 5',
+                    listeners: {
+                        scope: this,
+                        tap: function() {
+                            this.fireEvent('showOrderDetail')
+                        }
+                    }
                 }
-            }
+            ]
         };
         return tmpOrderNameButton;
     },
@@ -91,16 +134,23 @@ Ext.define('TestMobile.view.order.ItemOrder', {
             layout: 'hbox',
             items: [
                 {
-                    xtype: 'label',
-                    itemId: 'lblAssign',
-                    html: 'Assign to Me',
-                    cls: 'show-mgr-label'
+                    xtype: 'button',
+                    cls: 'transparent-button',
+                    width: 0
                 },
                 {
                     xtype: 'label',
-                    itemId: 'lblDate',
-                    html: '2 Feb - 3:45pm',
-                    cls: 'show-mgr-label'
+                    itemdId: 'lblOrderClass',
+                    html: 'Order Class',
+                    margin: '0 0 0 20',
+                    left: 0
+                },
+                {
+                    xtype: 'label',
+                    itemId: 'lblAssign',
+                    html: 'Assign to Me',
+                    margin: '0 10 0 0',
+                    right: 0
                 }
             ]
         };

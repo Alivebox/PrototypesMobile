@@ -31,6 +31,19 @@ Ext.define('TestMobile.view.order.OrderDetail', {
                             this.fireEvent('showOrderMenu')
                         }
                     }
+                },
+                {
+                    xtype: 'spacer'
+                },
+                {
+                    xtype: 'button',
+                    text: 'Back',
+                    listeners: {
+                        scope: this,
+                        tap: function(){
+                            this.fireEvent('backList')
+                        }
+                    }
                 }
             ]
         };

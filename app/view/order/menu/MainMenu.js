@@ -100,7 +100,7 @@ Ext.define('TestMobile.view.order.menu.MainMenu', {
                     itemId: 'btnActive',
                     text: '4',
                     height: '96px',
-                    cls: 'show-mgr-button',
+                    cls: 'show-mgr-button-height-font',
                     listeners: {
                         scope: this,
                         tap: function(){
@@ -129,7 +129,7 @@ Ext.define('TestMobile.view.order.menu.MainMenu', {
                     itemId: 'btnQueue',
                     text: '8',
                     height: '96px',
-                    cls: 'show-mgr-button',
+                    cls: 'show-mgr-button-height-font',
                     listeners: {
                         scope: this,
                         tap: function(){

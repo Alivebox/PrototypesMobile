@@ -1,7 +1,7 @@
 Ext.define('TestMobile.controller.order.OrderController', {
 
     extend: 'Ext.app.Controller',
-
+    viewingItemOrder: undefined,
     config: {
 
         refs: {
@@ -10,6 +10,7 @@ Ext.define('TestMobile.controller.order.OrderController', {
             datePickerStartTime : 'orderdetail [itemId=tpStartTime]',
             datePickerEndTime : 'orderdetail [itemId=tpEndTime]',
             orderDetail: 'orderdetail'
+
         },
 
         control: {
@@ -17,10 +18,12 @@ Ext.define('TestMobile.controller.order.OrderController', {
                 showNavigationMenu: 'onShowNavigationMenu'
             },
             orderdetail: {
-                showOrderMenu: 'onShowOrderMenu'
+                showOrderMenu: 'onShowOrderMenu',
+                backList: 'onShowListOrder'
             },
             itemorder: {
-                showOrderDetail: 'onShowOrderDetail'
+                showOrderDetail: 'onShowOrderDetail',
+                onArrowClicked: 'showItemProperties'
             },
             datePickerStartDate: {
                 change: 'updateDurationTime'
@@ -56,6 +59,11 @@ Ext.define('TestMobile.controller.order.OrderController', {
         tmpMainController.showOrderMenuView();
     },
 
+    onShowListOrder: function(){
+        var tmpMainController = this.getMainController();
+        tmpMainController.showListOrdersView();
+    },
+
     updateDurationTime: function(){
         var tmpDpStartDate = this.getOrderDetail().down('#dpStartDate');
         var tmpDpEndDate = this.getOrderDetail().down('#dpEndDate');
@@ -68,5 +76,25 @@ Ext.define('TestMobile.controller.order.OrderController', {
 
     getDateUtil: function(){
         return TestMobile.ux.util.date.DateUtil;
+    },
+
+    showItemProperties: function(argComponent){
+        var tmpBtnArrow = argComponent.down('#btnArrrow');
+        tmpBtnArrow.setIcon('resources/icons/arrowDown.png');
+        var tmpCOrderDetail = argComponent.down('#cOrderDetail');
+        tmpCOrderDetail.setHidden(false);
+        var tmpLblDate = argComponent.down('#lblDate');
+        tmpLblDate.setHidden(false);
+        if(this.viewingItemOrder == undefined){
+            this.viewingItemOrder = argComponent;
+            return;
+        }
+        var tmpBtnActualArrow = this.viewingItemOrder.down('#btnArrrow');
+        tmpBtnActualArrow.setIcon('resources/icons/arrowRight.png');
+        var tmpCActualOrderDetail = this.viewingItemOrder.down('#cOrderDetail');
+        tmpCActualOrderDetail.setHidden(true);
+        var tmpLblActualDate = this.viewingItemOrder.down('#lblDate');
+        tmpLblActualDate.setHidden(true);
+        this.viewingItemOrder = argComponent;
     }
 });

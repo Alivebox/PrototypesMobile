@@ -42,28 +42,30 @@ Ext.define('TestMobile.view.order.ListOrders', {
     },
 
     createContainer: function(){
-        var tmpItemOrderYellow = this.createOrder('yellow');
-        var tmpItemOrderBlue = this.createOrder('blue');
-        var tmpItemOrderRed = this.createOrder('red');
         var tmpContainer =  {
             xtype: 'container',
             items: [
-                tmpItemOrderYellow,
-                tmpItemOrderBlue,
-                tmpItemOrderYellow,
-                tmpItemOrderRed
+                {
+                    xtype: 'itemorder'
+                },
+                {
+                    xtype: 'itemorder'
+                },
+                {
+                    xtype: 'itemorder'
+                },
+                {
+                    xtype: 'itemorder'
+                },
+                {
+                    xtype: 'itemorder'
+                },
+                {
+                    xtype: 'itemorder'
+                }
             ]
        };
         return tmpContainer;
 
-    },
-
-    createOrder: function(argBackGroundColor){
-        var tmpOrderDetail = {
-            xtype: 'itemorder',
-            status: argBackGroundColor
-        };
-        return tmpOrderDetail;
     }
-
 });

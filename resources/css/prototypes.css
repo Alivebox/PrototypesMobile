@@ -50,6 +50,13 @@ html, body {
   margin-right: 9px;
 }
 
+.show-mgr-button-height-font {
+  height: 48px;
+  margin-left: 9px;
+  margin-right: 9px;
+  font-size: 45px;
+}
+
 .show-mgr-label {
   margin-top: 10px;
   margin-bottom: 10px;
@@ -165,6 +172,7 @@ input::-webkit-input-placeholder {
 .item-order-border {
   border-color: gray;
   border-style: solid;
+  width: 100% !important;
 }
 
 .status-button-red {
