@@ -8,9 +8,30 @@ Ext.define('TestMobile.view.order.OrderDetail', {
     initialize: function(){
         this.header = this.createHeader();
         this.container = this.createContainer();
+        this.managerMenu = this.createManagerMenu();
         this.add([
-            this.header,
-            this.container
+            {
+                xtype: 'container',
+                layout: {
+                    type: 'hbox',
+                    pack: 'center'
+                },
+                items: [
+                    {
+                        xtype: 'label',
+                        html: '100565 - Order Name'
+                    }
+                ]
+            },
+            {
+                xtype: 'container',
+                items: [
+                    this.header,
+                    this.container,
+                    this.managerMenu
+                ]
+            }
+
         ]);
         this.callParent(arguments);
     },
@@ -144,7 +165,7 @@ Ext.define('TestMobile.view.order.OrderDetail', {
             readOnly: true,
             value: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, ' +
                 'sed do eiusmod tempor incididunt ut labore'
-            };
+        };
         return tmpDescriptionTextArea;
     },
 
@@ -252,14 +273,27 @@ Ext.define('TestMobile.view.order.OrderDetail', {
     },
 
     createDurationTextField: function(){
-    var tmpDurationTextField = {
-        xtype: 'textfield',
-        label: 'Duration',
-        value: '0 hrs',
-        itemId: 'txtDuration',
-        readOnly: true
+        var tmpDurationTextField = {
+            xtype: 'textfield',
+            label: 'Duration',
+            value: '0 hrs',
+            itemId: 'txtDuration',
+            readOnly: true
+        }
+        return tmpDurationTextField;
+    },
+
+    createManagerMenu: function(){
+        var tmpManagerMenu = {
+            xtype: 'panel',
+            itemId: 'pMgrMenu',
+            left: 0,
+            border: 0,
+            modal: true,
+            width: 300,
+            height: '90%'
+        }
+        return tmpManagerMenu
     }
-    return tmpDurationTextField;
-}
 
 });

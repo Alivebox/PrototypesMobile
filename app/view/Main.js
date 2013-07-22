@@ -9,27 +9,30 @@ Ext.define('TestMobile.view.Main', {
                 height: 25,
                 minHeight: 25,
                 style : {
-                    marginLeft : '0%',
                     height:25
                 },
                 layout:{
-                    pack: 'center'
+                    type: 'fit'
                 },
                 items: [
                     {
-                        xtype: 'label',
-                        html: '<img src="/resources/icons/showmgr-logo-h252.png" alt="">',
-                        left: 0
+                        xtype: 'image',
+                        src: '/resources/icons/showmgr-logo-h252.png',
+                        height: 25,
+                        margin: '0 0 0 -5',
+                        style: 'float: left; width: 25px'
                     },
                     {
-                        xtype: 'label',
-                        html: '<img src="/resources/icons/showmgr-logo-h25-text.png" alt="">'
+                        xtype: 'image',
+                        src: '/resources/icons/showmgr-logo-h25-text.png',
+                        height: 25,
+                        margin: '-30 0 0 0'
                     }/*,
-                    {
-                        xtype: 'label',
-                        html: '<img src="/resources/icons/cnn-logo-h25.png" alt="">',
-                        right: 0
-                    }*/
+                     {
+                     xtype: 'label',
+                     html: '<img src="/resources/icons/cnn-logo-h25.png" alt="">',
+                     right: 0
+                     }*/
                 ]
             },
             {
@@ -45,33 +48,33 @@ Ext.define('TestMobile.view.Main', {
                 },
                 cardSwitchAnimation:'slide',
                 items: [
-                     /*{
-                     xtype: 'login'
-                     },
-                     {
-                     xtype: 'company'
-                     },
-                     {
-                     xtype: 'help'
-                     },
-                     {
-                     xtype: 'navigationmenu'
-                     },
-                     {
-                     xtype: 'mainmenu'
-                     },
-                     {
-                     xtype: 'ordermenu'
-                     },
-                     {
-                     xtype: 'listorders'
-                     },
-                     {
-                     xtype: 'orderdetail'
-                     },
-                     {
-                     xtype: 'checklist'
-                     },*/
+                    {
+                        xtype: 'login'
+                    },
+                    {
+                        xtype: 'company'
+                    },
+                    {
+                        xtype: 'help'
+                    },
+                    {
+                        xtype: 'navigationmenu'
+                    },
+                    {
+                        xtype: 'mainmenu'
+                    },
+                    {
+                        xtype: 'ordermenu'
+                    },
+                    {
+                        xtype: 'listorders'
+                    },
+                    {
+                        xtype: 'orderdetail'
+                    },
+                    {
+                        xtype: 'checklist'
+                    },
                     {
                         xtype: 'listrequest'
                     },
