@@ -17,7 +17,8 @@ Ext.define('TestMobile.controller.MainController', {
         LIST_REQUEST_VIEW: 'listrequest',
         NEW_REQUEST_FORM_VIEW: 'newrequestform',
         REQUEST_TYPE_DETAIL_VIEW: 'requesttypedetail',
-        THEME_VIEW: 'theme'
+        THEME_VIEW: 'theme',
+        MY_WORK_HISTORY: 'myworkhistory'
     },
 
     config: {
@@ -26,6 +27,10 @@ Ext.define('TestMobile.controller.MainController', {
             mainView : 'main [itemId=mainContainer]'
         }
 
+    },
+
+    showMyWorkHistory: function(){
+        this.getMainView().setActiveItem(TestMobile.controller.MainController.MY_WORK_HISTORY, {type: 'slide', direction: 'right', duration: 300});
     },
 
     showWebFormSettingsView: function(){

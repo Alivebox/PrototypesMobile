@@ -64,6 +64,9 @@ Ext.define('TestMobile.view.Main', {
                         xtype: 'mainmenu'
                     },
                     {
+                        xtype: 'myworkhistory'
+                    },
+                    {
                         xtype: 'orderdetail'
                     },
                     {

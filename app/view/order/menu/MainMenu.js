@@ -153,7 +153,13 @@ Ext.define('TestMobile.view.order.menu.MainMenu', {
             xtype: 'button',
             text: 'View Order History',
             style: '',
-            cls: 'show-mgr-button view-history-button'
+            cls: 'show-mgr-button view-history-button',
+            listeners: {
+                scope: this,
+                tap: function(){
+                    this.fireEvent('showViewOrderHistory');
+                }
+            }
         };
         return tmpViewHistoryButton;
     },

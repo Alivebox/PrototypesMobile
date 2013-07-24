@@ -9,10 +9,32 @@ Ext.define('TestMobile.view.order.MyWorkHistory', {
 
     initialize: function(){
         this.header = this.createHeader();
-        this.menuContainer = this.createMenuContainer();
         this.add([
             this.header,
-            this.menuContainer
+            {
+                xtype: 'list',
+                itemTpl: '<div style="font:15px">{title}</div>' +
+                    '<div>{time}<strong>{hour}</strong></div>',
+                grouped: true,
+                store: Ext.create('Ext.data.Store', {
+                    sorters: 'date',
+                    grouper: {
+                        groupFn: function(record) {
+                            return record.get('date');
+                        }
+                    },
+                    fields: ['title', 'time', 'hour', 'date'],
+
+                    data: [
+                        { title: 'CAM - Nathan Ayers',   time: '10:00AM - 2:00PM', hour: '4 HR', date: 'Tuesday 18 June'},
+                        { title: 'Panasonic 2400 HD',   time: '10:00AM - 2:00PM', hour: '4 HR', date: 'Tuesday 18 June'},
+                        { title: 'HD Tape Stock',   time: '10:00AM - 2:00PM', hour: '2 EA', date: 'Tuesday 18 June'},
+                        { title: 'CAM - Nathan Ayers',   time: '10:00AM - 2:00PM', hour: '4 HR', date: 'Monday 17 June'},
+                        { title: 'Panasonic 2400 HD',   time: '10:00AM - 2:00PM', hour: '4 HR', date: 'Monday 17 June'},
+                        { title: 'HD Tape Stock',   time: '10:00AM - 2:00PM', hour: '1 EA', date: 'Monday 17 June'}
+                    ]
+                })
+            }
         ]);
         this.callParent(arguments);
     },
@@ -24,13 +46,6 @@ Ext.define('TestMobile.view.order.MyWorkHistory', {
             title: 'My Work History'
         };
         return tmpHeader;
-    },
-
-    createMenuContainer: function(){
-        var tmpOrderList = {
-            xtype: 'listorderhistory'
-        };
-        return tmpOrderList;
     }
 
 });

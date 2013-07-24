@@ -7,9 +7,14 @@ Ext.define('TestMobile.controller.order.menu.OrderMenuController', {
             mainmenu: {
                 showActiveOrders: 'onShowActiveOrders',
                 showQueueOrders: 'onShowQueueOrders',
-                showWebForm: 'onShowWebForm'
+                showWebForm: 'onShowWebForm',
+                showViewOrderHistory: 'onShowViewOrderHistory'
             }
         }
+    },
+
+    onShowViewOrderHistory: function(){
+        this.getMainController().showMyWorkHistory();
     },
 
     onShowActiveOrders: function(){
