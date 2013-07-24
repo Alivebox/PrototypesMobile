@@ -49,9 +49,6 @@ Ext.define('TestMobile.view.Main', {
                 cardSwitchAnimation:'slide',
                 items: [
                     {
-                        xtype: 'orderdetail'
-                    },
-                    {
                         xtype: 'login'
                     },
                     {
@@ -65,6 +62,9 @@ Ext.define('TestMobile.view.Main', {
                     },
                     {
                         xtype: 'mainmenu'
+                    },
+                    {
+                        xtype: 'orderdetail'
                     },
                     {
                         xtype: 'ordermenu'

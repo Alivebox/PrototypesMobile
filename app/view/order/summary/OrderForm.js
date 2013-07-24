@@ -3,11 +3,6 @@ Ext.define('TestMobile.view.order.summary.OrderForm', {
     extend: 'Ext.Container',
     xtype: 'orderform',
 
-    config: {
-        scrollable: true,
-        cls: 'main-container'
-    },
-
     initialize: function(){
         this.fieldSets = this.createFieldSets();
         this.bottomButtons = this.createBottomButtons();

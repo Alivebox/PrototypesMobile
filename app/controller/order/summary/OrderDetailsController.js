@@ -1,7 +1,9 @@
-Ext.define('TestMobile.controller.order.OrderController', {
+Ext.define('TestMobile.controller.order.summary.OrderDetailsController', {
 
     extend: 'Ext.app.Controller',
-    viewingItemOrder: undefined,
+
+    bottomHandlingView: undefined,
+
     config: {
 
         refs: {
@@ -13,15 +15,20 @@ Ext.define('TestMobile.controller.order.OrderController', {
         },
 
         control: {
-            listorders: {
-                showNavigationMenu: 'onShowNavigationMenu'
-            },
             orderdetail: {
                 showMrgMenu: 'onShowMrgMenu',
                 backList: 'onShowListOrder',
                 hideMgrPanel: 'onHidePanel',
                 goHome: 'onGoHome',
-                logOut: 'onLogOut'
+                logOut: 'onLogOut',
+                showTask: 'onShowTask',
+                showComments: 'onShowComments',
+                showSummaryDetail: 'onShowSummaryDetail',
+                showActuals: 'onShowActuals',
+                showDocuments: 'onShowDocuments'
+            },
+            listorders: {
+                showNavigationMenu: 'onShowNavigationMenu'
             },
             itemorder: {
                 showOrderDetail: 'onShowOrderDetail',
@@ -54,6 +61,8 @@ Ext.define('TestMobile.controller.order.OrderController', {
     onShowNavigationMenu: function(){
         var tmpMainController = this.getMainController();
         tmpMainController.showNavigationMenuView();
+        var tmpMgrMenu = this.getOrderDetail().down('#pMgrMenu');
+        tmpMgrMenu.setHidden(true);
     },
 
     onShowMrgMenu: function(){
@@ -108,14 +117,63 @@ Ext.define('TestMobile.controller.order.OrderController', {
     onGoHome: function(){
         var tmpMainController = this.getMainController();
         tmpMainController.showMainMenuView();
+        var tmpMgrMenu = this.getOrderDetail().down('#pMgrMenu');
+        tmpMgrMenu.setHidden(true);
     },
 
     onLogOut: function(){
         var tmpMainController = this.getMainController();
+        var tmpMgrMenu = this.getOrderDetail().down('#pMgrMenu');
         Ext.Msg.confirm("Logout", "Are you Sure u want to Log out?", function(btn){
             if (btn == 'yes'){
                 tmpMainController.showLoginView();
+                tmpMgrMenu.setHidden(true);
             }
         });
+    },
+
+    onShowTask: function(){
+        var tmpCOrderSummaryView = this.getOrderDetail().down('#cOrderSummaryView');
+        tmpCOrderSummaryView.setActiveItem('ordertasks');
+        this.hideBottomToolBar(true);
+    },
+
+    onShowComments: function(){
+        var tmpCOrderSummaryView = this.getOrderDetail().down('#cOrderSummaryView');
+        tmpCOrderSummaryView.setActiveItem('ordercomments');
+        this.bottomHandlingView = 'comments';
+        this.hideBottomToolBar(false);
+        this.hideRightArrowHead(true);
+    },
+
+    onShowSummaryDetail: function(argComponent){
+        var tmpCOrderSummaryView = this.getOrderDetail().down('#cOrderSummaryView');
+        tmpCOrderSummaryView.setActiveItem('orderform');
+        this.hideBottomToolBar(true);
+    },
+
+    onShowActuals: function(){
+        var tmpCOrderSummaryView = this.getOrderDetail().down('#cOrderSummaryView');
+        tmpCOrderSummaryView.setActiveItem('orderactuals');
+        this.bottomHandlingView = 'actuals';
+        this.hideBottomToolBar(false);
+        this.hideRightArrowHead(false);
+    },
+
+    onShowDocuments: function(){
+        var tmpCOrderSummaryView = this.getOrderDetail().down('#cOrderSummaryView');
+        tmpCOrderSummaryView.setActiveItem('orderdocuments');
+        this.hideBottomToolBar(true);
+    },
+
+    hideBottomToolBar: function(argFlat){
+        var tmpBottomToolBar = this.getOrderDetail().down('#tbBottom');
+        tmpBottomToolBar.setHidden(argFlat);
+
+    },
+
+    hideRightArrowHead: function(argFlat){
+        var tmpRightArrowHead = this.getOrderDetail().down('#imgRightArrowHead');
+        tmpRightArrowHead.setHidden(argFlat);
     }
 });

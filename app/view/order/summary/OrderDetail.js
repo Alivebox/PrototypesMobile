@@ -2,41 +2,44 @@ Ext.define('TestMobile.view.order.summary.OrderDetail', {
     extend: 'Ext.Container',
     xtype: 'orderdetail',
     config: {
-        scrollable: true
+        cls: 'main-container'
     },
 
     initialize: function(){
-        this.header = this.createHeader();
-        this.container = this.createContainer();
+        this.navigationButton = this.createNavigationButtons();
+        this.orderHeaderDetail = this.createOrderHeaderDetail();
+        this.orderSummaryContainer = this.createOrderSummaryContainer();
         this.managerMenu = this.createManagerMenu();
+        this.bottomToolBar = this.createBottomToolBar();
         this.add([
-            {
-                xtype: 'container',
-                layout: {
-                    type: 'hbox',
-                    pack: 'center'
-                },
-                items: [
-                    {
-                        xtype: 'label',
-                        html: '100565 - Order Name'
-                    }
-                ]
-            },
-            {
-                xtype: 'container',
-                items: [
-                    this.header,
-                    this.container,
-                    this.managerMenu
-                ]
-            }
-
+            this.orderHeaderDetail,
+            this.navigationButton,
+            this.orderSummaryContainer,
+            this.managerMenu,
+            this.bottomToolBar
         ]);
         this.callParent(arguments);
     },
 
-    createHeader: function() {
+    createOrderHeaderDetail: function(){
+        var tmpOrderHeaderDetail = {
+            xtype: 'container',
+            layout: {
+                type: 'hbox',
+                pack: 'center'
+            },
+            items: [
+                {
+                    xtype: 'label',
+                    itemId: 'lblOrderHeaderDetail',
+                    html: '100565 - Order Name'
+                }
+            ]
+        };
+        return tmpOrderHeaderDetail;
+    },
+
+    createNavigationButtons: function() {
         var tmpHeader = {
             xtype : 'container',
             layout: {
@@ -64,45 +67,93 @@ Ext.define('TestMobile.view.order.summary.OrderDetail', {
                 {
                     xtype: 'image',
                     src: '/resources/icons/Book Open.png',
-                    width: 40
+                    width: 40,
+                    listeners: {
+                        scope: this,
+                        tap: function(){
+                            this.fireEvent('showSummaryDetail')
+                        }
+                    }
                 },
                 {
                     xtype: 'image',
                     src: '/resources/icons/Format Number.png',
-                    width: 40
+                    width: 40,
+                    listeners: {
+                        scope: this,
+                        tap: function(){
+                            this.fireEvent('showTask')
+                        }
+                    }
                 },
                 {
                     xtype: 'image',
                     src: '/resources/icons/Comment Feed.png',
-                    width: 40
+                    width: 40,
+                    listeners: {
+                        scope: this,
+                        tap: function(){
+                            this.fireEvent('showComments')
+                        }
+                    }
                 },
                 {
                     xtype: 'image',
                     src: '/resources/icons/Clock.png',
-                    width: 40
+                    width: 40,
+                    listeners: {
+                        scope: this,
+                        tap: function(){
+                            this.fireEvent('showActuals')
+                        }
+                    }
                 },
                 {
                     xtype: 'image',
                     src: '/resources/icons/File New.png',
-                    width: 40
+                    width: 40,
+                    listeners: {
+                        scope: this,
+                        tap: function(){
+                            this.fireEvent('showDocuments')
+                        }
+                    }
                 }
             ]
         };
         return tmpHeader;
     },
 
-    createContainer: function(){
-        var tmpContainer = {
+    createOrderSummaryContainer: function(){
+        var tmpOrderSummaryView = {
             xtype: 'container',
             itemId: 'cOrderSummaryView',
+            cls: 'main-container',
+            scrollable: true,
+            layout: {
+                type: 'card'
+            },
+            width: '100%',
             height: '100%',
             items: [
                 {
                     xtype: 'orderform'
+                },
+                {
+                    xtype: 'ordercomments'
+                },
+                {
+                    xtype: 'orderdocuments'
+                },
+                {
+                    xtype: 'ordertasks'
+                },
+                {
+                    xtype: 'orderactuals'
                 }
             ]
         };
-        return tmpContainer;
+        return tmpOrderSummaryView;
     },
 
     createManagerMenu: function(){
@@ -112,6 +163,7 @@ Ext.define('TestMobile.view.order.summary.OrderDetail', {
             left: 0,
             width: 200,
             height: '100%',
+            top: 60,
             hidden: true,
             modal: true,
             layout: {
@@ -158,7 +210,7 @@ Ext.define('TestMobile.view.order.summary.OrderDetail', {
                             width: 50,
                             height: 50,
                             left: 0,
-                            bottom: 100,
+                            bottom: 143,
                             listeners: {
                                 scope: this,
                                 tap: function(){
@@ -172,7 +224,7 @@ Ext.define('TestMobile.view.order.summary.OrderDetail', {
                             width: 50,
                             height: 50,
                             right: 0,
-                            bottom: 100
+                            bottom: 143
                         },
                         {
                             xtype: 'image',
@@ -180,7 +232,7 @@ Ext.define('TestMobile.view.order.summary.OrderDetail', {
                             width: 50,
                             height: 50,
                             right: 65,
-                            bottom: 100
+                            bottom: 143
                         },
                         {
                             xtype: 'image',
@@ -188,7 +240,7 @@ Ext.define('TestMobile.view.order.summary.OrderDetail', {
                             src: '/resources/icons/cnn.png',
                             width: 190,
                             height: 100,
-                            bottom: 0,
+                            bottom: 53,
                             border: 3,
                             style: 'border-color: black; border-style: solid;'
                         }
@@ -197,6 +249,45 @@ Ext.define('TestMobile.view.order.summary.OrderDetail', {
             ]
         }
         return tmpManagerMenu
+    },
+
+    createBottomToolBar: function(){
+        var tmpBottomToolBar = {
+            xtype: 'toolbar',
+            itemId: 'tbBottom',
+            docked: 'bottom',
+            height: 80,
+            layout:{
+                type: 'hbox'
+            },
+            hidden: true,
+            items: [
+                {
+                    xtype: 'image',
+                    src: '/resources/icons/Button Add.png',
+                    height: 50,
+                    width: 50,
+                    top: 0,
+                    style: 'margin-left: 50%; left: -10px',
+                    listeners: {
+                        scope: this,
+                        tap: function(){
+                            this.fireEvent('bottomAddTapped')
+                        }
+                    }
+                },
+                {
+                    xtype: 'image',
+                    itemId: 'imgRightArrowHead',
+                    src: '/resources/icons/Right-Arrow-Head.png',
+                    height: 40,
+                    width: 40,
+                    top: 0,
+                    right: 10
+                }
+            ]
+        };
+        return tmpBottomToolBar;
     }
 
 });
