@@ -22,7 +22,7 @@ Ext.application({
         'Ext.field.Toggle',
         'Ext.List',
         'Ext.Label',
-        'Ext.Img',
+        'Ext.Img'
     ],
 
     name: 'TestMobile',
@@ -59,11 +59,12 @@ Ext.application({
         'Main',
         'order.ItemOrder',
         'order.ListOrders',
-        'order.OrderDetail',
+        'order.summary.OrderDetail',
         'order.menu.MainMenu',
         'order.menu.NavigationMenu',
         'order.menu.OrderMenu',
         'theme.Theme',
+        'order.summary.OrderForm',
         'webrequestform.ListRequest',
         'webrequestform.NewRequestForm',
         'webrequestform.CheckList',

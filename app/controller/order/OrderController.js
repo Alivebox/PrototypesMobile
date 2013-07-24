@@ -10,7 +10,6 @@ Ext.define('TestMobile.controller.order.OrderController', {
             datePickerStartTime : 'orderdetail [itemId=tpStartTime]',
             datePickerEndTime : 'orderdetail [itemId=tpEndTime]',
             orderDetail: 'orderdetail'
-
         },
 
         control: {
@@ -18,8 +17,11 @@ Ext.define('TestMobile.controller.order.OrderController', {
                 showNavigationMenu: 'onShowNavigationMenu'
             },
             orderdetail: {
-                showOrderMenu: 'onShowOrderMenu',
-                backList: 'onShowListOrder'
+                showMrgMenu: 'onShowMrgMenu',
+                backList: 'onShowListOrder',
+                hideMgrPanel: 'onHidePanel',
+                goHome: 'onGoHome',
+                logOut: 'onLogOut'
             },
             itemorder: {
                 showOrderDetail: 'onShowOrderDetail',
@@ -54,9 +56,14 @@ Ext.define('TestMobile.controller.order.OrderController', {
         tmpMainController.showNavigationMenuView();
     },
 
-    onShowOrderMenu: function(){
-        var tmpMainController = this.getMainController();
-        tmpMainController.showOrderMenuView();
+    onShowMrgMenu: function(){
+        var tmpMgrMenu = this.getOrderDetail().down('#pMgrMenu');
+        tmpMgrMenu.setHidden(false);
+    },
+
+    onHidePanel: function(){
+        var tmpMgrMenu = this.getOrderDetail().down('#pMgrMenu');
+        tmpMgrMenu.setHidden(true);
     },
 
     onShowListOrder: function(){
@@ -96,5 +103,19 @@ Ext.define('TestMobile.controller.order.OrderController', {
         var tmpLblActualDate = this.viewingItemOrder.down('#lblDate');
         tmpLblActualDate.setHidden(true);
         this.viewingItemOrder = argComponent;
+    },
+
+    onGoHome: function(){
+        var tmpMainController = this.getMainController();
+        tmpMainController.showMainMenuView();
+    },
+
+    onLogOut: function(){
+        var tmpMainController = this.getMainController();
+        Ext.Msg.confirm("Logout", "Are you Sure u want to Log out?", function(btn){
+            if (btn == 'yes'){
+                tmpMainController.showLoginView();
+            }
+        });
     }
 });
