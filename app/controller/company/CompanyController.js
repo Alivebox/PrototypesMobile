@@ -12,6 +12,7 @@ Ext.define('TestMobile.controller.company.CompanyController', {
 
     onGoBack: function(){
         var tmpMainController = this.getApplication().getController('MainController');
+        tmpMainController.setRightAnimation();
         tmpMainController.showLoginView();
     }
 

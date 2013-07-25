@@ -13,6 +13,7 @@ Ext.define('TestMobile.controller.help.HelpController', {
 
     onShowLogin: function(){
         var tmpMainController = this.getMainController();
+        tmpMainController.setRightAnimation();
         tmpMainController.showLoginView();
     },
 

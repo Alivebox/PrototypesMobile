@@ -58,11 +58,13 @@ Ext.define('TestMobile.controller.order.summary.OrderDetailsController', {
 
     onShowOrderDetail: function(){
         var tmpMainController = this.getMainController();
+        tmpMainController.setLeftAnimation();
         tmpMainController.showOrderDetailView();
     },
 
     onShowNavigationMenu: function(){
         var tmpMainController = this.getMainController();
+        tmpMainController.setRightAnimation();
         tmpMainController.showNavigationMenuView();
         var tmpMgrMenu = this.getOrderDetail().down('#pMgrMenu');
         tmpMgrMenu.setHidden(true);
@@ -81,6 +83,7 @@ Ext.define('TestMobile.controller.order.summary.OrderDetailsController', {
 
     onShowListOrder: function(){
         var tmpMainController = this.getMainController();
+        tmpMainController.setRightAnimation();
         tmpMainController.showListOrdersView();
     },
 

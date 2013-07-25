@@ -28,11 +28,13 @@ Ext.define('TestMobile.controller.order.menu.OrderMenuController', {
 
     onShowActiveOrders: function(){
         var tmpMainController = this.getMainController();
+        tmpMainController.setLeftAnimation();
         tmpMainController.showListOrdersView();
     },
 
     onShowQueueOrders: function(){
         var tmpMainController = this.getMainController();
+        tmpMainController.setLeftAnimation();
         tmpMainController.showListOrdersView();
     },
 
@@ -47,6 +49,7 @@ Ext.define('TestMobile.controller.order.menu.OrderMenuController', {
 
     onGoHome: function(){
         var tmpMainController = this.getMainController();
+        tmpMainController.setRightAnimation();
         tmpMainController.showMainMenuView();
         var tmpMgrMenu = this.getMainMenu().down('#pMgrMenu');
         tmpMgrMenu.setHidden(true);
@@ -54,6 +57,7 @@ Ext.define('TestMobile.controller.order.menu.OrderMenuController', {
 
     onLogOut: function(){
         var tmpMainController = this.getMainController();
+        tmpMainController.setRightAnimation();
         var tmpMgrMenu = this.getMainMenu().down('#pMgrMenu');
         Ext.Msg.confirm("Logout", "Are you sure you want to Log out?", function(btn){
             if (btn == 'yes'){
@@ -65,11 +69,13 @@ Ext.define('TestMobile.controller.order.menu.OrderMenuController', {
 
     onGoBack: function(){
         var tmpMgrMenu = this.getMainMenu().down('#pMgrMenu');
+        tmpMainController.setRightAnimation();
         tmpMgrMenu.setHidden(true);
     },
     
     onShowMrgMenu: function(){
         var tmpMgrMenu = this.getMainMenu().down('#pMgrMenu');
+        tmpMainController.setRightAnimation();
         tmpMgrMenu.setHidden(false);
     }
 });

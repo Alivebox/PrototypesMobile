@@ -14,16 +14,19 @@ Ext.define('TestMobile.controller.login.LoginController', {
 
     onShowCompanies: function(){
         var tmpMainController = this.getMainController();
+        tmpMainController.setLeftAnimation();
         tmpMainController.showCompaniesView();
     },
 
     onShowMainMenu: function(){
         var tmpMainController = this.getMainController();
+        tmpMainController.setLeftAnimation();
         tmpMainController.showMainMenuView();
     },
 
     onShowNeedHelp: function(){
         var tmpMainController = this.getMainController();
+        tmpMainController.setLeftAnimation();
         tmpMainController.showHelpView();
     },
 
