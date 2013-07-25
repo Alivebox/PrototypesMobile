@@ -74,6 +74,7 @@ Ext.define('TestMobile.controller.order.summary.OrderDetailsController', {
     },
 
     onHidePanel: function(){
+        this.onShowListOrder();
         var tmpMgrMenu = this.getOrderDetail().down('#pMgrMenu');
         tmpMgrMenu.setHidden(true);
     },
@@ -140,7 +141,7 @@ Ext.define('TestMobile.controller.order.summary.OrderDetailsController', {
     onLogOut: function(){
         var tmpMainController = this.getMainController();
         var tmpMgrMenu = this.getOrderDetail().down('#pMgrMenu');
-        Ext.Msg.confirm("Logout", "Are you Sure u want to Log out?", function(btn){
+        Ext.Msg.confirm("Logout", "Are you sure you want to Log out?", function(btn){
             if (btn == 'yes'){
                 tmpMainController.showLoginView();
                 tmpMgrMenu.setHidden(true);

@@ -32,6 +32,8 @@ Ext.application({
         'help.HelpController',
         'login.LoginController',
         'MainController',
+        'order.MyWorkHistoryController',
+        'order.ListOrdersController',
         'order.menu.OrderMenuController',
         'order.summary.OrderActualsCntroller',
         'order.summary.OrderCommentsController',
