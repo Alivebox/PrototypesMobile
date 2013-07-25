@@ -11,7 +11,9 @@ Ext.define('TestMobile.controller.order.summary.OrderDetailsController', {
             datePickerEndDate : 'orderdetail [itemId=dpEndDate]',
             datePickerStartTime : 'orderdetail [itemId=tpStartTime]',
             datePickerEndTime : 'orderdetail [itemId=tpEndTime]',
-            orderDetail: 'orderdetail'
+            orderDetail: 'orderdetail',
+            orderComments: 'ordercomments',
+            orderActuals: 'orderactuals'
         },
 
         control: {
@@ -25,7 +27,8 @@ Ext.define('TestMobile.controller.order.summary.OrderDetailsController', {
                 showComments: 'onShowComments',
                 showSummaryDetail: 'onShowSummaryDetail',
                 showActuals: 'onShowActuals',
-                showDocuments: 'onShowDocuments'
+                showDocuments: 'onShowDocuments',
+                bottomAddTapped: 'onBottomTapped'
             },
             listorders: {
                 showNavigationMenu: 'onShowNavigationMenu'
@@ -92,6 +95,19 @@ Ext.define('TestMobile.controller.order.summary.OrderDetailsController', {
 
     getDateUtil: function(){
         return TestMobile.ux.util.date.DateUtil;
+    },
+
+    onBottomTapped: function(){
+        if(this.bottomHandlingView == 'comments'){
+            var tmpCommentsPanel = this.getOrderComments().down('#pCommentsForm');
+            tmpCommentsPanel.setHidden(false);
+            return;
+        }
+        if(this.bottomHandlingView == 'actuals'){
+            var tmpCommentsPanel = this.getOrderActuals().down('#pActualsForm');
+            tmpCommentsPanel.setHidden(false);
+            return;
+        }
     },
 
     showItemProperties: function(argComponent){

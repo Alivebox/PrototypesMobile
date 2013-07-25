@@ -10,9 +10,6 @@ Ext.define('TestMobile.controller.order.summary.OrderCommentsController', {
         },
 
         control: {
-            orderdetail: {
-                bottomAddTapped: 'onBottomTapped'
-            },
             orderComments: {
                 cancelComment: 'onCancelComment',
                 submitComment: 'onSubmitComment'
@@ -20,20 +17,9 @@ Ext.define('TestMobile.controller.order.summary.OrderCommentsController', {
         }
     },
 
-    onBottomTapped: function(){
-        if(this.getOrderDetailsController().bottomHandlingView == 'comments'){
-            var tmpCommentsPanel = this.getOrderComments().down('#pCommentsForm');
-            tmpCommentsPanel.setHidden(false);
-        }
-    },
-
     closeCommentPanel: function(){
         var tmpCommentsPanel = this.getOrderComments().down('#pCommentsForm');
         tmpCommentsPanel.setHidden(true);
-    },
-
-    getOrderDetailsController: function(){
-        return this.getApplication().getController('order.summary.OrderDetailsController');
     },
 
     onSubmitComment: function(){

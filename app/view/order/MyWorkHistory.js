@@ -1,40 +1,36 @@
 Ext.define('TestMobile.view.order.MyWorkHistory', {
-    extend: 'Ext.Container',
+    extend: 'Ext.List',
     xtype: 'myworkhistory',
-    fullscreen: true,
     config: {
+        fullscreen: true,
         scrollable: true,
-        cls: 'main-container'
+        cls: 'main-container',
+        itemTpl: '<div style="font:15px">{title}</div>' +
+            '<div>{time}<strong style="float: right">{hour}</strong></div>',
+        grouped: true,
+        store: Ext.create('Ext.data.Store', {
+            sorters: 'date',
+            grouper: {
+                groupFn: function(record) {
+                    return record.get('date');
+                }
+            },
+            fields: ['title', 'time', 'hour', 'date'],
+
+            data: [
+                { title: '100565 - Order Name',   time: '10:00AM - 2:00PM', hour: '4 hr', date: 'Tuesday 18 June - 8 hr'},
+                { title: '100565 - Order Name',   time: '10:00AM - 2:00PM', hour: '3.5 hr', date: 'Tuesday 18 June - 8 hr'},
+                { title: '100565 - Order Name',   time: '10:00AM - 2:00PM', hour: '0.5 hr', date: 'Tuesday 18 June - 8 hr'},
+                { title: '100565 - Order Name',   time: '10:00AM - 2:00PM', hour: '3.25 hr', date: 'Monday 17 June - 7.75 hr'},
+                { title: '100565 - Order Name',   time: '10:00AM - 2:00PM', hour: '4.5 hr', date: 'Monday 17 June - 7.75 hr'}
+            ]
+        })
     },
 
     initialize: function(){
         this.header = this.createHeader();
         this.add([
-            this.header,
-            {
-                xtype: 'list',
-                itemTpl: '<div style="font:15px">{title}</div>' +
-                    '<div>{time}<strong>{hour}</strong></div>',
-                grouped: true,
-                store: Ext.create('Ext.data.Store', {
-                    sorters: 'date',
-                    grouper: {
-                        groupFn: function(record) {
-                            return record.get('date');
-                        }
-                    },
-                    fields: ['title', 'time', 'hour', 'date'],
-
-                    data: [
-                        { title: 'CAM - Nathan Ayers',   time: '10:00AM - 2:00PM', hour: '4 HR', date: 'Tuesday 18 June'},
-                        { title: 'Panasonic 2400 HD',   time: '10:00AM - 2:00PM', hour: '4 HR', date: 'Tuesday 18 June'},
-                        { title: 'HD Tape Stock',   time: '10:00AM - 2:00PM', hour: '2 EA', date: 'Tuesday 18 June'},
-                        { title: 'CAM - Nathan Ayers',   time: '10:00AM - 2:00PM', hour: '4 HR', date: 'Monday 17 June'},
-                        { title: 'Panasonic 2400 HD',   time: '10:00AM - 2:00PM', hour: '4 HR', date: 'Monday 17 June'},
-                        { title: 'HD Tape Stock',   time: '10:00AM - 2:00PM', hour: '1 EA', date: 'Monday 17 June'}
-                    ]
-                })
-            }
+            this.header
         ]);
         this.callParent(arguments);
     },

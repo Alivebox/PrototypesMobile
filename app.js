@@ -75,7 +75,6 @@ Ext.application({
         'order.summary.OrderActuals',
         'order.summary.OrderDocuments',
         'order.MyWorkHistory',
-        'order.ListOrderHistory',
         'webrequestform.ListRequest',
         'webrequestform.NewRequestForm',
         'webrequestform.CheckList',

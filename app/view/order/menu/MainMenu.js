@@ -151,7 +151,7 @@ Ext.define('TestMobile.view.order.menu.MainMenu', {
     createViewHistoryButton: function(){
         var tmpViewHistoryButton = {
             xtype: 'button',
-            text: 'View Order History',
+            text: 'View Work History',
             style: '',
             cls: 'show-mgr-button view-history-button',
             listeners: {
